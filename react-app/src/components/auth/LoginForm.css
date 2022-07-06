@@ -1,5 +1,6 @@
-.page-width {
-    max-width: 1400px;
+* {
+    margin-left: 0;
+    margin-right: 0;
 }
 
 div#login-main-container {
@@ -9,7 +10,10 @@ div#login-main-container {
 
 div#login-form-container {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+    align-content: center;
 }
 
 #login-form {
@@ -47,8 +51,9 @@ div#login-form-container {
 
         display: block;
         font-family: Montserrat,Helvetica,Arial,sans-serif;
-        font-size: 1.1rem;
-        font-weight: 400;
+        font-size: 12px;
+        font-weight: 600;
+        color: #6e6e6e;
         padding-bottom: 10px;
         text-transform: uppercase;
 
@@ -71,4 +76,14 @@ div#login-form-container {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#login-form-header-title {
+    text-transform: uppercase;
+    font-family: Montserrat,Helvetica,Arial,sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 2.3rem;
+    position: relative;
+    margin-bottom: 1.5rem;
 }

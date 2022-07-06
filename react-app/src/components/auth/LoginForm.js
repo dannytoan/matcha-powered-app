@@ -35,6 +35,7 @@ const LoginForm = () => {
     <div id="login-main-container" className="page-width">
       <div id="login-form-container">
         <form id="login-form" onSubmit={onLogin}>
+        <h1 id="login-form-header-title">Log Into My MatchaShark</h1>
           <div>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
@@ -45,7 +46,7 @@ const LoginForm = () => {
             <input
               name="email"
               type="text"
-              placeholder="Email"
+              // placeholder="Email"
               className="login-input-field"
               value={email}
               onChange={updateEmail}
@@ -56,7 +57,7 @@ const LoginForm = () => {
             <input
               name="password"
               type="password"
-              placeholder="Password"
+              // placeholder="Password"
               className="login-input-field"
               value={password}
               onChange={updatePassword}
