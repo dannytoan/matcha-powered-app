@@ -11,8 +11,12 @@ export const viewProducts = () => async (dispatch) => {
 
   if (response.ok) {
     const products = await response.json();
-    //   console.log("PRODUCTS", products)
-    dispatch(view(products));
+
+    dispatch(view(products.products));
+    return products.products;
+  } else {
+    const errors = await response.json();
+    return errors
   }
 };
 
@@ -20,10 +24,10 @@ const productsReducer = (state = {}, action) => {
   switch (action.type) {
     case VIEW_PRODUCTS:
       const normalizedProducts = {};
-      console.log("PRODUCTS IN REDUCER");
-      action.products.products.forEach((product) => {
-        normalizedProducts[product.id] = product;
-      });
+      action.products.forEach((product) => {
+          normalizedProducts[product.id] = product;
+        });
+        console.log("NORMALIZED PRODUCTS in Reducer", {...normalizedProducts})
       return { ...normalizedProducts };
     default:
       return state;

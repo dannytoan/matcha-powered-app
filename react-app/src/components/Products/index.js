@@ -4,28 +4,27 @@ import { viewProducts } from "../../store/products";
 
 function Products() {
   const dispatch = useDispatch();
-  //   const products = useSelector((state) => {
-  //     return Object.values(state.products);
-  //   });
-
-  const products = useSelector((state) =>
-    state.products
-  );
-
-  console.log("PRODUCTS", products)
 
   useEffect(() => {
     dispatch(viewProducts());
   }, [dispatch]);
 
+  const products = useSelector((state) => {
+    return Object.values(state.productsReducer);
+  });
+
+
+  console.log("PRODUCTS in Component", products);
+
+
   return (
     <div>
       hello
-      {/* <div>
+      <div>
             {products.map((product) => (
-                <li>{product.name}</li>
+                <li>{product.product_name}</li>
             ))}
-        </div> */}
+        </div>
     </div>
   );
 }
