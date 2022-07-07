@@ -24,6 +24,8 @@ img.product-image-preview {
     width: 25em;
     object-position: center;
     object-fit: cover;
+    position: relative;
+    top: 3px;
 }
 
 
