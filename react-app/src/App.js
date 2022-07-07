@@ -8,6 +8,7 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import Products from './components/Products';
+import NewProductForm from './components/NewProductForm';
 import { authenticate } from './store/session';
 
 function App() {
@@ -41,12 +42,15 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
+        <Route path='/' exact={true} >
           <h1>My Home Page</h1>
-        </ProtectedRoute>
+        </Route>
         <Route path='/products/all' exact={true} >
           <Products />
         </Route>
+        <ProtectedRoute path='/product/new' exact={true} >
+          <NewProductForm />
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

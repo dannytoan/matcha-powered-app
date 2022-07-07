@@ -53,6 +53,16 @@ const NavBar = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink
+              to="/product/new"
+              exact={true}
+              activeClassName="active"
+              className="top-nav-links text"
+            >
+              <i class="fa-solid fa-shop"></i>
+            </NavLink>
+          </li>
+          <li>
             <LogoutButton />
           </li>
         </div>

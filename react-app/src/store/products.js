@@ -1,8 +1,14 @@
 const VIEW_PRODUCTS = "products/VIEW_PRODUCTS";
+const ADD_PRODUCTS = "products/ADD_PRODUCTS";
 
 const view = (products) => ({
   type: VIEW_PRODUCTS,
   products,
+});
+
+const add = (newProduct) => ({
+  type: ADD_PRODUCTS,
+  newProduct,
 });
 
 export const viewProducts = () => async (dispatch) => {
@@ -16,8 +22,24 @@ export const viewProducts = () => async (dispatch) => {
     return products.products;
   } else {
     const errors = await response.json();
-    return errors
+    return errors;
   }
+};
+
+export const addProduct = (payload) => async (dispatch) => {
+  const response = await fetch("/api/products/new", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  const newProduct = await response.json();
+
+  if (newProduct) {
+    dispatch(add(newProduct));
+  }
+
+  return newProduct;
 };
 
 const productsReducer = (state = {}, action) => {
@@ -25,10 +47,13 @@ const productsReducer = (state = {}, action) => {
     case VIEW_PRODUCTS:
       const normalizedProducts = {};
       action.products.forEach((product) => {
-          normalizedProducts[product.id] = product;
-        });
-        // console.log("NORMALIZED PRODUCTS in Reducer", {...normalizedProducts})
+        normalizedProducts[product.id] = product;
+      });
+      // console.log("NORMALIZED PRODUCTS in Reducer", {...normalizedProducts})
       return { ...normalizedProducts };
+    case ADD_PRODUCTS:
+      const addState = { ...state, [action.newProduct.id]: action.newProduct };
+      return addState;
     default:
       return state;
   }
