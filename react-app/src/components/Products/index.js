@@ -18,7 +18,10 @@ function Products() {
 
   return (
     <div>
-      hello
+      <div id="styles-header-container">
+        <div id="new-arrivals-text-all-products" className="text">New Arrivals</div>
+        <h2 id="all-products-title" className="text">All Products</h2>
+      </div>
       <div id="products-listings-container">
         {products.map((product) => (
           <div className="product-listing-container" key={product.id}>

@@ -7,6 +7,7 @@ div#products-listings-container {
     -webkit-box-pack: start;
     place-content: flex-start;
     flex-wrap: wrap;
+    margin: 0 3rem;
 }
 
 .product-listing-container {
@@ -32,7 +33,7 @@ img.product-image-preview {
 }
 
 .product-listings-name {
-    line-height: 2.3rem;
+    line-height: 1.5rem;
     font-weight: 400;
     font-family: Roboto, Arial, sans-serif;
     color: rgb(68, 68, 68);
@@ -41,7 +42,7 @@ img.product-image-preview {
     flex-wrap: wrap;
     display: flex;
     /* border: 1px black solid; */
-    margin: 0px 0px 0.2rem;
+    margin: 7px 0px 0.2rem;
 }
 
 .product-listings-price {
@@ -82,6 +83,34 @@ img.product-image-preview {
   width: 50%;
 }
 
-  .product-image-container:hover .product-image-overlay {
+.product-image-container:hover .product-image-overlay {
     height: 15%;
-  }
+}
+
+#styles-header-container {
+    height: 15rem;
+    background-color: #e1f7d0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#all-products-title {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    width: fit-content;
+    color: #2a2a2a;
+    -webkit-font-smoothing: antialiased;
+    margin-left: 100px;
+}
+
+#new-arrivals-text-all-products {
+    text-transform: uppercase;
+    width: fit-content;
+    font-weight: 600;
+    position: relative;
+    top: 25px;
+    color: #2a2a2a;
+    -webkit-font-smoothing: antialiased;
+    margin-left: 100px;
+}

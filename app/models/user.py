@@ -14,6 +14,7 @@ class User(db.Model, UserMixin):
     hashed_password = db.Column(db.String(255), nullable=False)
 
     reviews = db.relationship("Review", back_populates="users", cascade="all, delete")
+    products = db.relationship("Product", back_populates="users", cascade="all, delete")
 
 
     @property

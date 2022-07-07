@@ -1,6 +1,6 @@
 ul#top-nav-ul {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     list-style: none;
 }
@@ -8,4 +8,14 @@ ul#top-nav-ul {
 a.top-nav-links {
     text-decoration: none;
     color: black;
+}
+
+img#nav-logo {
+    width: 8rem;
+}
+
+#top-nav-auth-links-ctnr {
+    display: flex;
+    width: 500px;
+    justify-content: space-around;
 }

@@ -1,35 +1,61 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
-import "./NavBar.css"
+import "./NavBar.css";
 
 const NavBar = () => {
   return (
     <nav id="top-nav-container">
       <ul id="top-nav-ul">
-        <li >
-          <NavLink to="/" exact={true} activeClassName="active" className="top-nav-links">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/login" exact={true} activeClassName="active" className="top-nav-links">
-            <i class="fa-regular fa-user"></i>
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/sign-up" exact={true} activeClassName="active" className="top-nav-links">
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/users" exact={true} activeClassName="active" className="top-nav-links">
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
+        <NavLink
+          to="/"
+          exact={true}
+          activeClassName="active"
+          className="top-nav-links text"
+        >
+          <img
+            id="nav-logo"
+            src="https://res.cloudinary.com/matchaprince/image/upload/v1657157589/matcha_shark_logo_maiavt.png"
+          />
+        </NavLink>
+        <div id="top-nav-category-links-ctnr">
+          <li>
+            <NavLink
+              to="/products/all"
+              exact={true}
+              activeClassName="active"
+              className="top-nav-links text"
+            >
+             ALL PRODUCTS
+            </NavLink>
+          </li>
+        </div>
+
+        <div id="top-nav-auth-links-ctnr">
+          <li>
+            <NavLink
+              to="/sign-up"
+              exact={true}
+              activeClassName="active"
+              className="top-nav-links text"
+            >
+              Sign Up
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/login"
+              exact={true}
+              activeClassName="active"
+              className="top-nav-links text"
+            >
+              <i class="fa-regular fa-user"></i>
+            </NavLink>
+          </li>
+          <li>
+            <LogoutButton />
+          </li>
+        </div>
       </ul>
     </nav>
   );

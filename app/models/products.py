@@ -5,6 +5,7 @@ class Product(db.Model):
     __tablename__ = "products"
 
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id', ondelete="CASCADE"))
     inventory = db.Column(db.Integer, nullable=False)
     product_name = db.Column(db.String(100), nullable=False)
     price = db.Column(db.Float, nullable=False)
@@ -20,6 +21,7 @@ class Product(db.Model):
     created_at = db.Column(db.DateTime)
     updated_at = db.Column(db.DateTime)
 
+    users = db.relationship("User", back_populates="products")
     reviews = db.relationship("Review", back_populates="products", cascade="all, delete")
     categories = db.relationship("Category", back_populates="products", cascade="all, delete")
 
