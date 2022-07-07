@@ -13,7 +13,7 @@ const add = (newProduct) => ({
 
 export const viewProducts = () => async (dispatch) => {
   const response = await fetch("/api/products");
-  // console.log("INSIDE VIEW PRODUCTS THUNK", response)
+  console.log("INSIDE VIEW PRODUCTS THUNK", response)
 
   if (response.ok) {
     const products = await response.json();
@@ -34,12 +34,13 @@ export const addProduct = (payload) => async (dispatch) => {
   });
 
   const newProduct = await response.json();
+  console.log("NEW PRODUCT", newProduct)
 
   if (newProduct) {
     dispatch(add(newProduct));
+    return newProduct;
   }
 
-  return newProduct;
 };
 
 const productsReducer = (state = {}, action) => {

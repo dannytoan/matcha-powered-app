@@ -30,11 +30,11 @@ def new_product():
         data = form.data
         new_product = Product(
             user_id=data['user_id'],
+            inventory=data['inventory'],
             product_name=data['product_name'],
             price=data['price'],
-            inventory=data['inventory'],
-            category_id=data['category_id'],
             description=data['description'],
+            category_id=data['category_id'],
             image_url_1=data['image_url_1'],
             image_url_2=data['image_url_2'],
             image_url_3=data['image_url_3'],

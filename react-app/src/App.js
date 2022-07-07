@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import Products from './components/Products';
 import NewProductForm from './components/NewProductForm';
+import SplashPage from './components/SplashPage';
 import { authenticate } from './store/session';
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <SplashPage />
         </Route>
         <Route path='/products/all' exact={true} >
           <Products />
