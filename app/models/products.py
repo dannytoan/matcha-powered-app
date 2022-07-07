@@ -1,4 +1,4 @@
-from typing import Collection
+
 from .db import db
 
 class Product(db.Model):
@@ -24,7 +24,7 @@ class Product(db.Model):
     users = db.relationship("User", back_populates="products")
     reviews = db.relationship("Review", back_populates="products", cascade="all, delete")
     categories = db.relationship("Category", back_populates="products", cascade="all, delete")
-
+    images = db.relationship("Image", back_populates="products", cascade="all, delete")
 
     def to_dict(self):
         return {
