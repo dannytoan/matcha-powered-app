@@ -27,7 +27,7 @@ const productsReducer = (state = {}, action) => {
       action.products.forEach((product) => {
           normalizedProducts[product.id] = product;
         });
-        console.log("NORMALIZED PRODUCTS in Reducer", {...normalizedProducts})
+        // console.log("NORMALIZED PRODUCTS in Reducer", {...normalizedProducts})
       return { ...normalizedProducts };
     default:
       return state;

@@ -1,5 +1,4 @@
-from app.models import db, Product, Category
-
+from app.models import db, Product
 
 # Adds a demo user, you can add other users here if you want
 def seed_products():

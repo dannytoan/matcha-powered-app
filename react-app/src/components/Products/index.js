@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { viewProducts } from "../../store/products";
+import "./Products.css";
 
 function Products() {
   const dispatch = useDispatch();
@@ -10,21 +11,37 @@ function Products() {
   }, [dispatch]);
 
   const products = useSelector((state) => {
-    return Object.values(state.productsReducer);
+    return Object.values(state.products);
   });
 
-
   console.log("PRODUCTS in Component", products);
-
 
   return (
     <div>
       hello
-      <div>
-            {products.map((product) => (
-                <li>{product.product_name}</li>
-            ))}
-        </div>
+      <div id="products-listings-container">
+        {products.map((product) => (
+          <div className="product-listing-container" key={product.id}>
+            <div className="product-image-container">
+              <img
+                className="product-image-preview"
+                src={product.image_url_1}
+              />
+              <div className="product-image-overlay">
+                <div className="text product-image-overlay-details">Details</div>
+              </div>
+            </div>
+            <div id="product-listings-details">
+              <div className="product-listings-name text">
+                {product.product_name}
+              </div>
+              <div className="product-listings-price">
+                $ {product.price} USD
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
