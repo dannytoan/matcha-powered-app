@@ -10,42 +10,63 @@ function NewProductForm() {
 
   const sessionUser = useSelector((state) => state.session.user);
 
-  const [productName, setProductName] = useState("");
+  const [product_name, setProductName] = useState("");
   const [price, setPrice] = useState(0);
   const [inventory, setInventory] = useState(0);
-  const [categoryId, setCategoryId] = useState(1);
+  const [category_id, setCategoryId] = useState(1);
   const [description, setDescription] = useState("");
-  const [imageUrl1, setImageUrl1] = useState("");
-  const [imageUrl2, setImageUrl2] = useState("");
-  const [imageUrl3, setImageUrl3] = useState("");
-  const [imageUrl4, setImageUrl4] = useState("");
-  const [imageUrl5, setImageUrl5] = useState("");
-  const [imageUrl6, setImageUrl6] = useState("");
+  const [image_url_2, setImageUrl2] = useState("");
+  const [image_url_1, setImageUrl1] = useState("");
+  const [image_url_3, setImageUrl3] = useState("");
+  const [image_url_4, setImageUrl4] = useState("");
+  const [image_url_5, setImageUrl5] = useState("");
+  const [image_url_6, setImageUrl6] = useState("");
+
+  const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    const errors = [];
+    if (product_name.length > 50) {
+      errors.push("Label must be less than 50 characters");
+    } else if (product_name.length <= 0) {
+      errors.push("Please provide a Product Name");
+    }
+
+    if (price <= 0) {
+      errors.push("Must enter an price greater than 0");
+    }
+
+    setErrors(errors);
+  }, [product_name, price]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const payload = {
       user_id: sessionUser.id,
-      productName,
-      price,
       inventory,
-      categoryId,
+      product_name,
+      price,
       description,
-      imageUrl1,
-      imageUrl2,
-      imageUrl3,
-      imageUrl4,
-      imageUrl5,
-      imageUrl6,
+      category_id,
+      image_url_1,
+      image_url_2,
+      image_url_3,
+      image_url_4,
+      image_url_5,
+      image_url_6,
     };
 
     let createdProduct = await dispatch(addProduct(payload));
+    console.log("CREATED PRODUCT", createdProduct)
 
     if (createdProduct) {
-      return history.push("/bills");
+      setErrors([]);
+    //   return history.push("/products/all");
     }
   };
+
+
 
   return (
     <div>
@@ -55,16 +76,23 @@ function NewProductForm() {
             Share the power
           </div>
           <h2 id="all-products-title" className="text">
-          Create a New Product Listing
+            Create a New Product Listing
           </h2>
         </div>
+        <div className="create-product-errors-div">
+            <ul className="create-product-errors-ul">
+              {errors.map((error, idx) => (
+                <li className="create-product-errors-li" key={idx}>{error}</li>
+              ))}
+            </ul>
+          </div>
         <form id="new-product-form" onSubmit={handleSubmit}>
           <label className="create-product-labels">Product Name</label>
           <input
             name="product_name"
             className="create-product-input"
             type="text"
-            value={productName}
+            value={product_name}
             onChange={(e) => setProductName(e.target.value)}
             placeholder={"Insert product name here..."}
             required
@@ -103,7 +131,7 @@ function NewProductForm() {
             name="category_id"
             className="create-product-input"
             type="integer"
-            value={categoryId}
+            value={category_id}
             onChange={(e) => setCategoryId(e.target.value)}
             required
           >
@@ -126,7 +154,7 @@ function NewProductForm() {
             name="image_url_1"
             className="create-product-input"
             type="text"
-            value={imageUrl1}
+            value={image_url_1}
             onChange={(e) => setImageUrl1(e.target.value)}
             placeholder={"Insert image URL here..."}
             required
@@ -136,52 +164,47 @@ function NewProductForm() {
             name="image_url_2"
             className="create-product-input"
             type="text"
-            value={imageUrl2}
+            value={image_url_2}
             onChange={(e) => setImageUrl2(e.target.value)}
             placeholder={"Insert image URL here..."}
-            required
           />
           <label className="create-product-labels">Image URL 3</label>
           <input
             name="image_url_3"
             className="create-product-input"
             type="text"
-            value={imageUrl3}
+            value={image_url_3}
             onChange={(e) => setImageUrl3(e.target.value)}
             placeholder={"Insert image URL here..."}
-            required
           />
           <label className="create-product-labels">Image URL 4</label>
           <input
             name="image_url_4"
             className="create-product-input"
             type="text"
-            value={imageUrl4}
+            value={image_url_4}
             onChange={(e) => setImageUrl4(e.target.value)}
             placeholder={"Insert image URL here..."}
-            required
           />
           <label className="create-product-labels">Image URL 5</label>
           <input
             name="image_url_5"
             className="create-product-input"
             type="text"
-            value={imageUrl5}
+            value={image_url_5}
             onChange={(e) => setImageUrl5(e.target.value)}
             placeholder={"Insert image URL here..."}
-            required
           />
           <label className="create-product-labels">Image URL 6</label>
           <input
             name="image_url_6"
             className="create-product-input"
             type="text"
-            value={imageUrl6}
+            value={image_url_6}
             onChange={(e) => setImageUrl6(e.target.value)}
             placeholder={"Insert image URL here..."}
-            required
           />
-          <button className="submit-btn">Submit</button>
+          <button disabled={errors.length > 0} className="submit-btn">Submit</button>
         </form>
       </div>
     </div>
