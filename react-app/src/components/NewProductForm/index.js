@@ -62,7 +62,7 @@ function NewProductForm() {
 
     if (createdProduct) {
       setErrors([]);
-    //   return history.push("/products/all");
+      return history.push("/products/all");
     }
   };
 

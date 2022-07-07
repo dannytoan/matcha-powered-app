@@ -19,30 +19,38 @@ function Products() {
   return (
     <div>
       <div id="styles-header-container">
-        <div id="new-arrivals-text-all-products" className="text">New Arrivals</div>
-        <h2 id="all-products-title" className="text">All Products</h2>
+        <div id="new-arrivals-text-all-products" className="text">
+          New Arrivals
+        </div>
+        <h2 id="all-products-title" className="text">
+          All Products
+        </h2>
       </div>
       <div id="products-listings-container">
         {products.map((product) => (
-          <div className="product-listing-container" key={product.id}>
-            <div className="product-image-container">
-              <img
-                className="product-image-preview"
-                src={product.image_url_1}
-              />
-              <div className="product-image-overlay">
-                <div className="text product-image-overlay-details">Details</div>
+          <a href={`/product/${product.id}`}>
+            <div className="product-listing-container" key={product.id}>
+              <div className="product-image-container">
+                <img
+                  className="product-image-preview"
+                  src={product.image_url_1}
+                />
+                <div className="product-image-overlay">
+                  <div className="text product-image-overlay-details">
+                    Details
+                  </div>
+                </div>
+              </div>
+              <div id="product-listings-details">
+                <div className="product-listings-name text">
+                  {product.product_name}
+                </div>
+                <div className="product-listings-price">
+                  $ {product.price} USD
+                </div>
               </div>
             </div>
-            <div id="product-listings-details">
-              <div className="product-listings-name text">
-                {product.product_name}
-              </div>
-              <div className="product-listings-price">
-                $ {product.price} USD
-              </div>
-            </div>
-          </div>
+          </a>
         ))}
       </div>
     </div>
