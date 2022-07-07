@@ -47,7 +47,7 @@ def seed_products():
     updated_at= '2022-07-04')
 
     white_strada_blenderb = Product(
-        inventory=10, product_name='BlenderBottle - Strada™ Insulated Stainless Steel (White)',price=7.99, description='''Our tapioca pearls are made in the USA. \nTapioca pearls imported from overseas are often made with a significant amount of food additives to extend their shelf life by a couple of years. \nWe source our tapioca pearls from the USA so we can control what goes into them, giving you a more wholesome boba experience with 0 sugar. \nComes with 9 servings (450 grams). Can also serve 30g per serving for 15 servings.''',
+        inventory=10, product_name='BlenderBottle - Strada™ Insulated Stainless Steel (White)',price=25.99, description='''Our tapioca pearls are made in the USA. \nTapioca pearls imported from overseas are often made with a significant amount of food additives to extend their shelf life by a couple of years. \nWe source our tapioca pearls from the USA so we can control what goes into them, giving you a more wholesome boba experience with 0 sugar. \nComes with 9 servings (450 grams). Can also serve 30g per serving for 15 servings.''',
     image_url_1='https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6409/6409076_ra.jpg',
     image_url_2='https://m.media-amazon.com/images/I/81K3D2b5z0L._AC_SX679_.jpg',
     image_url_3='https://m.media-amazon.com/images/I/81A3j60Ln2L._AC_SX679_.jpg',

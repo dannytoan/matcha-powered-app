@@ -93,6 +93,7 @@ img.product-image-preview {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    min-width: 100%;
 }
 
 #all-products-title {
