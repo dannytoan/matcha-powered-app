@@ -117,3 +117,7 @@ img.product-image-preview {
     -webkit-font-smoothing: antialiased;
     margin-left: 100px;
 }
+
+a#product-listing-link {
+    text-decoration: none;
+}

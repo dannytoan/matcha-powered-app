@@ -28,7 +28,7 @@ function Products() {
       </div>
       <div id="products-listings-container">
         {products.map((product) => (
-          <a href={`/product/${product.id}`}>
+          <a id="product-listing-link" href={`/product/${product.id}`}>
             <div className="product-listing-container" key={product.id}>
               <div className="product-image-container">
                 <img
