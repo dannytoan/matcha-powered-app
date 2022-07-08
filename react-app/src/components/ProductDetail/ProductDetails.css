@@ -1,8 +1,120 @@
+div#product-detail-body-ctnr {
+    /* border: black 1px solid; */
+    margin: 2rem 2rem 0 2rem;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
 div#product-detail-imgs-grid {
     display: flex;
     flex-wrap: wrap;
+    width: 40rem;
+
 }
 
-img.product-detail-img {
-    width: 30em;
+img.product-detail-img-top {
+    width: 100%;
+    height: 75%;
+    object-fit: contain;
+    margin: 5px;
+    /* border: 1px solid black; */
+}
+
+img.product-detail-img-bottom {
+    width: 100%;
+    height: 75%;
+    object-fit: contain;
+    margin: 5px;
+    /* border: 1px solid black; */
+}
+
+div#product-detail-body-ctnr {
+  /* border: black 1px solid; */
+  width: 100%;
+}
+
+div#center-pic {
+  display: flex;
+  /* border: 1px black solid; */
+  width: 100%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+}
+
+div#first-three-pics {
+    display: flex;
+    width: 100%;
+    height: 350px;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    align-items: flex-end;
+}
+
+div#bottom-two-pics {
+    display: flex;
+    width: 100%;
+    height: 350px;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+div#right-side-product-details {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    width: 25%;
+    /* border: black solid 1px; */
+    padding: 0 50px;
+}
+div#product-detail-description {
+    line-height: 1.5;
+    color: rgb(68, 68, 68);
+}
+
+div#product-detail-name-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1#product-detail-name-title {
+    line-height: 1.25;
+    width: 22rem;
+    font-size: 24px;
+}
+
+h2#product-detail-price {
+    /* width: 100%; */
+    display: flex;
+    flex-wrap: nowrap;
+    font-size: 22px;
+    justify-content: flex-end;
+}
+
+div#product-detail-seller-name {
+    color: rgb(68, 68, 68);
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: flex-end;
+}
+
+div#product-detail-seller-name {
+    color: rgb(68, 68, 68);
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    flex-wrap: nowrap;
+    min-width: fit-content;
+}
+
+img#center-pic-img {
+    width: 39rem;
+    object-fit: contain;
 }
