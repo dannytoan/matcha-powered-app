@@ -61,6 +61,21 @@ export const removeProduct = (id) => async (dispatch) => {
   return response;
 };
 
+export const updateProduct = (payload, id) => async (dispatch) => {
+    const response = await fetch(`/api/products/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    })
+
+
+    if (response.ok) {
+      const editedProduct = await response.json();
+      dispatch(add(editedProduct));
+      return editedProduct;
+    }
+  }
+
 const productsReducer = (state = {}, action) => {
   switch (action.type) {
     case VIEW_PRODUCTS:
