@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { updateProduct, viewProducts } from "../../store/products";
-import "./EditListing.css"
+import { ValidationError } from "../../utils/validationError";
+import "./EditListing.css";
 
 function EditProductForm({ setShowModal }) {
   const dispatch = useDispatch();
@@ -46,11 +47,29 @@ function EditProductForm({ setShowModal }) {
     }
 
     if (price <= 0) {
-      errors.push("Must enter an price greater than 0");
+      errors.push("Price must be greater than 0");
+    } else if (price >= 10000) {
+      errors.push("Price may not exceed over $10,0000");
+    }
+
+    if (inventory <= 0) {
+      errors.push("Inventory must be 1 or more");
+    } else if (inventory >= 10000) {
+      errors.push("Inventory may not exceed 10,000 units");
+    }
+
+    if (description.length === 0) {
+      errors.push("Please provide a description");
+    } else if (description.length > 2000) {
+      errors.push("Description length must not exceed 2000 characters");
+    }
+
+    if (image_url_1.length === 0) {
+      errors.push("Please provide at least one image");
     }
 
     setErrors(errors);
-  }, [product_name, price]);
+  }, [product_name, price, inventory, description, image_url_1]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -70,7 +89,14 @@ function EditProductForm({ setShowModal }) {
       image_url_6,
     };
 
-     let updatedProduct = await dispatch(updateProduct(payload, currentProductId));
+    let updatedProduct;
+
+    try {
+      updatedProduct = await dispatch(updateProduct(payload, currentProductId));
+    } catch (error) {
+      if (error instanceof ValidationError) setErrors(errors.error);
+      else setErrors(error.toString().slice(7));
+    }
 
     if (updatedProduct) {
       setErrors([]);
@@ -82,24 +108,35 @@ function EditProductForm({ setShowModal }) {
     <div>
       <div id="edit-product-form-body-container">
         <div id="styles-header-container">
-          <div id="new-arrivals-text-all-products" className="text">
+          <div id="edit-product-text-top" className="text">
             Edit Product Listing for
           </div>
-          <h2 id="all-products-title" className="text">
+          <h2 id="edit-listing-title" className="text">
             {currentProduct.product_name}
           </h2>
         </div>
-        <div className="create-product-errors-div">
-          <ul className="create-product-errors-ul">
-            {errors.map((error, idx) => (
-              <li className="create-product-errors-li" key={idx}>
-                {error}
-              </li>
-            ))}
-          </ul>
-        </div>
+        {errors.length > 0 ? (
+          <div id="edit-product-errors-container">
+            <div className="edit-product-errors-div">
+              <ul className="create-product-errors-ul">
+                {errors.map((error, idx) => (
+                  <li className="create-product-errors-li" key={idx}>
+                    {error}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ) : (
+          <></>
+        )}
+        <div id="edit-product-form-cntr">
+
+
         <form id="new-product-form" onSubmit={handleSubmit}>
-          <label className="create-product-labels">Product Name (Required)</label>
+          <label className="create-product-labels">
+            Product Name (Required*)
+          </label>
           <input
             name="product_name"
             className="create-product-input"
@@ -111,12 +148,15 @@ function EditProductForm({ setShowModal }) {
           />
           <div id="price-and-inv-ctnr">
             <div className="price-and-inv">
-              <label className="create-product-labels">Price</label>
+              <label className="create-product-labels">Price*</label>
               <input
                 name="price"
                 className="create-product-input price-and-inv-input"
                 id="price-input"
-                type="float"
+                type="number"
+                min="0.01"
+                max="999999.99"
+                step="0.01"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 placeholder={"Insert price here..."}
@@ -124,7 +164,7 @@ function EditProductForm({ setShowModal }) {
               />
             </div>
             <div className="price-and-inv inv-input">
-              <label className="create-product-labels ">Inventory</label>
+              <label className="create-product-labels ">Inventory*</label>
               <input
                 name="inventory"
                 className="create-product-input price-and-inv-input"
@@ -137,7 +177,7 @@ function EditProductForm({ setShowModal }) {
             </div>
           </div>
           <label className="create-product-labels category-label">
-            Category
+            Category*
           </label>
           <select
             name="category_id"
@@ -150,7 +190,7 @@ function EditProductForm({ setShowModal }) {
             <option>Womens</option>
           </select>
           <label className="create-product-labels desc-label">
-            Description
+            Description*
           </label>
           <textarea
             name="description"
@@ -161,7 +201,7 @@ function EditProductForm({ setShowModal }) {
             placeholder={"Insert description here..."}
             required
           />
-          <label className="create-product-labels">Image URL 1</label>
+          <label className="create-product-labels">Image URL 1*</label>
           <input
             name="image_url_1"
             className="create-product-input"
@@ -171,7 +211,9 @@ function EditProductForm({ setShowModal }) {
             placeholder={"Insert image URL here..."}
             required
           />
-          <label className="create-product-labels">Image URL 2</label>
+          <label className="create-product-labels">
+            Image URL 2 (Optional)
+          </label>
           <input
             name="image_url_2"
             className="create-product-input"
@@ -180,7 +222,9 @@ function EditProductForm({ setShowModal }) {
             onChange={(e) => setImageUrl2(e.target.value)}
             placeholder={"Insert image URL here..."}
           />
-          <label className="create-product-labels">Image URL 3</label>
+          <label className="create-product-labels">
+            Image URL 3 (Optional)
+          </label>
           <input
             name="image_url_3"
             className="create-product-input"
@@ -189,7 +233,9 @@ function EditProductForm({ setShowModal }) {
             onChange={(e) => setImageUrl3(e.target.value)}
             placeholder={"Insert image URL here..."}
           />
-          <label className="create-product-labels">Image URL 4</label>
+          <label className="create-product-labels">
+            Image URL 4 (Optional)
+          </label>
           <input
             name="image_url_4"
             className="create-product-input"
@@ -198,7 +244,9 @@ function EditProductForm({ setShowModal }) {
             onChange={(e) => setImageUrl4(e.target.value)}
             placeholder={"Insert image URL here..."}
           />
-          <label className="create-product-labels">Image URL 5</label>
+          <label className="create-product-labels">
+            Image URL 5 (Optional)
+          </label>
           <input
             name="image_url_5"
             className="create-product-input"
@@ -207,7 +255,9 @@ function EditProductForm({ setShowModal }) {
             onChange={(e) => setImageUrl5(e.target.value)}
             placeholder={"Insert image URL here..."}
           />
-          <label className="create-product-labels">Image URL 6</label>
+          <label className="create-product-labels">
+            Image URL 6 (Optional)
+          </label>
           <input
             name="image_url_6"
             className="create-product-input"
@@ -216,10 +266,11 @@ function EditProductForm({ setShowModal }) {
             onChange={(e) => setImageUrl6(e.target.value)}
             placeholder={"Insert image URL here..."}
           />
-          <button disabled={errors.length > 0} className="submit-btn">
+          <button className="submit-btn">
             Submit
           </button>
         </form>
+        </div>
       </div>
     </div>
   );
