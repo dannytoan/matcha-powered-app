@@ -18,4 +18,5 @@ def validation_errors_to_error_messages(validation_errors):
 @review_routes.route('/')
 def reviews():
     reviews = Review.query.all()
-    return {'reviews': [product.to_dict() for product in reviews]}
+    return {'reviews': [reviews.to_dict() for reviews in reviews]}
+

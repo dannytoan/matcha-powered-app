@@ -24,15 +24,19 @@ function Reviews({ currentProduct }) {
   });
 
   const currentProductReviewFiltered = reviews.filter(
-    (review) => review.product_id === +currentProduct.id
+    (review) => review?.product_id === +currentProduct?.id
   );
-  const currentProductReview = currentProductReviewFiltered[0]
-  console.log(currentProductReview);
+  const currentProductReview = currentProductReviewFiltered[0];
+  console.log("CURRENT PRODUCT REVIEW-------", currentProductReviewFiltered);
 
-  console.log(reviews);
+  console.log("REVIEWS-----", reviews);
 
-  const currentProductReviewAuthorFilted = users.filter((user) => user?.id === +currentProductReview?.user_id)
-const currentProductReviewAuthor = currentProductReviewAuthorFilted[0]
+  const currentProductReviewAuthorFilted = users.filter(
+    (user) => user?.id === +currentProductReview?.user_id
+  );
+
+  const currentProductReviewAuthor = currentProductReviewAuthorFilted[0];
+
 
   return (
     <div>
@@ -41,8 +45,24 @@ const currentProductReviewAuthor = currentProductReviewAuthorFilted[0]
         <div id="review-title">{currentProductReview?.title}</div>
         <div id="review-user">{currentProductReviewAuthor?.username}</div>
         <div id="review-content">{currentProductReview?.content}</div>
-        <div id="review-recomment">{currentProductReview?.recommend === true ? <p>Recommended <i class="fa-regular fa-thumbs-up"></i></p> : <></>}</div>
-        <div id="review-recomment">{currentProductReview?.recommend === false ? <p>Would Not Recommend <i class="fa-regular fa-thumbs-down"></i></p> : <></>}</div>
+        <div id="review-recomment">
+          {currentProductReview?.recommend === true ? (
+            <p>
+              Recommended <i class="fa-regular fa-thumbs-up"></i>
+            </p>
+          ) : (
+            <></>
+          )}
+        </div>
+        <div id="review-recomment">
+          {currentProductReview?.recommend === false ? (
+            <p>
+              Would Not Recommend <i class="fa-regular fa-thumbs-down"></i>
+            </p>
+          ) : (
+            <></>
+          )}
+        </div>
         <div id="review-created-at">{currentProductReview?.created_at}</div>
       </div>
     </div>
