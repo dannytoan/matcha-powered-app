@@ -7,6 +7,7 @@ import {
   removeProduct,
 } from "../../store/products";
 import EditProductModal from "../EditListingModal";
+import Reviews from "../Reviews";
 import "./ProductDetails.css";
 
 function ProductDetails() {
@@ -18,7 +19,6 @@ function ProductDetails() {
 
   const sessionUser = useSelector((state) => state.session.user);
   console.log("session user", sessionUser);
-
 
   useEffect(() => {
     async function fetchData() {
@@ -32,7 +32,6 @@ function ProductDetails() {
   useEffect(() => {
     dispatch(viewProducts());
   }, [dispatch]);
-
 
   const products = useSelector((state) => {
     return Object.values(state.products);
@@ -48,7 +47,6 @@ function ProductDetails() {
 
   const currentSellerUserName = currentSeller[0]?.username;
 
-
   const deleteProductHandler = async (e) => {
     // e.preventDefault()
 
@@ -57,7 +55,6 @@ function ProductDetails() {
       return history.push("/products/all");
     }
   };
-
 
   return (
     <div>
@@ -112,11 +109,12 @@ function ProductDetails() {
               {currentProduct?.product_name}
             </h1>
             <div id="price-and-seller-container">
-
-            <h2 id="product-detail-price" className="text">
-              $ {currentProduct?.price} USD
-            </h2>
-            <div id="product-detail-seller-name" className="text">Sold by {currentSellerUserName}</div>
+              <h2 id="product-detail-price" className="text">
+                $ {currentProduct?.price} USD
+              </h2>
+              <div id="product-detail-seller-name" className="text">
+                Sold by {currentSellerUserName}
+              </div>
             </div>
           </div>
 
@@ -130,6 +128,8 @@ function ProductDetails() {
           </div>
         </div>
       </div>
+      <div id="reviews-body-container">Reviews</div>
+      <Reviews currentProduct={currentProduct}/>
     </div>
   );
 }
