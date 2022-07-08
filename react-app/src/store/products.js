@@ -1,5 +1,6 @@
 const VIEW_PRODUCTS = "products/VIEW_PRODUCTS";
 const ADD_PRODUCTS = "products/ADD_PRODUCTS";
+const DEL_PRODUCTS = "products/DEL_PRODUCTS";
 
 const view = (products) => ({
   type: VIEW_PRODUCTS,
@@ -11,9 +12,14 @@ const add = (newProduct) => ({
   newProduct,
 });
 
+const remove = (product) => ({
+  type: DEL_PRODUCTS,
+  product,
+});
+
 export const viewProducts = () => async (dispatch) => {
   const response = await fetch("/api/products");
-  console.log("INSIDE VIEW PRODUCTS THUNK", response)
+//   console.log("INSIDE VIEW PRODUCTS THUNK", response);
 
   if (response.ok) {
     const products = await response.json();
@@ -34,13 +40,25 @@ export const addProduct = (payload) => async (dispatch) => {
   });
 
   const newProduct = await response.json();
-  console.log("NEW PRODUCT", newProduct)
+  console.log("RESPONSE", response);
+  console.log("NEW PRODUCT", newProduct);
 
   if (newProduct) {
     dispatch(add(newProduct));
     return newProduct;
   }
+};
 
+export const removeProduct = (id) => async (dispatch) => {
+  const response = await fetch(`/api/products/${id}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    dispatch(remove(id));
+  }
+
+  return response;
 };
 
 const productsReducer = (state = {}, action) => {
@@ -55,6 +73,9 @@ const productsReducer = (state = {}, action) => {
     case ADD_PRODUCTS:
       const addState = { ...state, [action.newProduct.id]: action.newProduct };
       return addState;
+    case DEL_PRODUCTS:
+      const deleteState = { ...state };
+      return deleteState;
     default:
       return state;
   }

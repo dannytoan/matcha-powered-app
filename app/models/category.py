@@ -6,7 +6,7 @@ class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     category_name = db.Column(db.String(50), nullable=False)
 
-    products = db.relationship("Product", back_populates="categories", cascade="all, delete")
+    products = db.relationship("Product", back_populates="categories")
 
     def to_dict(self):
         return {

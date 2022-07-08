@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { viewProducts } from "../../store/products";
+import { useParams, useHistory } from "react-router-dom";
+import { viewProducts, viewCurrentProduct, removeProduct } from "../../store/products";
 import "./ProductDetails.css";
 
 function ProductDetails() {
   const dispatch = useDispatch();
   const { id } = useParams();
+  const history = useHistory();
 
   const sessionUser = useSelector((state) => state.session.user);
   console.log("session user", sessionUser)
@@ -18,12 +19,30 @@ function ProductDetails() {
   const products = useSelector((state) => {
     return Object.values(state.products);
   });
-  const currentProduct = products[id - 1];
+
+  // console.log("PRODUCTS", products[0].id)
+
+  const currentProductFiltered = products.filter((current) => current.id == id)
+  const currentProduct = currentProductFiltered[0]
+  const currentProductId = currentProduct?.id
+
+console.log("CURRENT PRODUCT", currentProduct)
+console.log("CURRENT PRODUCT ID", currentProductId)
+
+
+  const deleteProductHandler = async (e) => {
+    // e.preventDefault()
+
+    let deletedProduct = await dispatch(removeProduct(currentProductId))
+    if (deletedProduct) {
+      return history.push('/products/all')
+    }
+  }
 
 
   return (
     <div>
-        {currentProduct?.user_id === sessionUser?.id ? <div><button>Edit Listing</button> <button>Delete Listing</button></div>: <></>}
+        {currentProduct?.user_id === sessionUser?.id ? <div><button>Edit Listing</button> <button onClick={(e) => deleteProductHandler(currentProductId)}>Delete Listing</button></div>: <></>}
       <div id="product-detail-body-ctnr">
         <div id="product-detail-imgs-grid">
           <img

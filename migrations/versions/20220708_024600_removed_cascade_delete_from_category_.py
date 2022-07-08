@@ -1,8 +1,8 @@
-"""added images table
+"""removed cascade delete from category and product  to test
 
-Revision ID: 97f854625669
+Revision ID: 9f70690ec09d
 Revises: 
-Create Date: 2022-07-07 14:09:27.059091
+Create Date: 2022-07-08 02:46:00.784026
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '97f854625669'
+revision = '9f70690ec09d'
 down_revision = None
 branch_labels = None
 depends_on = None
