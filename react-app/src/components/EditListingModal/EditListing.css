@@ -2,3 +2,66 @@
     height: 50em;
     overflow: auto;
 }
+
+.edit-product-errors-div {
+    background: #f7d0d0;
+    width: 80%;
+    height: fit-content;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+ul.create-product-errors-ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+li.create-product-errors-li {
+    list-style: none;
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-weight: 600;
+    color: #000000c7;
+    line-height: 1.5;
+    animation: fadeIn 1s;
+}
+
+div#edit-product-errors-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+
+  #edit-listing-title {
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    width: fit-content;
+    color: #2a2a2a;
+    -webkit-font-smoothing: antialiased;
+    margin: 0 100px;
+  }
+
+  #edit-product-text-top {
+    text-transform: uppercase;
+    width: -moz-fit-content;
+    width: fit-content;
+    font-weight: 600;
+    position: relative;
+    color: #2a2a2a;
+    -webkit-font-smoothing: antialiased;
+    margin-left: 100px;
+}
+
+div#edit-product-form-cntr {
+    display: flex;
+    justify-content: center;
+}

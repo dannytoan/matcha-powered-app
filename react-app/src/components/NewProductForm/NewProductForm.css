@@ -42,7 +42,7 @@ div#price-and-inv-ctnr {
 }
 
 input.create-product-input.price-and-inv-input {
-    width: 180%;
+    width: 275px;
 }
 
 textarea.create-product-input {
@@ -83,3 +83,20 @@ button.submit-btn {
     margin-top: 25px;
     margin-bottom: 10px;
 }
+
+.create-product-errors-div {
+    background: #f7d0d0;
+    width: 800px;
+    height: fit-content;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
