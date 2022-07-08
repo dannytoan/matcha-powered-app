@@ -11,6 +11,7 @@ import Products from './components/Products';
 import ProductsDetails from './components/ProductDetail';
 import NewProductForm from './components/NewProductForm';
 import SplashPage from './components/SplashPage';
+import Reviews from './components/Reviews';
 import { authenticate } from './store/session';
 import { viewProducts } from './store/products'
 
@@ -57,6 +58,9 @@ function App() {
         </ProtectedRoute>
         <Route path='/product/:id' exact={true} >
           <ProductsDetails />
+        </Route>
+        <Route path='/reviews' exact={true} >
+          <Reviews />
         </Route>
       </Switch>
     </BrowserRouter>
