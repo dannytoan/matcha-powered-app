@@ -23,7 +23,7 @@ function ProductDetails() {
 
   return (
     <div>
-        {currentProduct?.user_id === sessionUser.id ? <div><button>Edit Listing</button> <button>Delete Listing</button></div>: <></>}
+        {currentProduct?.user_id === sessionUser?.id ? <div><button>Edit Listing</button> <button>Delete Listing</button></div>: <></>}
       <div id="product-detail-body-ctnr">
         <div id="product-detail-imgs-grid">
           <img

@@ -50,12 +50,12 @@ function App() {
         <Route path='/products/all' exact={true} >
           <Products />
         </Route>
-        <ProtectedRoute path='/product/:id' exact={true} >
-          <ProductsDetails />
-        </ProtectedRoute>
         <ProtectedRoute path='/product/new' exact={true} >
           <NewProductForm />
         </ProtectedRoute>
+        <Route path='/product/:id' exact={true} >
+          <ProductsDetails />
+        </Route>
       </Switch>
     </BrowserRouter>
   );
