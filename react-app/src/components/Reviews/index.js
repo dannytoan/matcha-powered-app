@@ -31,7 +31,7 @@ function Reviews({ currentProduct }) {
 
   console.log(reviews);
 
-  const currentProductReviewAuthorFilted = users.filter((user) => user.id === +currentProductReview.user_id)
+  const currentProductReviewAuthorFilted = users.filter((user) => user?.id === +currentProductReview?.user_id)
 const currentProductReviewAuthor = currentProductReviewAuthorFilted[0]
 
   return (
@@ -41,7 +41,8 @@ const currentProductReviewAuthor = currentProductReviewAuthorFilted[0]
         <div id="review-title">{currentProductReview?.title}</div>
         <div id="review-user">{currentProductReviewAuthor?.username}</div>
         <div id="review-content">{currentProductReview?.content}</div>
-        <div id="review-recomment">{currentProductReview?.recommend === true ? <p>Recommended <i class="fa-regular fa-thumbs-up"></i></p> : <p>Would Not Recommend <i class="fa-regular fa-thumbs-down"></i></p>}</div>
+        <div id="review-recomment">{currentProductReview?.recommend === true ? <p>Recommended <i class="fa-regular fa-thumbs-up"></i></p> : <></>}</div>
+        <div id="review-recomment">{currentProductReview?.recommend === false ? <p>Would Not Recommend <i class="fa-regular fa-thumbs-down"></i></p> : <></>}</div>
         <div id="review-created-at">{currentProductReview?.created_at}</div>
       </div>
     </div>
