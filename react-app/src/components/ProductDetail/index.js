@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { viewProducts, viewCurrentProduct, removeProduct } from "../../store/products";
+import EditProductModal from "../EditListingModal";
 import "./ProductDetails.css";
 
 function ProductDetails() {
@@ -42,7 +43,7 @@ console.log("CURRENT PRODUCT ID", currentProductId)
 
   return (
     <div>
-        {currentProduct?.user_id === sessionUser?.id ? <div><button>Edit Listing</button> <button onClick={(e) => deleteProductHandler(currentProductId)}>Delete Listing</button></div>: <></>}
+        {currentProduct?.user_id === sessionUser?.id ? <div><EditProductModal /> <button onClick={(e) => deleteProductHandler(currentProductId)}>Delete Listing</button></div>: <></>}
       <div id="product-detail-body-ctnr">
         <div id="product-detail-imgs-grid">
           <img
