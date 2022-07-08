@@ -2,8 +2,13 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import "./NavBar.css";
+import { useSelector } from "react-redux";
 
 const NavBar = () => {
+
+  const sessionUser = useSelector((state) => state.session.user);
+
+
   return (
     <nav id="top-nav-container">
       <ul id="top-nav-ul">
@@ -30,28 +35,29 @@ const NavBar = () => {
             </NavLink>
           </li>
         </div>
-
         <div id="top-nav-auth-links-ctnr">
-          <li>
-            <NavLink
-              to="/sign-up"
-              exact={true}
-              activeClassName="active"
-              className="top-nav-links text"
-            >
-              Sign Up
-            </NavLink>
-          </li>
           <li>
             <NavLink
               to="/login"
               exact={true}
               activeClassName="active"
               className="top-nav-links text"
-            >
+              >
               <i class="fa-regular fa-user"></i>
             </NavLink>
           </li>
+              {sessionUser ? <></> :
+                <li>
+                  <NavLink
+                    to="/sign-up"
+                    exact={true}
+                    activeClassName="active"
+                    className="top-nav-links text"
+                  >
+                    Sign Up
+                  </NavLink>
+                </li>
+              }
           <li>
             <NavLink
               to="/product/new"
@@ -62,9 +68,10 @@ const NavBar = () => {
               <i class="fa-solid fa-shop"></i>
             </NavLink>
           </li>
-          <li>
+          {sessionUser ? <li>
             <LogoutButton />
-          </li>
+          </li> : <></>}
+
         </div>
       </ul>
     </nav>
