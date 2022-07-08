@@ -12,6 +12,7 @@ import ProductsDetails from './components/ProductDetail';
 import NewProductForm from './components/NewProductForm';
 import SplashPage from './components/SplashPage';
 import { authenticate } from './store/session';
+import { viewProducts } from './store/products'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -20,6 +21,7 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(viewProducts());
       setLoaded(true);
     })();
   }, [dispatch]);
