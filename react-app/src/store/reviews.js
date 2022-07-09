@@ -1,5 +1,6 @@
 const VIEW_REVIEWS = "reviews/VIEW_REVIEWS";
 const ADD_REVIEW = "reviews/ADD_REVIEW";
+const DEL_REVIEW = "reviews/DEL_REVIEW";
 
 const view = (reviews) => ({
   type: VIEW_REVIEWS,
@@ -8,6 +9,11 @@ const view = (reviews) => ({
 
 const add = (review) => ({
   type: ADD_REVIEW,
+  review,
+});
+
+const remove = (review) => ({
+  type: DEL_REVIEW,
   review,
 });
 
@@ -43,6 +49,17 @@ export const addReview = (payload) => async (dispatch) => {
   }
 };
 
+export const deleteReview = (id) => async (dispatch) => {
+  const response = await fetch(`/api/reviews/${id}`, {
+    method: "DELETE",
+  });
+
+  if (response.ok) {
+    dispatch(remove(id));
+    return response;
+  }
+};
+
 const reviewsReducer = (state = {}, action) => {
   switch (action.type) {
     case VIEW_REVIEWS:
@@ -52,9 +69,13 @@ const reviewsReducer = (state = {}, action) => {
       });
       return { ...normalizedReviews };
     case ADD_REVIEW:
-        console.log("ACTION NEWREVIEW", action.newReview)
+      console.log("ACTION NEWREVIEW", action.newReview);
       const addState = { ...state, [action.newReview.id]: action.newReview };
       return addState;
+    case DEL_REVIEW:
+      const deleteState = { ...state };
+      delete deleteState[action.review];
+      return deleteState;
     default:
       return state;
   }

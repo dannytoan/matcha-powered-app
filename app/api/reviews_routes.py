@@ -43,3 +43,10 @@ def post_new_review():
         db.session.commit()
         return new_review.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@review_routes.route('/<int:id>', methods=['DELETE'])
+def delete_review(id):
+    review = Review.query.get(id)
+    db.session.delete(review)
+    db.session.commit()
+    return "Review was successfully deleted"

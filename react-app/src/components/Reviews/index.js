@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { viewReviews } from "../../store/reviews";
+import { viewReviews, deleteReview } from "../../store/reviews";
 
 function Reviews({ currentProduct }) {
   const dispatch = useDispatch();
@@ -27,16 +27,20 @@ function Reviews({ currentProduct }) {
     (review) => review?.product_id === +currentProduct?.id
   );
   const currentProductReview = currentProductReviewFiltered[0];
-  console.log("CURRENT PRODUCT REVIEW-------", currentProductReviewFiltered);
+  console.log("CURRENT PRODUCT REVIEW-------", currentProductReview);
 
-  console.log("REVIEWS-----", reviews);
+  // console.log("REVIEWS-----", reviews);
 
   const currentProductReviewAuthorFilted = users.filter(
     (user) => user?.id === +currentProductReview?.user_id
   );
 
   const currentProductReviewAuthor = currentProductReviewAuthorFilted[0];
-    console.log("currentProductReviewAuthor", currentProductReviewAuthor)
+    // console.log("currentProductReviewAuthor", currentProductReviewAuthor)
+
+    // useEffect(() => {
+    //   dispatch(deleteReview(currentProductReview?.user_id));
+    // }, [dispatch]);
 
   return (
     <div>
@@ -56,6 +60,9 @@ function Reviews({ currentProduct }) {
                 <></>
               )}
             </div>
+
+                {console.log(review.id)}
+
             <div id="review-recomment">
               {review?.recommend === false ? (
                 <p>
@@ -66,6 +73,7 @@ function Reviews({ currentProduct }) {
               )}
             </div>
             <div id="review-created-at">{review?.created_at}</div>
+            <button onClick={() => dispatch(deleteReview(review.id))}>Delete Review</button>
           </div>
         ))}
       </div>
