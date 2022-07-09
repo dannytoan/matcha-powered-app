@@ -46,10 +46,10 @@ function NewReviewForm() {
       <div id="new-review-form-body-container">
         <div id="styles-header-container">
           <div id="new-arrivals-text-all-products" className="text">
-            Share the power
+            Share the knowledge
           </div>
           <h2 id="all-products-title" className="text">
-            Create a New Product Listing
+            Review
           </h2>
         </div>
         {errors.length > 0 ? (

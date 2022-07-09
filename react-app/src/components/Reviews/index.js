@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { viewReviews, deleteReview } from "../../store/reviews";
+import { useParams } from "react-router-dom";
+import EditReviewFormModal from "../EditReviewModal";
 
 function Reviews({ currentProduct }) {
   const dispatch = useDispatch();
   const [users, setUsers] = useState([]);
+
+  const sessionUser = useSelector((state) => state.session.user);
 
   useEffect(() => {
     dispatch(viewReviews());
@@ -36,11 +40,9 @@ function Reviews({ currentProduct }) {
   );
 
   const currentProductReviewAuthor = currentProductReviewAuthorFilted[0];
-    // console.log("currentProductReviewAuthor", currentProductReviewAuthor)
+  // console.log("currentProductReviewAuthor", currentProductReviewAuthor)
 
-    // useEffect(() => {
-    //   dispatch(deleteReview(currentProductReview?.user_id));
-    // }, [dispatch]);
+  // const currentSessionReviewer =
 
   return (
     <div>
@@ -60,9 +62,6 @@ function Reviews({ currentProduct }) {
                 <></>
               )}
             </div>
-
-                {console.log(review.id)}
-
             <div id="review-recomment">
               {review?.recommend === false ? (
                 <p>
@@ -73,7 +72,16 @@ function Reviews({ currentProduct }) {
               )}
             </div>
             <div id="review-created-at">{review?.created_at}</div>
-            <button onClick={() => dispatch(deleteReview(review.id))}>Delete Review</button>
+            {sessionUser?.id === review.user_id ? (
+              <div>
+                <EditReviewFormModal review={review} />
+                <button onClick={() => dispatch(deleteReview(review.id))}>
+                  Delete Review
+                </button>
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
         ))}
       </div>
