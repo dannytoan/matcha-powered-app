@@ -42,7 +42,7 @@ function Reviews({ currentProduct }) {
     <div>
       <div id="review-container">
         {currentProductReviewFiltered.map((review) => (
-          <div>
+          <div id={review.id}>
             <div id="review-rating">{review?.rating}</div>
             <div id="review-title">{review?.title}</div>
             <div id="review-user">{currentProductReviewAuthor?.first_name}</div>
