@@ -8,6 +8,7 @@ import {
 } from "../../store/products";
 import EditProductModal from "../EditListingModal";
 import Reviews from "../Reviews";
+import NewReviewFormModal from "../NewReviewModal";
 import "./ProductDetails.css";
 
 function ProductDetails() {
@@ -129,7 +130,8 @@ function ProductDetails() {
         </div>
       </div>
       <div id="reviews-body-container">Reviews</div>
-      <Reviews currentProduct={currentProduct}/>
+      <NewReviewFormModal />
+      <Reviews currentProduct={currentProduct} />
     </div>
   );
 }

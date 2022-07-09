@@ -1,39 +1,63 @@
-const VIEW_REVIEWS = "reviews/VIEW_REVIEWS"
-
+const VIEW_REVIEWS = "reviews/VIEW_REVIEWS";
+const ADD_REVIEW = "reviews/ADD_REVIEW";
 
 const view = (reviews) => ({
-    type: VIEW_REVIEWS,
-    reviews
-})
+  type: VIEW_REVIEWS,
+  reviews,
+});
 
+const add = (review) => ({
+  type: ADD_REVIEW,
+  review,
+});
 
 export const viewReviews = () => async (dispatch) => {
-    const response = await fetch("/api/reviews");
-    //   console.log("INSIDE VIEW PRODUCTS THUNK", response);
+  const response = await fetch("/api/reviews");
+  //   console.log("INSIDE VIEW PRODUCTS THUNK", response);
 
-      if (response.ok) {
-        const reviews = await response.json();
+  if (response.ok) {
+    const reviews = await response.json();
 
-        dispatch(view(reviews.reviews));
-        return reviews.reviews;
-      } else {
-        const errors = await response.json();
-        return errors;
-      }
-}
+    dispatch(view(reviews.reviews));
+    return reviews.reviews;
+  } else {
+    const errors = await response.json();
+    return errors;
+  }
+};
 
+export const addReview = (payload) => async (dispatch) => {
+  const response = await fetch("/api/reviews/new", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+
+  const newReview = await response.json();
+  // console.log("RESPONSE", response);
+  // console.log("NEW PRODUCT", newReview);
+
+  if (newReview.newReview) {
+    dispatch(add(newReview.newReview));
+    return newReview.newReview;
+  }
+};
 
 const reviewsReducer = (state = {}, action) => {
-    switch (action.type) {
-        case VIEW_REVIEWS:
-            const normalizedReviews = {};
-            action.reviews.forEach((review) => {
-                normalizedReviews[review.id] = review;
-            });
-            return { ...normalizedReviews }
-        default:
-            return state;
-    };
+  switch (action.type) {
+    case VIEW_REVIEWS:
+      const normalizedReviews = {};
+      action.reviews.forEach((review) => {
+        normalizedReviews[review.id] = review;
+      });
+      return { ...normalizedReviews };
+    case ADD_REVIEW:
+        console.log("ACTION NEWREVIEW", action.newReview)
+      const addState = { ...state, [action.newReview.id]: action.newReview };
+      return addState;
+    default:
+      return state;
+  }
 };
 
 export default reviewsReducer;
