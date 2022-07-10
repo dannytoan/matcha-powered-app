@@ -1,3 +1,24 @@
 #edit-review-textarea {
 height: 10rem;
 }
+
+div#edit-review-errors-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    align-content: center;
+}
+
+.edit-review-errors-div {
+    background: #f7d0d0;
+    width: 800px;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 3rem; */
+    animation: fadeIn 1s;
+}

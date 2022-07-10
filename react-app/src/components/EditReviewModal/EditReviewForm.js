@@ -72,8 +72,8 @@ function EditReviewForm({ review, setShowModal }) {
         </h2>
       </div>
       {errors.length > 0 ? (
-        <div id="create-product-errors-container">
-          <div className="create-product-errors-div">
+        <div id="edit-review-errors-container">
+          <div className="edit-review-errors-div">
             <ul className="create-product-errors-ul">
               {errors.map((error, idx) => (
                 <li className="create-product-errors-li" key={idx}>
