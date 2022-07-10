@@ -7,7 +7,7 @@ import LoginForm from "../auth/LoginForm";
 
 function SplashPage() {
   return (
-    <div>
+    <div id="splash-page-container">
         {/* <div>
             <LoginForm />
         </div> */}

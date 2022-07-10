@@ -35,14 +35,12 @@ function Reviews({ currentProduct }) {
 
   // console.log("REVIEWS-----", reviews);
 
-  const currentProductReviewAuthorFilted = users.filter(
+  const currentProductReviewAuthorFilted = users?.filter(
     (user) => user?.id === +currentProductReview?.user_id
   );
 
-  const currentProductReviewAuthor = currentProductReviewAuthorFilted[0];
+  // const currentProductReviewAuthor = currentProductReviewAuthorFilted[0];
   // console.log("currentProductReviewAuthor", currentProductReviewAuthor)
-
-  // const currentSessionReviewer =
 
   return (
     <div>

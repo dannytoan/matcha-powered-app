@@ -20,6 +20,7 @@ function ProductDetails() {
 
   const sessionUser = useSelector((state) => state.session.user);
   console.log("session user", sessionUser);
+  console.log("USERS", users);
 
   useEffect(() => {
     async function fetchData() {
@@ -38,12 +39,12 @@ function ProductDetails() {
     return Object.values(state.products);
   });
 
-  const currentProductFiltered = products.filter((current) => current.id == id);
+  const currentProductFiltered = products.filter((current) => current?.id == id);
   const currentProduct = currentProductFiltered[0];
   const currentProductId = currentProduct?.id;
 
-  const currentSeller = users.filter(
-    (user) => user.id === +currentProduct.user_id
+  const currentSeller = users?.filter(
+    (user) => user?.id === +currentProduct?.user_id
   );
 
   const currentSellerUserName = currentSeller[0]?.username;

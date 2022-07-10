@@ -7,7 +7,8 @@ ul#top-nav-ul {
 
 a.top-nav-links {
     text-decoration: none;
-    color: black;
+    color: #000000bd;
+    font-weight: 600;
 }
 
 img#nav-logo {
@@ -18,4 +19,48 @@ img#nav-logo {
     display: flex;
     width: 500px;
     justify-content: space-around;
+}
+
+.fa-right-from-bracket {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+    position: absolute;
+    margin-top: 25px;
+    padding-top: 5px;
+    font-size: 12px;
+    animation: fadeIn 1s;
+    font-weight: 600;
+    color: #424242;
+    border-top: 2px solid #424242;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+.fa-right-from-bracket:hover + .hide {
+    display: block;
+}
+
+.fa-shop:hover + .hide {
+    display: block;
+}
+
+.fa-user:hover + .hide {
+    display: block;
+}
+
+.fa-user-plus:hover + .hide {
+    display: block;
+}
+
+#button-ctnr {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
