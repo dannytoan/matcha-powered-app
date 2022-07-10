@@ -61,10 +61,13 @@ select.create-product-input {
 }
 
 button.submit-btn {
+    background-color: black;
+    color: white;
     height: 5rem;
     font-size: 22px;
     font-weight: 600;
     margin-top: 10px;
+    border-radius: 5rem;
     border: none;
     cursor: pointer;
 }
@@ -72,11 +75,6 @@ button.submit-btn {
 .create-product-labels {
     font-family: Montserrat,Helvetica,Arial,sans-serif;
     font-weight: 600;
-}
-
-.desc-label {
-    margin-top: 25px;
-    margin-bottom: 10px;
 }
 
 .desc-label {

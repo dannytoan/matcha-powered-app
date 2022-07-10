@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { viewReviews, updateReview } from "../../store/reviews";
+import "./EditReviewForm.css"
 
 function EditReviewForm({ review, setShowModal }) {
   const dispatch = useDispatch();
@@ -10,7 +11,7 @@ function EditReviewForm({ review, setShowModal }) {
   const [errors, setErrors] = useState([]);
   const [title, setTitle] = useState(review.title);
   const [rating, setRating] = useState(review.rating);
-  const [content, setContent] = useState(review.content);
+  const [content, setContent] = useState(review?.content);
   const [recommend, setRecommend] = useState(review.recommend);
   // const [showModal, setShowModal] = useState(false)
 
@@ -24,10 +25,8 @@ function EditReviewForm({ review, setShowModal }) {
 
     if (title.length === 0) {
         errors.push("Please provide a title")
-    }
-
-    if (rating <= 0 || rating > 5) {
-        errors.push("Rating must be between 1 and 5")
+    } else if (title.length > 50) {
+      errors.push("Title must not exceed 50 characters")
     }
 
     if (content.length === 0) {
@@ -46,6 +45,7 @@ function EditReviewForm({ review, setShowModal }) {
       id: review.id,
       product_id: id,
       user_id: sessionUser.id,
+      reviewer_name: sessionUser.first_name,
       title,
       rating,
       content,
@@ -62,13 +62,13 @@ function EditReviewForm({ review, setShowModal }) {
   };
 
   return (
-    <div>
+    <div id="new-review-modal-body">
       <div id="styles-header-container">
         <div id="new-arrivals-text-all-products" className="text">
-          Share the knowledge
+          Changed your mind?
         </div>
         <h2 id="all-products-title" className="text">
-          Review
+          Edit Your Review
         </h2>
       </div>
       {errors.length > 0 ? (
@@ -87,11 +87,11 @@ function EditReviewForm({ review, setShowModal }) {
         <></>
       )}
 
-      <form onSubmit={handleSubmit}>
+      <form id="new-review-form" onSubmit={handleSubmit}>
         <label className="create-product-labels">Title* (Required)</label>
         <input
           name="title"
-          className="create-review-input"
+          className="create-product-input text"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
@@ -99,21 +99,30 @@ function EditReviewForm({ review, setShowModal }) {
           required
         />
         <label className="create-product-labels">Rating* (Required)</label>
-        <input
-          name="rating"
-          className="create-review-input"
-          type="integer"
-          value={rating}
-          onChange={(e) => setRating(e.target.value)}
-          placeholder={"Insert title name here..."}
-          required
-        />
+        <select
+            name="rating"
+            className="create-product-input text"
+            type="integer"
+            value={rating}
+            step="1"
+            min="1"
+            max="5"
+            onChange={(e) => setRating(e.target.value)}
+            placeholder={"Insert title name here..."}
+            required
+          >
+            <option value={1}>1</option>
+            <option value={2}>2</option>
+            <option value={3}>3</option>
+            <option value={4}>4</option>
+            <option value={5}>5</option>
+            </select>
         <label className="create-product-labels">
           Recommend to a Friend?* (Required)
         </label>
         <select
           name="recommend"
-          className="create-review-input"
+          className="create-product-input text"
           type="boolean"
           value={recommend}
           onChange={(e) => setRecommend(e.target.value)}
@@ -122,10 +131,11 @@ function EditReviewForm({ review, setShowModal }) {
           <option value={true}>Yes</option>
           <option value={false}>No</option>
         </select>
-        <label className="create-product-labels">Content* (Required)</label>
+        <label className="create-product-labels desc-label">Content* (Required)</label>
         <textArea
           name="content"
-          className="create-review-input"
+          className="create-product-input text"
+          id="edit-review-textarea"
           type="text"
           value={content}
           onChange={(e) => setContent(e.target.value)}

@@ -1,0 +1,19 @@
+#new-review-modal-body {
+    height: 45rem;
+    overflow: auto;
+}
+
+form#new-review-form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    /* border: 1px black solid; */
+    width: 801px;
+    align-items: stretch;
+    height: fit-content;
+    padding: 45px;
+}
+
+.option-text {
+    font-weight: 600;
+}
