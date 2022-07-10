@@ -60,6 +60,22 @@ export const deleteReview = (id) => async (dispatch) => {
   }
 };
 
+export const updateReview = (payload, id) => async (dispatch) => {
+
+  const response = await fetch(`/api/reviews/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  })
+
+  if (response.ok) {
+    const editedReview = await response.json();
+    console.log("edited review", editedReview)
+    dispatch(add(editedReview));
+    return editedReview;
+  }
+}
+
 const reviewsReducer = (state = {}, action) => {
   switch (action.type) {
     case VIEW_REVIEWS:
@@ -70,7 +86,7 @@ const reviewsReducer = (state = {}, action) => {
       return { ...normalizedReviews };
     case ADD_REVIEW:
       console.log("ACTION NEWREVIEW", action.newReview);
-      const addState = { ...state, [action.newReview.id]: action.newReview };
+      const addState = { ...state, [action?.newReview?.id]: action?.newReview };
       return addState;
     case DEL_REVIEW:
       const deleteState = { ...state };

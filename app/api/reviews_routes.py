@@ -44,6 +44,23 @@ def post_new_review():
         return new_review.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
+@review_routes.route('/<int:id>', methods=["PUT"])
+def edit_review(id):
+    review = Review.query.get(id)
+    form = ReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        data = form.data
+        review.rating=data['rating']
+        review.title=data['title']
+        review.content=data['content']
+        review.recommend=data['recommend']
+        review.updated_at=datetime.now()
+
+        db.session.commit()
+        return review.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
 @review_routes.route('/<int:id>', methods=['DELETE'])
 def delete_review(id):
     review = Review.query.get(id)
