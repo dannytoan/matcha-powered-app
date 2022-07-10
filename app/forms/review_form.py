@@ -8,6 +8,7 @@ from app.models import Review
 class ReviewForm(FlaskForm):
     product_id = IntegerField('Product ID')
     user_id = IntegerField('User ID')
+    reviewer_name = StringField('Reviewer Name', validators=[DataRequired()])
     rating = IntegerField('Rating', validators=[DataRequired()])
     title = StringField('Title', validators=[DataRequired()])
     content = TextAreaField('Content', validators=[DataRequired()])

@@ -28,6 +28,7 @@ function NewReviewForm({setShowModal}) {
     const payload = {
       user_id: sessionUser.id,
       product_id: id,
+      reviewer_name: sessionUser.first_name,
       rating,
       title,
       content,
