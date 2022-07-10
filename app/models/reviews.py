@@ -6,6 +6,7 @@ class Review(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     product_id = db.Column(db.Integer, db.ForeignKey('products.id', ondelete="CASCADE"))
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    reviewer_name = db.Column(db.String(50), nullable=False)
     rating = db.Column(db.Integer, nullable=False)
     title = db.Column(db.String(50), nullable=False)
     content = db.Column(db.Text, nullable=False)
@@ -22,6 +23,7 @@ class Review(db.Model):
             'id': self.id,
             'product_id': self.product_id,
             'user_id': self.user_id,
+            'reviewer_name': self.reviewer_name,
             'rating': self.rating,
             'title': self.title,
             'content': self.content,

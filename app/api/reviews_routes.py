@@ -1,6 +1,6 @@
 from re import M
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
+from flask_login import login_required, current_user
 from datetime import datetime
 from app.models import Review, db
 from app.forms import ReviewForm
@@ -32,6 +32,7 @@ def post_new_review():
         new_review = Review(
            product_id=data['product_id'],
            user_id=data['user_id'],
+           reviewer_name=data['reviewer_name'],
            rating=data['rating'],
            title=data['title'],
            content=data['content'],

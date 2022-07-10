@@ -130,7 +130,10 @@ function ProductDetails() {
         </div>
       </div>
       <div id="reviews-body-container">Reviews</div>
+      {sessionUser?.id === currentProduct?.user_id ? <></> :
+
       <NewReviewFormModal />
+      }
       <Reviews currentProduct={currentProduct} />
     </div>
   );

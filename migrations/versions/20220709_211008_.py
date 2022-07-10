@@ -1,8 +1,8 @@
-"""removed cascade delete from category and product  to test
+"""empty message
 
-Revision ID: 9f70690ec09d
+Revision ID: 3f8c461e2fa8
 Revises: 
-Create Date: 2022-07-08 02:46:00.784026
+Create Date: 2022-07-09 21:10:08.468605
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '9f70690ec09d'
+revision = '3f8c461e2fa8'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -66,6 +66,7 @@ def upgrade():
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('product_id', sa.Integer(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('reviewer_name', sa.String(length=50), nullable=False),
     sa.Column('rating', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=50), nullable=False),
     sa.Column('content', sa.Text(), nullable=False),
