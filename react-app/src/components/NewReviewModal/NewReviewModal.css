@@ -34,3 +34,7 @@ form#new-review-form {
     color: rgb(255, 255, 255);
     background-color: #a1e4b0;
 }
+
+.general-btn:hover {
+    background: #a9e978;
+}

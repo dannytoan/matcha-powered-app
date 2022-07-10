@@ -60,6 +60,7 @@ function ProductDetails() {
     }
   };
 
+
   return (
     <div>
       {currentProduct?.user_id === sessionUser?.id ? (
@@ -134,6 +135,7 @@ function ProductDetails() {
       </div>
       <div id="reviews-body">
         <h2 id="reviews-title-header">Reviews</h2>
+        {/* <div>{currentProduct?.overall_rating}</div> */}
         {sessionUser?.id === currentProduct?.user_id ? (
           <></>
         ) : (
