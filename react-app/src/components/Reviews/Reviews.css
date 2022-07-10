@@ -1,0 +1,76 @@
+.review-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    /* border: 1px solid black; */
+    width: 80%;
+    height: 15rem;
+}
+
+div#review-body-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-top: 5rem;
+}
+
+.review-container {
+    padding: 4rem;
+    margin: 0px 0px 3.4rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgb(0 0 0 / 10%) 0px 0.4rem 1.5rem;
+}
+
+#review-title {
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 1rem 0px;
+    letter-spacing: 1px;
+}
+
+div#review-content {
+    margin-right: 0px;
+    margin-left: 0px;
+    color: rgb(68, 68, 68);
+    line-height: 2.4rem;
+    border-left: none;
+    padding: 0px;
+    overflow-wrap: break-word;
+    hyphens: auto;
+}
+
+div#review-created-at {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    color: #444444;
+}
+
+div#edit-and-delete-btns-container {
+    display: flex;
+    margin-top: 10px;
+    justify-content: flex-end;
+}
+
+div#edit-and-delete-btns {
+    display: flex;
+    /* border: 1px solid black; */
+    width: 15%;
+    justify-content: space-between;
+}
+
+.stars {
+    font-size: 24px;
+    color: #9edd6f;
+}
+
+
+@media (min-width: 64em) {
+    .review-container {
+        padding: 7rem;
+    }
+}

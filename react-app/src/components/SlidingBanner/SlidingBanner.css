@@ -10,6 +10,7 @@
 #sliding-banner-container {
     overflow: hidden;
     border-top: 1.5px solid #eeeeee;
+    border-bottom: 1.5px solid #eeeeee;
     height: 50px;
 }
 

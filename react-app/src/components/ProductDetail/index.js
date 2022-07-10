@@ -39,7 +39,9 @@ function ProductDetails() {
     return Object.values(state.products);
   });
 
-  const currentProductFiltered = products.filter((current) => current?.id == id);
+  const currentProductFiltered = products.filter(
+    (current) => current?.id == id
+  );
   const currentProduct = currentProductFiltered[0];
   const currentProductId = currentProduct?.id;
 
@@ -130,12 +132,17 @@ function ProductDetails() {
           </div>
         </div>
       </div>
-      <div id="reviews-body-container">Reviews</div>
-      {sessionUser?.id === currentProduct?.user_id ? <></> :
-
-      <NewReviewFormModal />
-      }
-      <Reviews currentProduct={currentProduct} />
+      <div id="reviews-body">
+        <h2 id="reviews-title-header">Reviews</h2>
+        {sessionUser?.id === currentProduct?.user_id ? (
+          <></>
+        ) : (
+          <div id="new-review-button-container">
+          <NewReviewFormModal />
+        </div>
+        )}
+        <Reviews currentProduct={currentProduct} />
+      </div>
     </div>
   );
 }

@@ -37,11 +37,6 @@ img#nav-logo {
     border-top: 2px solid #424242;
 }
 
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
-
 .fa-right-from-bracket:hover + .hide {
     display: block;
 }
@@ -64,3 +59,18 @@ img#nav-logo {
     justify-content: space-between;
     align-items: center;
 }
+
+.active {
+    border-bottom: 2px black solid;
+    transition: fadeIn 2s;
+}
+
+/* .category:hover {
+    border-bottom: 2px black solid;
+    transition: fadeIn 1s;
+} */
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }

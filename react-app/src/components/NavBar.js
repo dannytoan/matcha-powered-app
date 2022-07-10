@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import LogoutButton from "./auth/LogoutButton";
 import "./NavBar.css";
 import { useSelector } from "react-redux";
@@ -16,24 +16,22 @@ const NavBar = () => {
 
     <nav id="top-nav-container">
       <ul id="top-nav-ul">
-        <NavLink
+        <Link
           to="/"
           exact={true}
-          activeClassName="active"
-          className="top-nav-links text"
         >
           <img
             id="nav-logo"
             src="https://res.cloudinary.com/matchaprince/image/upload/v1657157589/matcha_shark_logo_maiavt.png"
           />
-        </NavLink>
+        </Link>
         <div id="top-nav-category-links-ctnr">
           <li>
             <NavLink
               to="/products/all"
               exact={true}
               activeClassName="active"
-              className="top-nav-links text"
+              className="top-nav-links text category"
             >
              ALL PRODUCTS
             </NavLink>
