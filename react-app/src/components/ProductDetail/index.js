@@ -140,7 +140,7 @@ function ProductDetails() {
           <></>
         ) : (
           <div id="new-review-button-container">
-          <NewReviewFormModal />
+          {sessionUser ? <NewReviewFormModal /> : <p>Log in to create a review</p>}
         </div>
         )}
         <Reviews currentProduct={currentProduct} />
