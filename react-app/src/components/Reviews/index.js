@@ -65,7 +65,7 @@ function Reviews({ currentProduct }) {
             </div>
             <div id="review-recommend" className="text">
               {review?.recommend === true ? (
-                <p>
+                <p className="recommended-text">
                   Recommended <i class="fa-regular fa-thumbs-up"></i>
                 </p>
               ) : (
@@ -74,7 +74,7 @@ function Reviews({ currentProduct }) {
             </div>
             <div id="review-recomment">
               {review?.recommend === false ? (
-                <p>
+                <p className="recommended-text">
                   Would Not Recommend <i class="fa-regular fa-thumbs-down"></i>
                 </p>
               ) : (
@@ -88,7 +88,7 @@ function Reviews({ currentProduct }) {
               <div id="edit-and-delete-btns-container">
                 <div id="edit-and-delete-btns">
                   <EditReviewFormModal review={review} />
-                  <button onClick={() => dispatch(deleteReview(review.id))}>
+                  <button className="edit-delete-review-btn" onClick={() => dispatch(deleteReview(review.id))}>
                     Delete Review
                   </button>
                 </div>
