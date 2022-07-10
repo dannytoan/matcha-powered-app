@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { addReview } from "../../store/reviews";
 
-function NewReviewForm() {
+function NewReviewForm({setShowModal}) {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -38,6 +38,8 @@ function NewReviewForm() {
 
     if (newReview) {
       setErrors([]);
+      window.location.reload(false);
+      setShowModal(false)
     }
   };
 
@@ -113,7 +115,7 @@ function NewReviewForm() {
             placeholder={"Insert review here..."}
             required
           />
-          <button className="submit-btn">Submit</button>
+          <button className="submit-btn" onClick={() => window.location.reload(false)}>Submit</button>
         </form>
       </div>
     </div>
