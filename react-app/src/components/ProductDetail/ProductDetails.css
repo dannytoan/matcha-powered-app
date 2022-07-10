@@ -44,7 +44,7 @@ div#center-pic {
   align-items: center;
 }
 
-div#first-three-pics {
+.first-three-pics {
     display: flex;
     width: 100%;
     height: 350px;
@@ -53,7 +53,7 @@ div#first-three-pics {
     align-items: flex-end;
 }
 
-div#bottom-two-pics {
+.bottom-two-pics {
     display: flex;
     width: 100%;
     height: 350px;
@@ -132,4 +132,8 @@ h2#reviews-title-header {
 div#new-review-button-container {
     display: flex;
     justify-content: center;
+}
+
+.no-pic {
+    display: none;
 }

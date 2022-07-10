@@ -60,7 +60,6 @@ function ProductDetails() {
     }
   };
 
-
   return (
     <div>
       {currentProduct?.user_id === sessionUser?.id ? (
@@ -75,37 +74,55 @@ function ProductDetails() {
       )}
       <div id="product-detail-body-ctnr">
         <div id="product-detail-imgs-grid">
-          <div id="first-three-pics">
-            <img
-              className="product-detail-img-top"
-              src={`${currentProduct?.image_url_3}`}
-            />
-
+          <div className={currentProduct?.image_url_2 ? "first-three-pics" : "no-pic"}>
             {currentProduct?.image_url_2 ? (
               <img
                 className="product-detail-img-top"
                 src={`${currentProduct?.image_url_2}`}
               />
             ) : (
-              <></>
+            <div className="no-pic"></div>
             )}
-            <img
-              className="product-detail-img-top"
-              src={`${currentProduct?.image_url_4}`}
-            />
+
+            {currentProduct?.image_url_3 ? (
+              <img
+                className="product-detail-img-top"
+                src={`${currentProduct?.image_url_3}`}
+              />
+            ) : (
+              <div className="no-pic"></div>
+            )}
+
+            {currentProduct?.image_url_4 ? (
+              <img
+                className="product-detail-img-top"
+                src={`${currentProduct?.image_url_4}`}
+              />
+            ) : (
+              <div className="no-pic"></div>
+            )}
           </div>
           <div id="center-pic">
             <img id="center-pic-img" src={`${currentProduct?.image_url_1}`} />
           </div>
-          <div id="bottom-two-pics">
-            <img
-              className="product-detail-img-bottom"
-              src={`${currentProduct?.image_url_5}`}
-            />
-            <img
-              className="product-detail-img-bottom"
-              src={`${currentProduct?.image_url_6}`}
-            />
+          <div className={currentProduct?.image_url_2 ? "bottom-two-pics" : "no-pic"}>
+            {currentProduct?.image_url_5 ? (
+              <img
+                className="product-detail-img-bottom"
+                src={`${currentProduct?.image_url_5}`}
+              />
+            ) : (
+              <div className="no-pic"></div>
+            )}
+
+            {currentProduct?.image_url_6 ? (
+              <img
+                className="product-detail-img-bottom"
+                src={`${currentProduct?.image_url_6}`}
+              />
+            ) : (
+              <div className="no-pic"></div>
+            )}
           </div>
         </div>
         <div id="right-side-product-details">
@@ -140,8 +157,12 @@ function ProductDetails() {
           <></>
         ) : (
           <div id="new-review-button-container">
-          {sessionUser ? <NewReviewFormModal /> : <p>Log in to create a review</p>}
-        </div>
+            {sessionUser ? (
+              <NewReviewFormModal />
+            ) : (
+              <p>Log in to create a review</p>
+            )}
+          </div>
         )}
         <Reviews currentProduct={currentProduct} />
       </div>
