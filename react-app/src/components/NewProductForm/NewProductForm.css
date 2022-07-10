@@ -85,12 +85,13 @@ button.submit-btn {
 .create-product-errors-div {
     background: #f7d0d0;
     width: 800px;
+    height: -moz-fit-content;
     height: fit-content;
     display: flex;
     align-content: center;
     align-items: center;
     justify-content: center;
-    margin-top: 20px;
+    margin-bottom: 3rem;
     animation: fadeIn 1s;
 }
 

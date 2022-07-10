@@ -95,21 +95,7 @@ function NewProductForm() {
             Create a New Product Listing
           </h2>
         </div>
-        {errors.length > 0 ? (
-          <div id="create-product-errors-container">
-            <div className="create-product-errors-div">
-              <ul className="create-product-errors-ul">
-                {errors.map((error, idx) => (
-                  <li className="create-product-errors-li" key={idx}>
-                    {error}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ) : (
-          <></>
-        )}
+
         <form id="new-product-form" onSubmit={handleSubmit}>
           <label className="create-product-labels">Product Name* (Required)</label>
           <input
@@ -236,6 +222,21 @@ function NewProductForm() {
             Submit
           </button>
         </form>
+      {errors.length > 0 ? (
+          <div id="create-product-errors-container">
+            <div className="create-product-errors-div">
+              <ul className="create-product-errors-ul">
+                {errors.map((error, idx) => (
+                  <li className="create-product-errors-li" key={idx}>
+                    {error}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
