@@ -86,7 +86,7 @@ const reviewsReducer = (state = {}, action) => {
       return { ...normalizedReviews };
     case ADD_REVIEW:
       console.log("ACTION NEWREVIEW", action.newReview);
-      const addState = { ...state, [action.newReview.id]: action.newReview };
+      const addState = { ...state, [action?.newReview?.id]: action?.newReview };
       return addState;
     case DEL_REVIEW:
       const deleteState = { ...state };

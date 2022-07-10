@@ -25,21 +25,20 @@ function EditReviewForm({ review, setShowModal }) {
     setErrors(errors);
   }, []);
 
-  const reviewId = review?.id
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const payload = {
-      user_id: sessionUser.id,
+      id: review.id,
       product_id: id,
-      rating,
+      user_id: sessionUser.id,
       title,
+      rating,
       content,
       recommend,
     };
 
-    let editedReview = await dispatch(updateReview(payload, reviewId));
+    let editedReview = await dispatch(updateReview(payload, review?.id));
 
     if (editedReview) {
       setErrors([]);
