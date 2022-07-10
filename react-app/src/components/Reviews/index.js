@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { viewReviews, deleteReview } from "../../store/reviews";
 import { useParams } from "react-router-dom";
 import EditReviewFormModal from "../EditReviewModal";
+import "./Reviews.css";
 
 function Reviews({ currentProduct }) {
   const dispatch = useDispatch();
@@ -35,25 +36,34 @@ function Reviews({ currentProduct }) {
 
   // console.log("REVIEWS-----", reviews);
 
-  const currentProductReviewAuthorFilted = users.filter(
+  const currentProductReviewAuthorFilted = users?.filter(
     (user) => user?.id === +currentProductReview?.user_id
   );
 
-  const currentProductReviewAuthor = currentProductReviewAuthorFilted[0];
+  // const currentProductReviewAuthor = currentProductReviewAuthorFilted[0];
   // console.log("currentProductReviewAuthor", currentProductReviewAuthor)
-
-  // const currentSessionReviewer =
 
   return (
     <div>
-      <div id="review-container">
+      <div id="review-body-container">
         {currentProductReviewFiltered.map((review) => (
-          <div id={review.id}>
-            <div id="review-rating">{review?.rating}</div>
-            <div id="review-title">{review?.title}</div>
-            <div id="review-user">{review?.reviewer_name}</div>
-            <div id="review-content">{review?.content}</div>
-            <div id="review-recomment">
+          <div id={review.id} className="review-container">
+            {/* <div id="review-rating">{review?.rating}</div> */}
+            {review?.rating === 1 ? <div className="stars">★☆☆☆☆</div> : <></>}
+            {review?.rating === 2 ? <div className="stars">★★☆☆☆</div> : <></>}
+            {review?.rating === 3 ? <div className="stars">★★★☆☆</div> : <></>}
+            {review?.rating === 4 ? <div className="stars">★★★★☆</div> : <></>}
+            {review?.rating === 5 ? <div className="stars">★★★★★</div> : <></>}
+            <div id="review-title" className="text">
+              {review?.title}
+            </div>
+            <div id="review-user" className="text">
+              {review?.reviewer_name}
+            </div>
+            <div id="review-content" className="text">
+              {review?.content}
+            </div>
+            <div id="review-recommend" className="text">
               {review?.recommend === true ? (
                 <p>
                   Recommended <i class="fa-regular fa-thumbs-up"></i>
@@ -71,13 +81,17 @@ function Reviews({ currentProduct }) {
                 <></>
               )}
             </div>
-            <div id="review-created-at">{review?.created_at}</div>
+            <div id="review-created-at" className="text">
+              {review?.created_at}
+            </div>
             {sessionUser?.id === review.user_id ? (
-              <div>
-                <EditReviewFormModal review={review} />
-                <button onClick={() => dispatch(deleteReview(review.id))}>
-                  Delete Review
-                </button>
+              <div id="edit-and-delete-btns-container">
+                <div id="edit-and-delete-btns">
+                  <EditReviewFormModal review={review} />
+                  <button onClick={() => dispatch(deleteReview(review.id))}>
+                    Delete Review
+                  </button>
+                </div>
               </div>
             ) : (
               <></>
