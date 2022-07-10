@@ -22,8 +22,22 @@ function EditReviewForm({ review, setShowModal }) {
   useEffect(() => {
     const errors = [];
 
+    if (title.length === 0) {
+        errors.push("Please provide a title")
+    }
+
+    if (rating <= 0 || rating > 5) {
+        errors.push("Rating must be between 1 and 5")
+    }
+
+    if (content.length === 0) {
+        errors.push("Please provide a review")
+    } else if (content.length > 500) {
+        errors.push("Review must not exceed over 500 characters")
+    }
+
     setErrors(errors);
-  }, []);
+  }, [title, rating, content]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
