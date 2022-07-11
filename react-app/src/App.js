@@ -62,6 +62,9 @@ function App() {
         <Route path='/reviews' exact={true} >
           <Reviews />
         </Route>
+        <Route path='' exact={true} >
+          <h1>Oops! Page Does Not Exist.</h1>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
