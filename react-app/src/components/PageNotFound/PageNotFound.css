@@ -1,0 +1,12 @@
+h1#page-not-found-text {
+    text-transform: uppercase;
+    font-size: 100px;
+    color: #9edd6f;
+}
+
+div#page-404-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+}

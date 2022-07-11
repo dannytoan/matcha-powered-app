@@ -12,6 +12,7 @@ import ProductsDetails from './components/ProductDetail';
 import NewProductForm from './components/NewProductForm';
 import SplashPage from './components/SplashPage';
 import Reviews from './components/Reviews';
+import PageNotFound from './components/PageNotFound';
 import { authenticate } from './store/session';
 import { viewProducts } from './store/products'
 
@@ -63,7 +64,7 @@ function App() {
           <Reviews />
         </Route>
         <Route path='' exact={true} >
-          <h1>Oops! Page Does Not Exist.</h1>
+          <PageNotFound />
         </Route>
       </Switch>
     </BrowserRouter>
