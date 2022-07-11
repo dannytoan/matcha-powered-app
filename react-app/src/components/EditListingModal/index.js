@@ -7,7 +7,7 @@ function EditProductModal() {
 
   return (
     <>
-      <button onClick={() => setShowModal(true)}>Edit Listing</button>
+      <button className="edit-delete-listing-btn" onClick={() => setShowModal(true)}>Edit Listing</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <EditProductForm setShowModal={setShowModal}/>

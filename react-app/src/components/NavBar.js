@@ -86,9 +86,9 @@ const NavBar = () => {
         </div>
       </ul>
     </nav>
-      <div>
+      {/* <div>
       <SlidingBanner />
-      </div>
+      </div> */}
     </div>
   );
 };

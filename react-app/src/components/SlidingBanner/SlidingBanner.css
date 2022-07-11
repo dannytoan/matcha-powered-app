@@ -8,10 +8,12 @@
 } */
 
 #sliding-banner-container {
-    overflow: hidden;
+    /* overflow: hidden; */
     border-top: 1.5px solid #eeeeee;
     border-bottom: 1.5px solid #eeeeee;
     height: 50px;
+    max-width: 100%;
+    min-width: 100%;
 }
 
 .item-1,
@@ -56,17 +58,17 @@
 @keyframes anim-1 {
 	0%, 8.3% { left: -100%; opacity: 0; }
   8.3%,25% { left: 25%; opacity: 1; }
-  33.33%, 100% { left: 110%; opacity: 0; }
+  33.33%, 100% { left: 100%; opacity: 0; }
 }
 
 @keyframes anim-2 {
 	0%, 33.33% { left: -100%; opacity: 0; }
   41.63%, 58.29% { left: 25%; opacity: 1; }
-  66.66%, 100% { left: 110%; opacity: 0; }
+  66.66%, 100% { left: 100%; opacity: 0; }
 }
 
 @keyframes anim-3 {
 	0%, 66.66% { left: -100%; opacity: 0; }
   74.96%, 91.62% { left: 25%; opacity: 1; }
-  100% { left: 110%; opacity: 0; }
+  100% { left: 100%; opacity: 0; }
 }
