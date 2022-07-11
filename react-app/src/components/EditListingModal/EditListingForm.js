@@ -187,7 +187,11 @@ function EditProductForm({ setShowModal }) {
             onChange={(e) => setCategoryId(e.target.value)}
             required
           >
-            <option>Womens</option>
+            <option value={1}>Womens</option>
+            <option value={2}>Mens</option>
+            <option value={3}>Accessories</option>
+            <option value={4}>Supplements</option>
+            <option value={5}>Equipment</option>
           </select>
           <label className="create-product-labels desc-label">
             Description*

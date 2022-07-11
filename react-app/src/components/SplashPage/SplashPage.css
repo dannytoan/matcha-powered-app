@@ -8,20 +8,11 @@ video#video-header {
 #video-header-title {
     text-transform: uppercase;
     font-size: 100px;
-    position: absolute;
-    color: white;
-    left: 14px;
-    justify-content: space-evenly;
-    z-index: 1;
-    margin-left: 25px;
-    top: 150px;
-}
-
-#video-header-title {
-    text-transform: uppercase;
-    font-size: 100px;
     position: fixed;
     color: #fffffff2;
     left: 14px;
+    z-index: 1;
+    margin-left: 25px;
+    top: 103px;
     justify-content: space-evenly;
 }

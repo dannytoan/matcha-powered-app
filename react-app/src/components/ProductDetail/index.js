@@ -62,26 +62,20 @@ function ProductDetails() {
 
   return (
     <div>
-      {currentProduct?.user_id === sessionUser?.id ? (
-        <div>
-          <EditProductModal />{" "}
-          <button onClick={(e) => deleteProductHandler(currentProductId)}>
-            Delete Listing
-          </button>
-        </div>
-      ) : (
-        <></>
-      )}
       <div id="product-detail-body-ctnr">
         <div id="product-detail-imgs-grid">
-          <div className={currentProduct?.image_url_2 ? "first-three-pics" : "no-pic"}>
+          <div
+            className={
+              currentProduct?.image_url_2 ? "first-three-pics" : "no-pic"
+            }
+          >
             {currentProduct?.image_url_2 ? (
               <img
                 className="product-detail-img-top"
                 src={`${currentProduct?.image_url_2}`}
               />
             ) : (
-            <div className="no-pic"></div>
+              <div className="no-pic"></div>
             )}
 
             {currentProduct?.image_url_3 ? (
@@ -105,7 +99,11 @@ function ProductDetails() {
           <div id="center-pic">
             <img id="center-pic-img" src={`${currentProduct?.image_url_1}`} />
           </div>
-          <div className={currentProduct?.image_url_2 ? "bottom-two-pics" : "no-pic"}>
+          <div
+            className={
+              currentProduct?.image_url_2 ? "bottom-two-pics" : "no-pic"
+            }
+          >
             {currentProduct?.image_url_5 ? (
               <img
                 className="product-detail-img-bottom"
@@ -130,24 +128,43 @@ function ProductDetails() {
             <h1 id="product-detail-name-title" className="text">
               {currentProduct?.product_name}
             </h1>
+
             <div id="price-and-seller-container">
               <h2 id="product-detail-price" className="text">
                 $ {currentProduct?.price} USD
               </h2>
-              <div id="product-detail-seller-name" className="text">
-                Sold by {currentSellerUserName}
-              </div>
             </div>
           </div>
+            <div id="product-detail-seller-name" className="text">
+                Sold by {currentSellerUserName}
+              </div>
 
           <div id="description-container">
+            <div id="product-desc-seller-container">
+
             <h3 id="product-description-title" className="text">
               Description
             </h3>
+
+            </div>
             <div id="product-detail-description" className="text">
               {currentProduct?.description}
             </div>
+            <div id="edit-delete-listing-btn-div">
+            {currentProduct?.user_id === sessionUser?.id ? (
+              <div id="edit-delete-listing-btn-container">
+                <EditProductModal />{" "}
+                <button className="edit-delete-listing-btn" onClick={(e) => deleteProductHandler(currentProductId)}>
+                  Delete Listing
+                </button>
+              </div>
+            ) : (
+              <></>
+            )}
           </div>
+          </div>
+
+
         </div>
       </div>
       <div id="reviews-body">

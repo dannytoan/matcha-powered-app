@@ -53,7 +53,6 @@ def seed_products():
     image_url_3='https://m.media-amazon.com/images/I/81A3j60Ln2L._AC_SX679_.jpg',
     image_url_4='https://m.media-amazon.com/images/I/71u0dfbsy7L._AC_SX679_.jpg',
     image_url_5='https://m.media-amazon.com/images/I/81vbOZcEexL._AC_SX679_.jpg',
-    image_url_6='https://www.amazon.com/b1576065-b896-4315-9e39-de3ac453eb5d',
     overall_rating=5,
         user_id=5,
     category_id=3,

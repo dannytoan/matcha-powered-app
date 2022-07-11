@@ -32,6 +32,7 @@ img.product-image-preview {
 #product-listings-details {
     display: flex;
     justify-content: space-around;
+    width: 400px;
 }
 
 .product-listings-name {
@@ -121,3 +122,5 @@ img.product-image-preview {
 a#product-listing-link {
     text-decoration: none;
 }
+
+
