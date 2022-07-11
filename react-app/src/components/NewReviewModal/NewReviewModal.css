@@ -38,3 +38,31 @@ form#new-review-form {
 .general-btn:hover {
     background: #a9e978;
 }
+
+@media (min-height: 1080px) {
+
+    #modal-content {
+        position: absolute;
+        background-color: white;
+        /* border-radius: 24px; */
+        height: fit-content;
+    }
+
+    #new-review-modal-body {
+        height: fit-content;
+        overflow: auto;
+    }
+
+    form#new-review-form {
+        /* background-color: red; */
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        /* border: 1px black solid; */
+        width: 801px;
+        align-items: stretch;
+        height: -moz-fit-content;
+        height: fit-content;
+        padding: 45px;
+    }
+}
