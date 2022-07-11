@@ -60,7 +60,10 @@ const LoginForm = () => {
             />
           </div>
             <button className="auth-form-buttons" type="submit">Login</button>
+            <div id="new-user-signup-msg">
 
+            <p className="text">New to MatchaShark?</p> <a className="text" id="create-acc-link" href="/sign-up">Create An Account</a>
+            </div>
         </form>
         <div>
           {errors.length > 0 ? (

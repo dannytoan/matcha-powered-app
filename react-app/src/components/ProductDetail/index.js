@@ -177,7 +177,7 @@ function ProductDetails() {
             {sessionUser ? (
               <NewReviewFormModal />
             ) : (
-              <p>Log in to create a review</p>
+              <a href="/login" id="login-please" className="text general-btn">Log in to create a review</a>
             )}
           </div>
         )}

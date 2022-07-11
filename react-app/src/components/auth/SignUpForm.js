@@ -183,6 +183,10 @@ const SignUpForm = () => {
           <button className="auth-form-buttons" type="submit">
             Create Account
           </button>
+          <div id="new-user-signup-msg">
+
+            <p className="text">Already registered?</p> <a className="text" id="create-acc-link" href="/sign-up">Sign Into Your Account</a>
+            </div>
         </form>
       </div>
     </div>

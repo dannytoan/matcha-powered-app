@@ -14,6 +14,7 @@ div#login-form-container {
     align-items: center;
     justify-content: center;
     align-content: center;
+    margin-top: 2rem;
 }
 
 #login-form {
@@ -101,4 +102,19 @@ div#login-form-container {
     justify-content: center;
     /* margin-bottom: 3rem; */
     animation: fadeIn 1s;
+}
+
+div#new-user-signup-msg {
+    display: flex;
+    color: #2a2a2a;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+a#create-acc-link {
+    color: #7fb259d1;
+    font-weight: 600;
 }
