@@ -114,7 +114,10 @@ function NewProductForm() {
                 name="price"
                 className="create-product-input price-and-inv-input"
                 id="price-input"
-                type="float"
+                type="number"
+                min="0.01"
+                max="999999.99"
+                step="0.01"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
                 placeholder={"Insert price here..."}

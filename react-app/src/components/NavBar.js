@@ -75,7 +75,7 @@ const NavBar = () => {
               id="button-ctnr"
               >
               <i class="fa-solid fa-shop"></i>
-              <div className="text hide">POST PRODUCT LISTING</div>
+              <div className="text hide">SELL PRODUCT</div>
             </NavLink>
           </li>
             : <></>}
