@@ -168,6 +168,10 @@ div#price-and-seller-container {
     align-items: flex-end;
 }
 
+#login-please {
+    text-transform: uppercase;
+}
+
 @media (min-width: 800px) and (max-width: 1200px) {
     div#product-detail-description {
         white-space: pre-wrap;

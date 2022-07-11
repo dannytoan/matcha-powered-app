@@ -41,4 +41,5 @@ ul.signup-errors-ul {
     flex-wrap: nowrap;
     position: relative;
     right: 21px;
+    height: auto;
 }

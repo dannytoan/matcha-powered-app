@@ -93,6 +93,27 @@ div#review-user {
   color: #9edd6f;
 }
 
+.edit-delete-review-btn:hover {
+    background: #a9e978;
+}
+
+
+@media (min-height: 1250px) {
+    #edit-product-form-body-container {
+        height: 75rem;
+        overflow: auto;
+    }
+}
+
+@media (max-height: 764px) {
+    #edit-product-form-body-container {
+        height: 45rem;
+        overflow: auto;
+        /* background-color: red; */
+    }
+}
+
+
 @media (max-width: 800px) {
 
   .review-container {

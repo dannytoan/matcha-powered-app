@@ -12,6 +12,7 @@ import ProductsDetails from './components/ProductDetail';
 import NewProductForm from './components/NewProductForm';
 import SplashPage from './components/SplashPage';
 import Reviews from './components/Reviews';
+import PageNotFound from './components/PageNotFound';
 import { authenticate } from './store/session';
 import { viewProducts } from './store/products'
 
@@ -61,6 +62,9 @@ function App() {
         </Route>
         <Route path='/reviews' exact={true} >
           <Reviews />
+        </Route>
+        <Route path='' exact={true} >
+          <PageNotFound />
         </Route>
       </Switch>
     </BrowserRouter>

@@ -124,3 +124,13 @@ a#product-listing-link {
 }
 
 
+@media (max-width: 1060px) {
+    .product-listing-container {
+        max-width: 25em;
+        max-height: 100%;
+        /* border: 1px black solid; */
+        /* padding: 20px; */
+        margin: 2.5rem 2.3rem;
+        cursor: pointer;
+    }
+}
