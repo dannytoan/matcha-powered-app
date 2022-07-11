@@ -139,7 +139,7 @@ function EditReviewForm({ review, setShowModal }) {
           type="text"
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          placeholder={review.content}
+          placeholder={review?.content}
           required
         />
         <button className="submit-btn">Submit</button>
