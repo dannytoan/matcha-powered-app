@@ -39,6 +39,10 @@ form#new-review-form {
     background: #a9e978;
 }
 
+label#recommend-label-review {
+    margin-top: 25px;
+}
+
 @media (min-height: 1080px) {
 
     #modal-content {

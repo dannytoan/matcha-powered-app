@@ -117,7 +117,7 @@ function EditReviewForm({ review, setShowModal }) {
             <option value={4}>4</option>
             <option value={5}>5</option>
             </select>
-        <label className="create-product-labels">
+        <label className="create-product-labels" id="recommend-label-review">
           Recommend to a Friend?* (Required)
         </label>
         <select
