@@ -1,38 +1,135 @@
 .review-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  /* border: 1px solid black; */
+  width: 80%;
+  min-width: 1080px px;
+  height: auto;
+  padding: 4rem;
+  margin: 0px 0px 3.4rem;
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgb(0 0 0 / 10%) 0px 0.4rem 1.5rem;
+}
+
+div#review-body-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-top: 5rem;
+}
+
+#review-title {
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 1rem 0px;
+  letter-spacing: 1px;
+}
+
+div#review-content {
+  margin-right: 0px;
+  margin-left: 0px;
+  color: rgb(68, 68, 68);
+  line-height: 2.4rem;
+  border-left: none;
+  padding: 0px;
+  overflow-wrap: break-word;
+  min-width: 1080px;
+  white-space: pre-wrap;
+  hyphens: auto;
+}
+
+div#review-created-at {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 14px;
+  color: #444444;
+}
+
+div#edit-and-delete-btns-container {
+  display: flex;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+
+div#edit-and-delete-btns {
+  display: flex;
+  /* border: 1px solid black; */
+  justify-content: space-between;
+}
+
+.edit-delete-review-btn {
+  position: relative;
+  font-family: Montserrat, Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.05rem;
+  /* border-radius: 5rem; */
+  cursor: pointer;
+  padding: 0.5rem 0.5rem;
+  font-weight: 700;
+  outline: none;
+  margin-left: 15px;
+  border: 0px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  background-color: #a1e4b0;
+}
+
+p.recommended-text {
+  color: rgb(68, 68, 68);
+}
+
+div#review-user {
+  font-weight: 600;
+}
+
+.stars {
+  font-size: 24px;
+  color: #9edd6f;
+}
+
+@media (max-width: 800px) {
+
+  .review-container {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     /* border: 1px solid black; */
     width: 80%;
-    height: 15rem;
-}
-
-div#review-body-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: nowrap;
-    margin-top: 5rem;
-}
-
-.review-container {
+    min-width: 1080px px;
+    height: auto;
     padding: 4rem;
     margin: 0px 0px 3.4rem;
     background-color: rgb(255, 255, 255);
     box-shadow: rgb(0 0 0 / 10%) 0px 0.4rem 1.5rem;
-}
+  }
 
-#review-title {
-    font-size: 1.8rem;
-    line-height: 2.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    margin: 1rem 0px;
-    letter-spacing: 1px;
-}
+  div#edit-and-delete-btns-container {
+    display: flex;
+    margin-top: 10px;
+    min-width: 300px;
+    justify-content: flex-end;
+  }
 
-div#review-content {
+  div#review-created-at {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+    min-width: max-content;
+    color: #444444;
+  }
+
+  p.recommended-text {
+    color: rgb(68, 68, 68);
+    min-width: max-content;
+  }
+
+  div#review-content {
     margin-right: 0px;
     margin-left: 0px;
     color: rgb(68, 68, 68);
@@ -40,62 +137,9 @@ div#review-content {
     border-left: none;
     padding: 0px;
     overflow-wrap: break-word;
+    min-width: auto;
+    white-space: break-spaces;
+    -webkit-hyphens: auto;
     hyphens: auto;
-}
-
-div#review-created-at {
-    display: flex;
-    justify-content: flex-end;
-    font-size: 14px;
-    color: #444444;
-}
-
-div#edit-and-delete-btns-container {
-    display: flex;
-    margin-top: 10px;
-    justify-content: flex-end;
-}
-
-div#edit-and-delete-btns {
-    display: flex;
-    /* border: 1px solid black; */
-    justify-content: space-between;
-}
-
-.edit-delete-review-btn {
-    position: relative;
-    font-family: Montserrat, Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
-    font-size: 12px;
-    letter-spacing: 0.05rem;
-    /* border-radius: 5rem; */
-    cursor: pointer;
-    padding: 0.5rem 0.5rem;
-    font-weight: 700;
-    outline: none;
-    margin-left: 15px;
-    border: 0px;
-    text-align: center;
-    color: rgb(255, 255, 255);
-    background-color: #a1e4b0;
-}
-
-p.recommended-text {
-    color: rgb(68, 68, 68);
-}
-
-div#review-user {
-    font-weight: 600;
-}
-
-.stars {
-    font-size: 24px;
-    color: #9edd6f;
-}
-
-
-@media (min-width: 64em) {
-    .review-container {
-        padding: 7rem;
-    }
+  }
 }

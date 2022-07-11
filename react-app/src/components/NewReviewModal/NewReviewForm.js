@@ -69,21 +69,6 @@ function NewReviewForm({setShowModal}) {
             Share the experience
           </h2>
         </div>
-        {errors.length > 0 ? (
-          <div id="create-product-errors-container">
-            <div className="create-product-errors-div">
-              <ul className="create-product-errors-ul">
-                {errors.map((error, idx) => (
-                  <li className="create-product-errors-li" key={idx}>
-                    {error}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        ) : (
-          <></>
-        )}
 
         <form id="new-review-form" onSubmit={handleSubmit}>
           <label className="create-product-labels">Title* (Required)</label>
@@ -141,7 +126,23 @@ function NewReviewForm({setShowModal}) {
             required
           />
           <button className="submit-btn" onClick={() => window.location.reload(false)}>Submit</button>
+
         </form>
+          {errors.length > 0 ? (
+          <div id="create-product-errors-container">
+            <div className="create-product-errors-div">
+              <ul className="create-product-errors-ul">
+                {errors.map((error, idx) => (
+                  <li className="create-product-errors-li" key={idx}>
+                    {error}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
