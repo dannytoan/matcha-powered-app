@@ -89,6 +89,7 @@ div#product-detail-name-container {
 h1#product-detail-name-title {
     line-height: 1.25;
     width: 22rem;
+    margin-right: 2em;
     font-size: 24px;
 }
 
