@@ -81,21 +81,26 @@ function Reviews({ currentProduct }) {
                 <></>
               )}
             </div>
-            <div id="review-created-at" className="text">
-              {review?.created_at}
-            </div>
-            {sessionUser?.id === review.user_id ? (
-              <div id="edit-and-delete-btns-container">
-                <div id="edit-and-delete-btns">
-                  <EditReviewFormModal review={review} />
-                  <button className="edit-delete-review-btn" onClick={() => dispatch(deleteReview(review.id))}>
-                    Delete Review
-                  </button>
-                </div>
+            <div id="date-and-btns-pdct-review">
+              <div id="review-created-at" className="text">
+                {review?.created_at}
               </div>
-            ) : (
-              <></>
-            )}
+              {sessionUser?.id === review.user_id ? (
+                <div id="edit-and-delete-btns-container">
+                  <div id="edit-and-delete-btns">
+                    <EditReviewFormModal review={review} />
+                    <button
+                      className="edit-delete-review-btn"
+                      onClick={() => dispatch(deleteReview(review.id))}
+                    >
+                      Delete Review
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
           </div>
         ))}
       </div>
