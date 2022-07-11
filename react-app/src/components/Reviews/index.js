@@ -31,8 +31,10 @@ function Reviews({ currentProduct }) {
   const currentProductReviewFiltered = reviews.filter(
     (review) => review?.product_id === +currentProduct?.id
   );
+
+  console.log("CURRENT PRODUCT REVIEW-------", currentProductReviewFiltered);
+
   const currentProductReview = currentProductReviewFiltered[0];
-  console.log("CURRENT PRODUCT REVIEW-------", currentProductReview);
 
   // console.log("REVIEWS-----", reviews);
 
