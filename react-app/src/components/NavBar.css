@@ -8,7 +8,9 @@ ul#top-nav-ul {
 a.top-nav-links {
     text-decoration: none;
     color: #000000bd;
+    display: flex;
     font-weight: 600;
+    justify-content: center;
 }
 
 img#nav-logo {

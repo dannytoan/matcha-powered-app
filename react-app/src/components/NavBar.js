@@ -40,29 +40,27 @@ const NavBar = () => {
         <div id="top-nav-auth-links-ctnr">
           {sessionUser ? <></> :
           <li>
-            <NavLink
+            <Link
               to="/login"
               exact={true}
-              activeClassName="active"
               className="top-nav-links text"
               id="button-ctnr"
               >
               <i class="fa-regular fa-user"></i>
               <div className="hide text">LOG IN</div>
-            </NavLink>
+            </Link>
           </li>
               }
               {sessionUser ? <></> :
                 <li>
-                  <NavLink
+                  <Link
                     to="/sign-up"
                     exact={true}
-                    activeClassName="active"
                     className="top-nav-links text signup-link"
                   >
                      <i class="fa-solid fa-user-plus"></i>
                   <div className="hide text">SIGN UP</div>
-                  </NavLink>
+                  </Link>
                 </li>
               }
               {sessionUser ?

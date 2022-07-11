@@ -87,3 +87,18 @@ div#login-form-container {
     position: relative;
     margin-bottom: 1.5rem;
 }
+
+.login-errors-div {
+    background: #f7d0d0;
+    width: 25rem;
+    /* margin-top: -2rem; */
+    margin-bottom: 2rem;
+    height: -moz-fit-content;
+    height: fit-content;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 3rem; */
+    animation: fadeIn 1s;
+}
