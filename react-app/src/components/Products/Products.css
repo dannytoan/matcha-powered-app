@@ -23,7 +23,7 @@ img.product-image-preview {
     height: 30em;
     width: 25em;
     object-position: center;
-    object-fit: cover;
+    object-fit: contain;
     position: relative;
     top: 3px;
 }
@@ -40,7 +40,7 @@ img.product-image-preview {
     font-weight: 400;
     font-family: Roboto, Arial, sans-serif;
     color: rgb(68, 68, 68);
-    width: 75%;
+    width: 70%;
     overflow-wrap: break-word;
     flex-wrap: wrap;
     display: flex;
@@ -53,6 +53,7 @@ img.product-image-preview {
     line-height: 2.4rem;
     font-family: Roboto,Helvetica,Arial,sans-serif;
     color: rgb(0, 0, 0);
+    width: 30%;
     margin: 0px;
 }
 
