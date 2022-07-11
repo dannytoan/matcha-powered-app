@@ -36,11 +36,7 @@ const LoginForm = () => {
       <div id="login-form-container">
         <form id="login-form" onSubmit={onLogin}>
         <h1 id="login-form-header-title">Log Into My MatchaShark</h1>
-          <div>
-            {errors.map((error, ind) => (
-              <div key={ind}>{error}</div>
-            ))}
-          </div>
+
             <label htmlFor="email" className="login-labels">EMAIL ADDRESS:</label>
           <div>
             <input
@@ -64,7 +60,25 @@ const LoginForm = () => {
             />
           </div>
             <button className="auth-form-buttons" type="submit">Login</button>
+
         </form>
+        <div>
+          {errors.length > 0 ? (
+              <div id="edit-review-errors-container">
+                <div className="login-errors-div">
+                  <ul className="signup-errors-ul">
+                    {errors.map((error, idx) => (
+                      <li className="create-product-errors-li" key={idx}>
+                        {error}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ) : (
+              <></>
+            )}
+          </div>
       </div>
     </div>
   );
