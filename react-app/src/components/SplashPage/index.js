@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { viewProducts } from "../../store/products";
+import { demouser } from "../../store/session";
 import "./SplashPage.css"
-import LoginForm from "../auth/LoginForm";
 
 
 function SplashPage() {
+  const dispatch = useDispatch();
+  const sessionUser = useSelector((state) => state.session.user);
+
+
+  const demoOnClick = async (e) => {
+    e.preventDefault()
+    await dispatch(demouser('demo@aa.io', 'password'));
+  }
+
   return (
     <div id="splash-page-container">
         {/* <div>
@@ -21,6 +30,7 @@ function SplashPage() {
             src="https://res.cloudinary.com/matchaprince/video/upload/v1657175755/trimmed_mountains_AdobeExpress_hqply0.mp4"
           />
         </video>
+        {sessionUser ? <></> : <button className="demo-btn" onClick={demoOnClick}>Demo User</button>}
       </div>
     </div>
   );
