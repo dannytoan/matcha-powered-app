@@ -25,12 +25,14 @@ function ShoppingBag() {
                 <div id="bag-item-details-cntr">
                 <h3 className="text bag-item-name">{bagItem.product_name}</h3>
                 <div className="text" id="bag-item-detail-price">${bagItem.price} USD</div>
+                    <button className="remove-btn" onClick={() => removeBagHandler(bagItem)}>Remove</button>
                 </div>
-                <button onClick={() => removeBagHandler(bagItem)}>Remove</button>
+                <div>
+                    </div>
                 </div>
             ))}
         </div>
-            <div id="continue-div"><a href="/products/all">Continue Shopping</a></div>
+            <div id="continue-div"><a className="text continue-text" href="/products/all">Continue Shopping</a></div>
             </div>
     )
 }
