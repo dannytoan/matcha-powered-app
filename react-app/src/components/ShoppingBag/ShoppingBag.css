@@ -32,6 +32,7 @@ div#bag-body-contiainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    align-content: center;
     margin-top: 1rem;
 }
 
@@ -78,3 +79,12 @@ a.text.continue-text:hover {
     background: #a9e978;
 
 }
+
+#bag-item-container-outer {
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        align-content: center;
+    }
+
