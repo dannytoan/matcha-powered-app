@@ -26,6 +26,7 @@ div#review-body-container {
   line-height: 2.5rem;
   font-weight: 700;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
   margin: 1rem 0px;
   letter-spacing: 1px;
 }
@@ -38,7 +39,7 @@ div#review-content {
   border-left: none;
   padding: 0px;
   overflow-wrap: break-word;
-  min-width: 1080px;
+  /* min-width: 1080px; */
   white-space: pre-wrap;
   hyphens: auto;
 }
