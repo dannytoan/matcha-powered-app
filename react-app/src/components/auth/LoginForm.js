@@ -17,7 +17,6 @@ const LoginForm = () => {
     const data = await dispatch(login(email, password));
     if (data) {
       setErrors(data);
-      history.push("/products/all")
     }
   };
 
