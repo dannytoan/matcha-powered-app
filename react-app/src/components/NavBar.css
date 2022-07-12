@@ -55,6 +55,10 @@ img#nav-logo {
     display: block;
 }
 
+.fa-bag-shopping:hover + .hide {
+    display: block;
+}
+
 #button-ctnr {
     display: flex;
     flex-direction: column;

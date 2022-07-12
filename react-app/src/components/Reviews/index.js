@@ -32,7 +32,7 @@ function Reviews({ currentProduct }) {
     (review) => review?.product_id === +currentProduct?.id
   );
 
-  console.log("CURRENT PRODUCT REVIEW-------", currentProductReviewFiltered);
+  // console.log("CURRENT PRODUCT REVIEW-------", currentProductReviewFiltered);
 
   const currentProductReview = currentProductReviewFiltered[0];
 

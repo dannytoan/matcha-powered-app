@@ -23,7 +23,7 @@ img.product-image-preview {
     height: 30em;
     width: 25em;
     object-position: center;
-    object-fit: contain;
+    object-fit: cover;
     position: relative;
     top: 3px;
 }
@@ -122,16 +122,4 @@ img.product-image-preview {
 
 a#product-listing-link {
     text-decoration: none;
-}
-
-
-@media (max-width: 1060px) {
-    .product-listing-container {
-        max-width: 25em;
-        max-height: 100%;
-        /* border: 1px black solid; */
-        /* padding: 20px; */
-        margin: 2.5rem 2.3rem;
-        cursor: pointer;
-    }
 }

@@ -12,6 +12,7 @@ import ProductsDetails from './components/ProductDetail';
 import NewProductForm from './components/NewProductForm';
 import SplashPage from './components/SplashPage';
 import Reviews from './components/Reviews';
+import ShoppingBag from './components/ShoppingBag';
 import PageNotFound from './components/PageNotFound';
 import { authenticate } from './store/session';
 import { viewProducts } from './store/products'
@@ -63,6 +64,9 @@ function App() {
         <Route path='/reviews' exact={true} >
           <Reviews />
         </Route>
+        <ProtectedRoute path='/cart' exact={true} >
+          <ShoppingBag />
+        </ProtectedRoute>
         <Route path='' exact={true} >
           <PageNotFound />
         </Route>

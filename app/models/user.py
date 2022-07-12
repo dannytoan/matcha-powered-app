@@ -15,6 +15,7 @@ class User(db.Model, UserMixin):
 
     reviews = db.relationship("Review", back_populates="users", cascade="all, delete")
     products = db.relationship("Product", back_populates="users", cascade="all, delete")
+    order_histories = db.relationship("OrderHistory", back_populates="users", uselist=False)
 
 
     @property
