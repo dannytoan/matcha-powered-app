@@ -33,6 +33,9 @@ function ShoppingBag() {
             ))}
         </div>
             <div id="continue-div"><a className="text continue-text" href="/products/all">Continue Shopping</a></div>
+            <div>
+                <button>Checkout</button>
+            </div>
             </div>
     )
 }

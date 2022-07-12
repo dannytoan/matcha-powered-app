@@ -1,5 +1,6 @@
 const REM_BAG = "cart/REM_BAG";
 const ADD_TO_BAG = "cart/ADD_TO_BAG";
+const CHECKOUT = "cart/CHECKOUT"
 
 const addItem = (product) => ({
   type: ADD_TO_BAG,
@@ -36,39 +37,6 @@ export const removeFromBag = (product) => async (dispatch) => {
   let bag = localStorage.getItem("shoppingBag");
   let parsedBag = Object.values(JSON.parse(bag));
 
-  // let parsedCopy = parsedCart.slice()
-  // let count = 0;
-
-  // if (parsedCart.length > 1) {
-  //   for (let i = 1; i < parsedCopy.length; i++) {
-  //     let element = parsedCopy[i];
-  //     console.log("ELEMENT", element)
-
-  //     if (parsedCopy[0] !== element) {
-  //       count = 1
-  //       console.log("PARSED COPY", parsedCopy)
-  //       parsedCopy.slice(1)
-  //       console.log("SLICE", parsedCopy.slice(1))
-  //       i++
-  //     } else {
-  //       count += 1
-  //       parsedCopy.slice(1)
-  //       i++
-  //     }
-  //     console.log("COUNT", count)
-  //     if (count > 1) {
-  //       const filtered = parsedCart.filter(
-  //         (selectItem) => selectItem.id !== product.id
-  //       );
-
-  //       const lastItem = filtered.pop()
-  //       console.log("last item", lastItem)
-  //     }
-  //   }
-  // }
-
-  // console.log("PARSED CART", parsedCart);
-
   // works for unique items but not duplicates, deletes all duplicates
   const filtered = parsedBag.filter(
     (selectItem) => selectItem.id !== product.id
@@ -78,6 +46,12 @@ export const removeFromBag = (product) => async (dispatch) => {
 
   dispatch(removeItem(product));
 };
+
+export const checkoutItems = (product) => async (dispatch) => {
+  
+}
+
+
 
 let initialState = {
   bag: [],
