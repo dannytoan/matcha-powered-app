@@ -53,7 +53,7 @@ function NewProductForm() {
     }
 
     if (image_url_1.length === 0) {
-      errors.push("Please provide an .JPG/.JPEG or .PNG Image URL in the 'Image URL 1' field");
+      errors.push("Please provide a .JPG/.JPEG or .PNG Image URL in the 'Image URL 1' field");
     }
 
     if (!image_url_1.match(imgUrlValidator)) {
