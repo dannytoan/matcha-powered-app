@@ -164,3 +164,11 @@ div#review-user {
     hyphens: auto;
   }
 }
+
+.no-reviews {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #a3d2ae;
+  position: relative;
+  bottom: 12rem;
+}

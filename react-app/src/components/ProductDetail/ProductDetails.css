@@ -120,7 +120,8 @@ h2#reviews-title-header {
     line-height: 3rem;
     font-weight: 700;
     font-family: Montserrat, Helvetica, Arial, sans-serif;
-    margin-bottom: 6rem;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
     justify-content: center;
 }
 
@@ -170,6 +171,33 @@ div#price-and-seller-container {
 
 #login-please {
     text-transform: uppercase;
+}
+
+.add-to-bag-btn {
+    position: relative;
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.05rem;
+    border-radius: 5rem;
+    cursor: pointer;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    outline: none;
+    border: 0px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: #a1e4b0;
+}
+
+div#add-to-bag-cntr {
+    display: flex;
+    margin-top: 2rem;
+    justify-content: flex-start;
+}
+
+.add-to-bag-btn:hover {
+    background-color: #a9e978;
 }
 
 @media (min-width: 800px) and (max-width: 1200px) {

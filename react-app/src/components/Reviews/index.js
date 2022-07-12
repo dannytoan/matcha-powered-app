@@ -48,6 +48,7 @@ function Reviews({ currentProduct }) {
   return (
     <div>
       <div id="review-body-container">
+        {currentProductReview ? <></> : <h2 className="text no-reviews">No current reviews!</h2>}
         {currentProductReviewFiltered.map((review) => (
           <div id={review.id} className="review-container">
             {/* <div id="review-rating">{review?.rating}</div> */}

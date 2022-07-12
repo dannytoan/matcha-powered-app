@@ -159,7 +159,7 @@ function ProductDetails() {
               {currentProduct?.description}
             </div>
             <div id="add-to-bag-cntr">
-              <button onClick={handleAddToCart} className="general-btn text"> <i class="fa-solid fa-bag-shopping"></i> Add to Bag</button>
+              <button onClick={handleAddToCart} className="add-to-bag-btn text"> <i class="fa-solid fa-bag-shopping"></i> Add to Bag</button>
             </div>
             <div id="edit-delete-listing-btn-div">
             {currentProduct?.user_id === sessionUser?.id ? (
