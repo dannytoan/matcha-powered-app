@@ -75,7 +75,9 @@ div#right-side-product-details {
 div#product-detail-description {
     line-height: 1.5;
     white-space: pre-wrap;
-    color: rgb(68, 68, 68);
+    overflow-wrap: break-word;
+    overflow: auto;
+    color: #444;
 }
 
 div#product-detail-name-container {

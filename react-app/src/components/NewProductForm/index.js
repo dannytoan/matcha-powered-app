@@ -26,6 +26,8 @@ function NewProductForm() {
 
   useEffect(() => {
     const errors = [];
+    const imgUrlValidator = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
+
     if (product_name.length > 50) {
       errors.push("Label must be less than 50 characters");
     } else if (product_name.length <= 0) {
@@ -51,7 +53,11 @@ function NewProductForm() {
     }
 
     if (image_url_1.length === 0) {
-      errors.push("Please provide at least one image");
+      errors.push("Please provide an .JPG/.JPEG or .PNG Image URL in the 'Image URL 1' field");
+    }
+
+    if (!image_url_1.match(imgUrlValidator)) {
+      errors.push("Images must be in JPG/JPEG or PNG format")
     }
 
     setErrors(errors);

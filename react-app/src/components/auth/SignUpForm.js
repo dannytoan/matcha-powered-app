@@ -29,6 +29,7 @@ const SignUpForm = () => {
 
   useEffect(() => {
     const errors = [];
+    const emailValid = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 
     if (!firstName.length) {
       errors.push("Please provide your first name");
@@ -62,7 +63,9 @@ const SignUpForm = () => {
 
     if (!email.length) {
       errors.push("Please provide an email address");
-    } else if (!email.includes("@")) {
+    }
+
+    if (!email.match(emailValid)) {
       errors.push("Please provide a valid email address");
     }
 
@@ -180,12 +183,12 @@ const SignUpForm = () => {
               required={true}
             ></input>
           </div>
-          <button className="auth-form-buttons" type="submit">
+          <button disabled={errors.length > 0} className="auth-form-buttons" type="submit">
             Create Account
           </button>
           <div id="new-user-signup-msg">
 
-            <p className="text">Already registered?</p> <a className="text" id="create-acc-link" href="/sign-up">Sign Into Your Account</a>
+            <p className="text">Already registered?</p> <a className="text" id="create-acc-link" href="/login">Sign Into Your Account</a>
             </div>
         </form>
       </div>
