@@ -1,0 +1,44 @@
+#shopping-bag-h1 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+img#cart-item-img {
+    height: 15rem;
+    width: 10rem;
+    object-fit: contain;
+}
+
+div#cart-item-container {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    padding: 2rem;
+    align-items: center;
+    border: 1px lightgray solid;
+    height: 10rem;
+    width: 75%;
+    margin: 0 5rem;
+}
+
+div#cart-item-details-cntr {
+    display: flex;
+    margin-left: 2rem;
+    flex-direction: column;
+}
+
+div#cart-body-contiainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+h3.text.cart-item-name {
+    color: #2a2a2a;
+}
+
+div#cart-item-detail-price {
+    color: #5b5b5b;
+}

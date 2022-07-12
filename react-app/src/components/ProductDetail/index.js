@@ -19,9 +19,6 @@ function ProductDetails() {
 
   const [users, setUsers] = useState([]);
 
-  const cart = useSelector((state) => state.cart)
-  console.log("CART", cart)
-
   const sessionUser = useSelector((state) => state.session.user);
   console.log("session user", sessionUser);
   console.log("USERS", users);
@@ -68,6 +65,7 @@ function ProductDetails() {
 
   const handleAddToCart = () => {
     dispatch(addToCart(currentProduct))
+    history.push("/cart")
   }
 
   return (
