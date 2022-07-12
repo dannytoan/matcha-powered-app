@@ -6,6 +6,7 @@ import {
   viewCurrentProduct,
   removeProduct,
 } from "../../store/products";
+import { addToCart } from "../../store/cart";
 import EditProductModal from "../EditListingModal";
 import Reviews from "../Reviews";
 import NewReviewFormModal from "../NewReviewModal";
@@ -17,6 +18,9 @@ function ProductDetails() {
   const history = useHistory();
 
   const [users, setUsers] = useState([]);
+
+  const cart = useSelector((state) => state.cart)
+  console.log("CART", cart)
 
   const sessionUser = useSelector((state) => state.session.user);
   console.log("session user", sessionUser);
@@ -39,6 +43,7 @@ function ProductDetails() {
     return Object.values(state.products);
   });
 
+
   const currentProductFiltered = products.filter(
     (current) => current?.id == id
   );
@@ -48,6 +53,7 @@ function ProductDetails() {
   const currentSeller = users?.filter(
     (user) => user?.id === +currentProduct?.user_id
   );
+
 
   const currentSellerUserName = currentSeller[0]?.username;
 
@@ -59,6 +65,10 @@ function ProductDetails() {
       return history.push("/products/all");
     }
   };
+
+  const handleAddToCart = () => {
+    dispatch(addToCart(currentProduct))
+  }
 
   return (
     <div>
@@ -149,6 +159,9 @@ function ProductDetails() {
             </div>
             <div id="product-detail-description" className="text">
               {currentProduct?.description}
+            </div>
+            <div id="add-to-bag-cntr">
+              <button onClick={handleAddToCart} className="general-btn text"> <i class="fa-solid fa-bag-shopping"></i> Add to Bag</button>
             </div>
             <div id="edit-delete-listing-btn-div">
             {currentProduct?.user_id === sessionUser?.id ? (
