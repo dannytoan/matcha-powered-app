@@ -125,7 +125,7 @@ function NewReviewForm({setShowModal}) {
             placeholder={"Insert review here..."}
             required
           />
-          <button className="submit-btn" onClick={() => window.location.reload(false)}>Submit</button>
+          <button className="submit-btn" disabled={errors.length > 0} onClick={() => window.location.reload(false)}>Submit</button>
 
         </form>
           {errors.length > 0 ? (
