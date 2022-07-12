@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { viewCart } from "../../store/cart";
 import "./Cart.css"
 
 
 function Cart() {
+    const dispatch = useDispatch();
 
-    const cart = useSelector((state) => Object.values(state.cart)[0])
-    console.log("CART", cart)
+    useEffect(() => {
+        dispatch(viewCart())
+    }, [dispatch])
+
+    const cart = JSON.parse(localStorage.getItem("cart"))
 
     return (
         <div id="cart-body-contiainer">
