@@ -55,13 +55,22 @@ def product_details(id):
     return product.to_dict()
 
 
+# @product_routes.route('/<int:id>', methods=['DELETE'])
+# def delete_product(id):
+#     product = Product.query.get(id)
+#     db.session.delete(product)
+#     db.session.commit()
+
+#     return "Product was successfully deleted."
+
 @product_routes.route('/<int:id>', methods=['DELETE'])
 def delete_product(id):
-    product = Product.query.get(id)
-    db.session.delete(product)
+    product = Product.query.filter_by(id = id)
+    product.delete()
     db.session.commit()
 
     return "Product was successfully deleted."
+
 
 @product_routes.route('/<int:id>', methods=['PUT'])
 def edit_product(id):
