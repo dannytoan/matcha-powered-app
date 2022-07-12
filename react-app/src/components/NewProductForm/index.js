@@ -29,7 +29,7 @@ function NewProductForm() {
     const imgUrlValidator = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
 
     if (product_name.length > 50) {
-      errors.push("Label must be less than 50 characters");
+      errors.push("Product name must be less than 50 characters");
     } else if (product_name.length <= 0) {
       errors.push("Please provide a Product Name");
     }
