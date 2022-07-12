@@ -6,7 +6,7 @@ import {
   viewCurrentProduct,
   removeProduct,
 } from "../../store/products";
-import { addToCart } from "../../store/cart";
+import { addToBag } from "../../store/shoppingBag";
 import EditProductModal from "../EditListingModal";
 import Reviews from "../Reviews";
 import NewReviewFormModal from "../NewReviewModal";
@@ -20,8 +20,8 @@ function ProductDetails() {
   const [users, setUsers] = useState([]);
 
   const sessionUser = useSelector((state) => state.session.user);
-  console.log("session user", sessionUser);
-  console.log("USERS", users);
+  // console.log("session user", sessionUser);
+  // console.log("USERS", users);
 
   useEffect(() => {
     async function fetchData() {
@@ -64,7 +64,7 @@ function ProductDetails() {
   };
 
   const handleAddToCart = () => {
-    dispatch(addToCart(currentProduct))
+    dispatch(addToBag(currentProduct))
     history.push("/cart")
   }
 

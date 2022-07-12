@@ -14,7 +14,7 @@ function Products() {
     return Object.values(state.products);
   });
 
-  console.log("PRODUCTS in Component", products);
+  // console.log("PRODUCTS in Component", products);
 
   return (
     <div>
