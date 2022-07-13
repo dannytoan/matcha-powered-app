@@ -17,6 +17,7 @@ import PageNotFound from './components/PageNotFound';
 import { authenticate } from './store/session';
 import { viewProducts } from './store/products'
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();

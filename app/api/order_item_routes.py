@@ -19,3 +19,13 @@ def validation_errors_to_error_messages(validation_errors):
 def products():
     order_items = OrderItem.query.all()
     return {'order_items': [order_item.to_dict() for order_item in order_items]}
+
+
+# @order_item_routes('/new', methods=['POST'])
+# def new_order_items():
+
+#     new_order_item: OrderItem(
+#         product_id,
+#         order_history_id,
+#         qty,
+#     )
