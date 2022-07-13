@@ -39,23 +39,23 @@ img#nav-logo {
     border-top: 2px solid #424242;
 }
 
-.fa-right-from-bracket:hover + .hide {
+.fa-right-from-bracket:hover+.hide {
     display: block;
 }
 
-.fa-shop:hover + .hide {
+.fa-shop:hover+.hide {
     display: block;
 }
 
-.fa-user:hover + .hide {
+.fa-user:hover+.hide {
     display: block;
 }
 
-.fa-user-plus:hover + .hide {
+.fa-user-plus:hover+.hide {
     display: block;
 }
 
-.fa-bag-shopping:hover + .hide {
+.fa-bag-shopping:hover+.hide {
     display: block;
 }
 
@@ -71,12 +71,33 @@ img#nav-logo {
     transition: fadeIn 2s;
 }
 
+li.profile-btn-ctnr {
+    display: flex;
+    justify-content: center;
+}
+
+.fa-user {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: #474747;
+}
+
+.fa-right-from-bracket {
+    color: #474747;
+
+}
+
 /* .category:hover {
     border-bottom: 2px black solid;
     transition: fadeIn 1s;
 } */
 
 @keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

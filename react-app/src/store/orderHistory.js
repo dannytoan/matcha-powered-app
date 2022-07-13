@@ -18,11 +18,8 @@ export const viewOrderHistory = () => async (dispatch) => {
   if (response.ok) {
     const orderItem = await response.json();
 
-    dispatch(view(orderItem.orderItem));
-    return orderItem.orderItem;
-  } else {
-    const errors = await response.json();
-    return errors;
+    dispatch(view(orderItem.order_history));
+    return orderItem.order_history;
   }
 };
 
