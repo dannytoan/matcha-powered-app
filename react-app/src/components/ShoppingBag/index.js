@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromBag } from "../../store/shoppingBag";
-import { viewOrderHistory } from "../../store/orderHistory";
+import { viewOrderHistory } from "../../store/orderHistory.js";
 import "./ShoppingBag.css"
 
 
