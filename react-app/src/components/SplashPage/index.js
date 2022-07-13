@@ -32,6 +32,7 @@ function SplashPage() {
         </video>
         {sessionUser ? <></> : <button className="demo-btn" onClick={demoOnClick}>Demo User</button>}
       </div>
+      <h1>hello</h1>
     </div>
   );
 }
