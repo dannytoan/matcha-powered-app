@@ -14,7 +14,7 @@ import SplashPage from './components/SplashPage';
 import Reviews from './components/Reviews';
 import ShoppingBag from './components/ShoppingBag';
 import PageNotFound from './components/PageNotFound';
-import PaymentForm from './components/PaymentModal/PaymentForm';
+import PaymentForm from './components/PaymentModal';
 import { authenticate } from './store/session';
 import { viewProducts } from './store/products'
 
