@@ -70,5 +70,6 @@ def create_order_items():
         result.append(new_order_item)
 
     print("-----RESULT-----", result)
+    print("-----LIST COMPREHENSSION", [order.to_dict() for order in result])
 
-    return {'order_item': [order_item.to_dict() for order_item in result]}
+    return jsonify([order_item.to_dict() for order_item in result])

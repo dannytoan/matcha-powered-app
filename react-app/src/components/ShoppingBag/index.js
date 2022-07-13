@@ -29,7 +29,7 @@ function ShoppingBag() {
   const handleCheckout = () => {
     const shoppingBag = localStorage.getItem("shoppingBag");
     const parsedShoppingBag = JSON.parse(shoppingBag);
-    // console.log("SHOPPING BAG IN FRONT END", JSON.parse(shoppingBag))
+    console.log("SHOPPING BAG IN FRONT END", JSON.parse(shoppingBag))
     let orderHistoryId;
 
     for (let orderHistory in currentOrderHistory) {
@@ -53,6 +53,29 @@ function ShoppingBag() {
     dispatch(addOrderHistory(orderHistoryPayload));
     dispatch(addOrderItem(orderItemsPayload));
   };
+
+
+  // const handleCheckout2 = () => {
+  //   const shoppingBag = localStorage.getItem("shoppingBag");
+  //   const parsedShoppingBag = JSON.parse(shoppingBag);
+  //   let orderHistoryId;
+
+  //   for (let orderHistory in currentOrderHistory) {
+  //     console.log("ORDER HISTORY", orderHistory);
+  //     if (orderHistory !== undefined) {
+  //       orderHistoryId = orderHistory;
+  //       console.log("NEW ORDER HISTORY ID", orderHistoryId)
+  //     }
+  //   }
+
+  //   const orderItemsPayload = {
+  //     shoppingBag: parsedShoppingBag,
+  //     orderHistory: orderHistoryId,
+  //   };
+
+
+  //   dispatch(addOrderItem(orderItemsPayload));
+  // }
 
   return (
     <div id="bag-body-contiainer">
@@ -81,7 +104,8 @@ function ShoppingBag() {
         ))}
       </div>
       <div id="continue-div">
-        <button onClick={handleCheckout}>Checkout</button>
+        <button onClick={handleCheckout}>Checkout Step 1</button>
+        {/* <button onClick={handleCheckout2}>Checkout Step 2</button> */}
         <a className="text continue-text" href="/products/all">
           Continue Shopping
         </a>
