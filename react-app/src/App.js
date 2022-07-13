@@ -14,6 +14,7 @@ import SplashPage from './components/SplashPage';
 import Reviews from './components/Reviews';
 import ShoppingBag from './components/ShoppingBag';
 import PageNotFound from './components/PageNotFound';
+import PaymentForm from './components/PaymentModal/PaymentForm';
 import { authenticate } from './store/session';
 import { viewProducts } from './store/products'
 
@@ -67,6 +68,9 @@ function App() {
         </Route>
         <ProtectedRoute path='/cart' exact={true} >
           <ShoppingBag />
+        </ProtectedRoute>
+        <ProtectedRoute path='/payment' exact={true}>
+          <PaymentForm />
         </ProtectedRoute>
         <Route path='' exact={true} >
           <PageNotFound />

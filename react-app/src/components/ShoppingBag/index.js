@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromBag } from "../../store/shoppingBag";
 import { addOrderHistory, addOrderItem } from "../../store/orderHistory.js";
+import PaymentFormModal from "../PaymentModal";
 import "./ShoppingBag.css";
+import { useHistory } from "react-router-dom";
 
 function ShoppingBag() {
   const dispatch = useDispatch();
+  const history = useHistory()
   const sessionUserId = useSelector((state) => state.session.user.id);
   const bag = JSON.parse(localStorage.getItem("shoppingBag"));
   console.log("BAG", bag);
@@ -14,6 +17,8 @@ function ShoppingBag() {
   const currentOrderHistory = useSelector((state) => state.orderHistory);
   console.log("CURRENT ORDER HISTORY", currentOrderHistory);
   // console.log("OBJ VALUES CURRENT ORDER HISTORY", Object.values(currentOrderHistory))
+
+  const [showModal, setShowModal] = useState(false)
 
   const removeBagHandler = (cartItem) => {
     dispatch(removeFromBag(cartItem));
@@ -26,10 +31,43 @@ function ShoppingBag() {
   //     })
   //   }
 
-  const handleCheckout = () => {
+  const handleOrderHistory = async (e) => {
+    // const shoppingBag = localStorage.getItem("shoppingBag");
+    // const parsedShoppingBag = JSON.parse(shoppingBag);
+    // console.log("SHOPPING BAG IN FRONT END", JSON.parse(shoppingBag))
+    // let orderHistoryId;
+
+    // for (let orderHistory in currentOrderHistory) {
+    //   console.log("ORDER HISTORY", orderHistory);
+    //   if (orderHistory !== undefined) {
+    //     orderHistoryId = orderHistory;
+    //     console.log("NEW ORDER HISTORY ID", orderHistoryId)
+    //   }
+    // }
+
+    const orderHistoryPayload = {
+      user_id: sessionUserId,
+      date: today,
+    };
+
+    // const orderItemsPayload = {
+    //   shoppingBag: parsedShoppingBag,
+    //   orderHistory: orderHistoryId,
+    // };
+
+    let successfulOrderHistory = dispatch(addOrderHistory(orderHistoryPayload));
+    // dispatch(addOrderItem(orderItemsPayload));
+
+    if (successfulOrderHistory) {
+      console.log("successful order history")
+      history.push("/payment")
+    }
+  };
+
+
+  const handleOrderItems = async (e) => {
     const shoppingBag = localStorage.getItem("shoppingBag");
     const parsedShoppingBag = JSON.parse(shoppingBag);
-    console.log("SHOPPING BAG IN FRONT END", JSON.parse(shoppingBag))
     let orderHistoryId;
 
     for (let orderHistory in currentOrderHistory) {
@@ -40,42 +78,18 @@ function ShoppingBag() {
       }
     }
 
-    const orderHistoryPayload = {
-      user_id: sessionUserId,
-      date: today,
-    };
-
     const orderItemsPayload = {
       shoppingBag: parsedShoppingBag,
       orderHistory: orderHistoryId,
     };
 
-    dispatch(addOrderHistory(orderHistoryPayload));
-    dispatch(addOrderItem(orderItemsPayload));
-  };
+    let successfulOrderItems = await dispatch(addOrderItem(orderItemsPayload));
 
-
-  // const handleCheckout2 = () => {
-  //   const shoppingBag = localStorage.getItem("shoppingBag");
-  //   const parsedShoppingBag = JSON.parse(shoppingBag);
-  //   let orderHistoryId;
-
-  //   for (let orderHistory in currentOrderHistory) {
-  //     console.log("ORDER HISTORY", orderHistory);
-  //     if (orderHistory !== undefined) {
-  //       orderHistoryId = orderHistory;
-  //       console.log("NEW ORDER HISTORY ID", orderHistoryId)
-  //     }
-  //   }
-
-  //   const orderItemsPayload = {
-  //     shoppingBag: parsedShoppingBag,
-  //     orderHistory: orderHistoryId,
-  //   };
-
-
-  //   dispatch(addOrderItem(orderItemsPayload));
-  // }
+    if (successfulOrderItems) {
+      // setShowModal(false)
+      history.push("/")
+    }
+  }
 
   return (
     <div id="bag-body-contiainer">
@@ -104,7 +118,10 @@ function ShoppingBag() {
         ))}
       </div>
       <div id="continue-div">
-        <button onClick={handleCheckout}>Checkout Step 1</button>
+        <button onClick={handleOrderHistory}>Checkout Step 1</button>
+        {/* <div onClick={handleOrderHistory}>
+        <PaymentFormModal handleOrderItems={handleOrderItems}/>
+        </div> */}
         {/* <button onClick={handleCheckout2}>Checkout Step 2</button> */}
         <a className="text continue-text" href="/products/all">
           Continue Shopping
