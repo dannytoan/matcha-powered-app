@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { removeFromBag } from "../../store/shoppingBag";
+import { viewOrderHistory } from "../../store/orderHistory";
 import "./ShoppingBag.css"
 
 
 function ShoppingBag() {
     const dispatch = useDispatch();
-
-
     const bag = JSON.parse(localStorage.getItem("shoppingBag"))
+
     const removeBagHandler = (cartItem) => {
         dispatch(removeFromBag(cartItem))
         window.location.reload(false)
+    }
+
+    function handleCheckout() {
+        dispatch(viewOrderHistory);
     }
 
     return (
@@ -28,6 +32,7 @@ function ShoppingBag() {
                     <button className="remove-btn" onClick={() => removeBagHandler(bagItem)}>Remove</button>
                 </div>
                 <div>
+                    <button onClick={handleCheckout}>Checkout</button>
                     </div>
                 </div>
             ))}
