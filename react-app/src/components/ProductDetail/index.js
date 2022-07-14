@@ -23,6 +23,10 @@ function ProductDetails() {
   // console.log("session user", sessionUser);
   // console.log("USERS", users);
 
+  const replaceInvalidImg = e => {
+    e.currentTarget.src = "https://res.cloudinary.com/matchaprince/image/upload/v1657785064/centered_invalid_jy2yxm.png";
+  }
+
   useEffect(() => {
     async function fetchData() {
       const response = await fetch("/api/users/");
@@ -79,6 +83,7 @@ function ProductDetails() {
               <img
                 className="product-detail-img-top"
                 src={`${currentProduct?.image_url_2}`}
+                onError={replaceInvalidImg}
               />
             ) : (
               <div className="no-pic"></div>
@@ -88,6 +93,7 @@ function ProductDetails() {
               <img
                 className="product-detail-img-top"
                 src={`${currentProduct?.image_url_3}`}
+                onError={replaceInvalidImg}
               />
             ) : (
               <div className="no-pic"></div>
@@ -97,13 +103,14 @@ function ProductDetails() {
               <img
                 className="product-detail-img-top"
                 src={`${currentProduct?.image_url_4}`}
+                onError={replaceInvalidImg}
               />
             ) : (
               <div className="no-pic"></div>
             )}
           </div>
           <div id="center-pic">
-            <img id="center-pic-img" src={`${currentProduct?.image_url_1}`} />
+            <img id="center-pic-img" src={`${currentProduct?.image_url_1}`} onError={replaceInvalidImg} />
           </div>
           <div
             className={
@@ -114,6 +121,7 @@ function ProductDetails() {
               <img
                 className="product-detail-img-bottom"
                 src={`${currentProduct?.image_url_5}`}
+                onError={replaceInvalidImg}
               />
             ) : (
               <div className="no-pic"></div>
@@ -123,6 +131,7 @@ function ProductDetails() {
               <img
                 className="product-detail-img-bottom"
                 src={`${currentProduct?.image_url_6}`}
+                onError={replaceInvalidImg}
               />
             ) : (
               <div className="no-pic"></div>

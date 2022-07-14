@@ -15,6 +15,9 @@ function Products() {
   });
 
   // console.log("PRODUCTS in Component", products);
+  const replaceInvalidImg = e => {
+    e.currentTarget.src = "https://res.cloudinary.com/matchaprince/image/upload/v1657785064/centered_invalid_jy2yxm.png";
+  }
 
   return (
     <div>
@@ -34,6 +37,7 @@ function Products() {
                 <img
                   className="product-image-preview"
                   src={product.image_url_1}
+                  onError={replaceInvalidImg}
                 />
                 <div className="product-image-overlay">
                   <div className="text product-image-overlay-details">

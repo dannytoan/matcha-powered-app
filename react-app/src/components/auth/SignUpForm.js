@@ -27,6 +27,7 @@ const SignUpForm = () => {
     }
   };
 
+
   useEffect(() => {
     const errors = [];
     const emailValid = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
