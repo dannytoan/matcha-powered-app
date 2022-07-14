@@ -44,6 +44,8 @@ function EditProductForm({ setShowModal }) {
       errors.push("Label must be less than 50 characters");
     } else if (product_name.length <= 0) {
       errors.push("Please provide a Product Name");
+    } else if (!product_name.replace(/\s/g, '').length) {
+      errors.push('Product name must not be empty')
     }
 
     if (price <= 0) {
@@ -62,6 +64,8 @@ function EditProductForm({ setShowModal }) {
       errors.push("Please provide a description");
     } else if (description.length > 2000) {
       errors.push("Description length must not exceed 2000 characters");
+    } if (!description.replace(/\s/g, '').length) {
+      errors.push('Description must not be empty')
     }
 
     if (image_url_1.length === 0) {

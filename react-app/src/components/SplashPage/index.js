@@ -75,8 +75,16 @@ function SplashPage() {
         </div>
       </div>
       <div id="bottom-page-container">
-        <div id="left-side-bottom-container"></div>
-        <div id="right-side-bottom-container"></div>
+        {/* <img id="text-bottom-test"src="https://res.cloudinary.com/matchaprince/image/upload/v1657838099/bottom_infographic_mi2lhf.png"/> */}
+        {/* <div id="left-side-bottom-container"> */}
+            <h2 className="text bottom-splash-desc-title">Your new favorite online marketplace <br/> for all things fitness</h2>
+            <img id="fitness-bottom-infographic-pic" src="https://res.cloudinary.com/matchaprince/image/upload/v1657840126/My_project_1_otjhnv.png" />
+            <a href="/sign-up">
+
+            <button className="splash-bottom-singup-btn" >Sign Up for Free</button>
+            </a>
+        {/* </div> */}
+        {/* <div id="right-side-bottom-container"></div> */}
       </div>
     </div>
   );

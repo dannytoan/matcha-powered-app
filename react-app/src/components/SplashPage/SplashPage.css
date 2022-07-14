@@ -150,22 +150,69 @@ img#monthly-item-img {
   }
 
   div#bottom-page-container {
-    border: 1px black solid;
+    /* border: 1px black solid; */
     height: 40rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    position: relative;
+    top: 4.5rem;
+    align-items: center;
   }
 
   div#left-side-bottom-container {
     width: 50%;
     border: 1px solid black;
+    background: #dbf4d7;
     height: 100%;
   }
 
   div#right-side-bottom-container {
     width: 50%;
     border: 1px solid black;
+    background: #dbf4d7;
     height: 100%;
+  }
+
+  h2.text.bottom-splash-desc-title {
+    color: #dbf4d7;
+    text-shadow: -3px 2px #c5f0a4;
+    font-weight: 700;
+    font-size: 4rem;
+    text-align: left;
+    width: 38rem;
+    position: relative;
+    left: 20rem;
+    /* margin-right: 25px; */
+  }
+
+  img#fitness-bottom-infographic-pic {
+    width: 31rem;
+    position: relative;
+    bottom: 20rem;
+    right: 20rem;
+  }
+
+  .splash-bottom-singup-btn {
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 25px;
+    letter-spacing: 0.05rem;
+    border-radius: 5rem;
+    cursor: pointer;
+    padding: 2rem 9rem;
+    font-weight: 800;
+    outline: none;
+    border: 0px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background-color: #a1e4b0;
+    position: relative;
+    bottom: 34rem;
+    left: 19rem;
+  }
+
+  .splash-bottom-singup-btn:hover {
+    background-color: #a9e978;
   }
 
 @media (max-width: 1620px) {
