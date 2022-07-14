@@ -40,8 +40,8 @@ export const addProduct = (payload) => async (dispatch) => {
   });
 
   const newProduct = await response.json();
-  console.log("RESPONSE", response);
-  console.log("NEW PRODUCT", newProduct);
+  // console.log("RESPONSE", response);
+  // console.log("NEW PRODUCT", newProduct);
 
   if (newProduct) {
     dispatch(add(newProduct));

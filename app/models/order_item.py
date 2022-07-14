@@ -14,10 +14,10 @@ class OrderItem(db.Model):
 
 
 
-def to_dict(self):
-        return {
-            'id': self.id,
-            'product_id': self.product_id,
-            'order_history_id': self.order_history_id,
-            'qty': self.qty
-    }
+    def to_dict(self):
+            return {
+                'id': self.id,
+                'product_id': self.product_id,
+                'order_history_id': self.order_history_id,
+                'qty': self.qty
+        }

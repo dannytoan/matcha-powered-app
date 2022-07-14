@@ -10,3 +10,11 @@ class OrderHistory(db.Model):
 
     users = db.relationship("User", back_populates="order_histories")
     order_items = db.relationship("OrderItem", back_populates="order_histories")
+
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'date': self.date,
+    }

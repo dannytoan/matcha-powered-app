@@ -14,8 +14,14 @@ import SplashPage from './components/SplashPage';
 import Reviews from './components/Reviews';
 import ShoppingBag from './components/ShoppingBag';
 import PageNotFound from './components/PageNotFound';
+import PaymentForm from './components/PaymentModal';
+import Profile from './components/Profile';
 import { authenticate } from './store/session';
 import { viewProducts } from './store/products'
+import { viewOrderHistory } from './store/orderHistory'
+import { viewOrderItem } from './store/orderItems'
+
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -25,6 +31,8 @@ function App() {
     (async() => {
       await dispatch(authenticate());
       await dispatch(viewProducts());
+      await dispatch(viewOrderHistory());
+      await dispatch(viewOrderItem());
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -66,6 +74,12 @@ function App() {
         </Route>
         <ProtectedRoute path='/cart' exact={true} >
           <ShoppingBag />
+        </ProtectedRoute>
+        <ProtectedRoute path='/payment' exact={true}>
+          <PaymentForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/my-matchashark'>
+          <Profile />
         </ProtectedRoute>
         <Route path='' exact={true} >
           <PageNotFound />

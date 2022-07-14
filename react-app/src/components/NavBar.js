@@ -58,7 +58,9 @@ const NavBar = () => {
                   <div className="hide text">YOUR BAG</div>
                 </Link>
               </li>
-            ) : <></>}
+            ) : (
+              <></>
+            )}
             {sessionUser ? (
               <></>
             ) : (
@@ -86,6 +88,16 @@ const NavBar = () => {
                   <div className="text hide">SELL PRODUCT</div>
                 </NavLink>
               </li>
+            ) : (
+              <></>
+            )}
+            {sessionUser ? (
+              <Link to="/my-matchashark">
+              <li className="profile-btn-ctnr">
+                <i class="fa-solid fa-user"></i>
+                <div className="text hide">PROFILE</div>
+              </li>
+              </Link>
             ) : (
               <></>
             )}
