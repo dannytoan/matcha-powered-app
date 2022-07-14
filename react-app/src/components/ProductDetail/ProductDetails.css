@@ -11,8 +11,8 @@ div#product-detail-imgs-grid {
     display: flex;
     flex-wrap: wrap;
     width: 40rem;
-
-}
+    margin-top: -4rem;
+  }
 
 img.product-detail-img-top {
     width: 100%;
