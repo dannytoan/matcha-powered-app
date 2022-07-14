@@ -72,7 +72,7 @@ function App() {
         <Route path='/reviews' exact={true} >
           <Reviews />
         </Route>
-        <ProtectedRoute path='/cart' exact={true} >
+        {/* <ProtectedRoute path='/cart' exact={true} >
           <ShoppingBag />
         </ProtectedRoute>
         <ProtectedRoute path='/payment' exact={true}>
@@ -80,7 +80,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/my-matchashark'>
           <Profile />
-        </ProtectedRoute>
+        </ProtectedRoute> */}
         <Route path='' exact={true} >
           <PageNotFound />
         </Route>
