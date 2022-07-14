@@ -1,5 +1,6 @@
-<h1 align="center">MatchaShark</h1>
-
+<p align="center">
+  <img src="https://res.cloudinary.com/matchaprince/image/upload/v1657157589/matcha_shark_logo_maiavt.png">
+</p>
 <p align="center">MatchaShark is a fullstack e-commerce marketplace application with a consumer fitness theme and Amazon/Etsy-like capabilities. Users are able to post their own product listings, buy products made by other users, and leave reviews on products within the community.</p>
 
 
