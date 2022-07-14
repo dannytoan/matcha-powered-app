@@ -123,7 +123,7 @@ div#monthly-item-container {
     height: -moz-fit-content;
     height: fit-content;
     position: absolute;
-    top: 11rem;
+    top: 12rem;
     left: 53rem;
     padding: 0rem 1rem 2rem 1rem;
     display: flex;
@@ -148,3 +148,52 @@ img#monthly-item-img {
     left: 47rem;
     top: 39.5rem;
   }
+
+  div#bottom-page-container {
+    border: 1px black solid;
+    height: 40rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  div#left-side-bottom-container {
+    width: 50%;
+    border: 1px solid black;
+    height: 100%;
+  }
+
+  div#right-side-bottom-container {
+    width: 50%;
+    border: 1px solid black;
+    height: 100%;
+  }
+
+@media (max-width: 1620px) {
+    #video-header-title-2 {
+        display: none;
+      }
+
+      div#monthly-item-container {
+        /* border: 1px solid black; */
+        width: -moz-fit-content;
+        width: fit-content;
+        background: #ffffff29;
+        height: -moz-fit-content;
+        height: fit-content;
+        position: absolute;
+        top: 12rem;
+        left: 42rem;
+        padding: 0rem 1rem 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+      }
+
+      div#welcome-btn-cntr {
+        position: relative;
+        bottom: 5.5rem;
+        left: 44rem;
+      }
+}

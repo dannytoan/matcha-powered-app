@@ -74,6 +74,10 @@ function SplashPage() {
           )}
         </div>
       </div>
+      <div id="bottom-page-container">
+        <div id="left-side-bottom-container"></div>
+        <div id="right-side-bottom-container"></div>
+      </div>
     </div>
   );
 }
