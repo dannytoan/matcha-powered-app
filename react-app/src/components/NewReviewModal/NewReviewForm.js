@@ -25,12 +25,16 @@ function NewReviewForm({setShowModal}) {
         errors.push("Please provide a title")
     } else if (title.length > 50) {
       errors.push("Title must not exceed 50 characters")
+    } else if (!title.replace(/\s/g, '').length) {
+      errors.push('Title must not be empty')
     }
 
     if (content.length === 0) {
         errors.push("Please provide a review")
     } else if (content.length > 500) {
         errors.push("Review must not exceed over 500 characters")
+    } else if (!content.replace(/\s/g, '').length) {
+      errors.push('Content must not be empty')
     }
 
     setErrors(errors);

@@ -182,7 +182,6 @@ function ProductDetails() {
             </div>
             {/* <div id="add-to-bag-cntr">
               <button onClick={handleAddToCart} className="add-to-bag-btn text">
-                {" "}
                 <i class="fa-solid fa-bag-shopping"></i> Add to Bag
               </button>
             </div> */}
