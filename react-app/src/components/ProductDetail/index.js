@@ -40,7 +40,6 @@ function ProductDetails() {
     return Object.values(state.products);
   });
 
-
   const currentProductFiltered = products.filter(
     (current) => current?.id == id
   );
@@ -50,7 +49,6 @@ function ProductDetails() {
   const currentSeller = users?.filter(
     (user) => user?.id === +currentProduct?.user_id
   );
-
 
   const currentSellerUserName = currentSeller[0]?.username;
 
@@ -64,9 +62,9 @@ function ProductDetails() {
   };
 
   const handleAddToCart = () => {
-    dispatch(addToBag(currentProduct))
-    history.push("/cart")
-  }
+    dispatch(addToBag(currentProduct));
+    history.push("/cart");
+  };
 
   return (
     <div>
@@ -143,39 +141,44 @@ function ProductDetails() {
               </h2>
             </div>
           </div>
-            <div id="product-detail-seller-name" className="text">
-                Sold by {currentSellerUserName}
-              </div>
+          <div id="product-detail-seller-name" className="text">
+            Sold by {currentSellerUserName}
+          </div>
 
           <div id="description-container">
             <div id="product-desc-seller-container">
 
-            <h3 id="product-description-title" className="text">
-              Description
-            </h3>
-
+              <div id="desc-btns-cntr">
+                <h3 id="product-description-title" className="text">
+                  Description
+                </h3>
+                {currentProduct?.user_id === sessionUser?.id ? (
+                  <div id="edit-delete-listing-btn-container">
+                    <EditProductModal />{" "}
+                    <button
+                      className="edit-delete-listing-btn"
+                      onClick={(e) => deleteProductHandler(currentProductId)}
+                    >
+                      Delete Listing
+                    </button>
+                  </div>
+                ) : (
+                  <></>
+                )}
+              </div>
             </div>
+
             <div id="product-detail-description" className="text">
               {currentProduct?.description}
             </div>
             <div id="add-to-bag-cntr">
-              <button onClick={handleAddToCart} className="add-to-bag-btn text"> <i class="fa-solid fa-bag-shopping"></i> Add to Bag</button>
+              <button onClick={handleAddToCart} className="add-to-bag-btn text">
+                {" "}
+                <i class="fa-solid fa-bag-shopping"></i> Add to Bag
+              </button>
             </div>
-            <div id="edit-delete-listing-btn-div">
-            {currentProduct?.user_id === sessionUser?.id ? (
-              <div id="edit-delete-listing-btn-container">
-                <EditProductModal />{" "}
-                <button className="edit-delete-listing-btn" onClick={(e) => deleteProductHandler(currentProductId)}>
-                  Delete Listing
-                </button>
-              </div>
-            ) : (
-              <></>
-            )}
+            <div id="edit-delete-listing-btn-div"></div>
           </div>
-          </div>
-
-
         </div>
       </div>
       <div id="reviews-body">
@@ -188,7 +191,9 @@ function ProductDetails() {
             {sessionUser ? (
               <NewReviewFormModal />
             ) : (
-              <a href="/login" id="login-please" className="text general-btn">Log in to create a review</a>
+              <a href="/login" id="login-please" className="text general-btn">
+                Log in to create a review
+              </a>
             )}
           </div>
         )}

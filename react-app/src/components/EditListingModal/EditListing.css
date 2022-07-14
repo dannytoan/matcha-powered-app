@@ -3,6 +3,10 @@
     overflow: auto;
 }
 
+button.edit-delete-listing-btn.edit-listing-btn-desc {
+    margin-right: 15px;
+  }
+
 .edit-product-errors-div {
     background: #f7d0d0;
     width: 80%;

@@ -41,7 +41,7 @@ img.product-image-preview {
     font-family: Roboto, Arial, sans-serif;
     color: rgb(68, 68, 68);
     width: 70%;
-    overflow-wrap: break-word;
+    overflow-wrap: anywhere;
     flex-wrap: wrap;
     display: flex;
     /* border: 1px black solid; */
@@ -53,7 +53,6 @@ img.product-image-preview {
     line-height: 2.4rem;
     font-family: Roboto,Helvetica,Arial,sans-serif;
     color: rgb(0, 0, 0);
-    width: 30%;
     margin: 0px;
 }
 

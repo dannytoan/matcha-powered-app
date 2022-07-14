@@ -89,6 +89,7 @@ div#product-detail-name-container {
 }
 
 h1#product-detail-name-title {
+    overflow-wrap: anywhere;
     line-height: 1.25;
     width: 22rem;
     margin-right: 2em;
@@ -140,8 +141,8 @@ div#edit-delete-listing-btn-container {
     display: flex;
     margin-top: 1rem;
     min-width: 28rem;
-    justify-content: space-evenly;
-}
+    justify-content: center;
+  }
 
 div#edit-delete-listing-btn-div {
     display: flex;
@@ -157,13 +158,13 @@ div#edit-delete-listing-btn-div {
     cursor: pointer;
     font-weight: 700;
     outline: none;
-    width: 10rem;
+    width: 9rem;
     height: 2rem;
     border: 0px;
     text-align: center;
     color: rgb(255, 255, 255);
     background-color: #a1e4b0;
-}
+  }
 
 div#price-and-seller-container {
     display: flex;
@@ -199,6 +200,15 @@ div#add-to-bag-cntr {
 }
 
 .add-to-bag-btn:hover {
+    background-color: #a9e978;
+}
+
+div#desc-btns-cntr {
+    display: flex;
+    flex-direction: row;
+  }
+
+.edit-delete-listing-btn:hover {
     background-color: #a9e978;
 }
 
