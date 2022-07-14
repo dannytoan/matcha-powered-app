@@ -36,7 +36,7 @@ function NewProductForm() {
 
     if (price <= 0) {
       errors.push("Price must be greater than 0");
-    } else if (price >= 10000) {
+    } else if (price > 10000) {
       errors.push("Price may not exceed over $10,0000");
     }
 

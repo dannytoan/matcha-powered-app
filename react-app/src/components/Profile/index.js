@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import "./Profile.css"
+import "./Profile.css";
 
 function Profile() {
   const orderHistory = useSelector((state) => {
@@ -42,6 +42,7 @@ function Profile() {
 
       return (
         <div>
+            <img src={filteredProducts[0]?.image_url_1}/>
           {filteredProducts[0]?.product_name}
           {filteredProducts[0]?.price}
         </div>
@@ -53,13 +54,18 @@ function Profile() {
     // );
 
     return (
-      <div id="order-history-entry-cntr">
-        <div>ORDER#{order.id}</div>
-        <div filteredMap={filteredMap}>
-          {console.log(filteredMap)}
-          {filteredMap}
+      <div>
+        {console.log("FILTERED MAP", filteredMap)}
+        {filteredMap.length === 1 ?
+        <div id="order-history-entry-cntr">
+          <div>ORDER#{order.id}</div>
+          <div filteredMap={filteredMap}>
+            {console.log(filteredMap)}
+            {filteredMap}
+          </div>
+          <div>ORDER PLACED ON: {order.date}</div>
         </div>
-        <div>ORDER PLACED ON: {order.date}</div>
+        : <></>}
       </div>
     );
   });
