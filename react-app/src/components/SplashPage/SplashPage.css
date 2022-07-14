@@ -235,6 +235,12 @@ img#monthly-item-img {
         left: 16rem;
         top: 40.5rem;
       }
+
+      div#welcome-btn-cntr {
+        position: relative;
+        bottom: 5.5rem;
+        left: 23.8rem;
+      }
 }
 
 @media (max-width: 860px) {
@@ -261,5 +267,11 @@ img#monthly-item-img {
         width: 37rem;
         left: 9rem;
         top: 40.5rem;
+      }
+
+      div#welcome-btn-cntr {
+        position: relative;
+        bottom: 5.5rem;
+        left: 16.8rem;
       }
 }
