@@ -1,6 +1,6 @@
 <h1 align="center">MatchaShark</h1>
 
-<p align="center">MatchaShark is a fullstack e-commerce marketplace application with a consumer fitness theme and Amazon/Etsy-like capabilities. Users are able to post their own product listings as well as buy products made by other users within the community.</p>
+<p align="center">MatchaShark is a fullstack e-commerce marketplace application with a consumer fitness theme and Amazon/Etsy-like capabilities. Users are able to post their own product listings, buy products made by other users, and leave reviews on products within the community.</p>
 
 
 **Live Link**: https://matchashark.herokuapp.com/
