@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory, NavLink } from "react-router-dom";
+import { useParams, useHistory} from "react-router-dom";
 import {
   viewProducts,
   viewCurrentProduct,
@@ -45,7 +45,7 @@ function ProductDetails() {
   });
 
   const currentProductFiltered = products.filter(
-    (current) => current?.id == id
+    (current) => current?.id === +id
   );
   const currentProduct = currentProductFiltered[0];
   const currentProductId = currentProduct?.id;

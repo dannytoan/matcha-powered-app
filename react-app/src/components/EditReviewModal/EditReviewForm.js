@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { viewReviews, updateReview } from "../../store/reviews";
+import { updateReview } from "../../store/reviews";
 import "./EditReviewForm.css"
 
 function EditReviewForm({ review, setShowModal }) {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const [errors, setErrors] = useState([]);
   const [title, setTitle] = useState(review.title);
