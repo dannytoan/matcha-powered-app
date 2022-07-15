@@ -32,7 +32,7 @@ export const addOrderHistory = (payload) => async (dispatch) => {
 
   const newOrder = await response.json();
 
-  console.log("NEW ORDER IN THUNK", newOrder)
+  // console.log("NEW ORDER IN THUNK", newOrder)
 
   if (newOrder) {
     dispatch(newOrderHistory(newOrder))
@@ -43,23 +43,23 @@ export const addOrderHistory = (payload) => async (dispatch) => {
   }
 };
 
-export const addOrderItem = (payload) => async (dispatch) => {
-  const response = await fetch("/api/order_histories/new_order_items", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
-  });
+// export const addOrderItem = (payload) => async (dispatch) => {
+//   const response = await fetch("/api/order_histories/new_order_items", {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(payload),
+//   });
 
-  const newOrderItems = await response.json();
+//   const newOrderItems = await response.json();
 
-  if (newOrderItems) {
-    dispatch(newOrderHistory(newOrderItems))
-    return newOrderItems
-  } else {
-    const errors = await response.json();
-    return errors;
-  }
-};
+//   if (newOrderItems) {
+//     dispatch(newOrderHistory(newOrderItems))
+//     return newOrderItems
+//   } else {
+//     const errors = await response.json();
+//     return errors;
+//   }
+// };
 
 
 

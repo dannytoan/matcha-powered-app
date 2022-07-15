@@ -59,7 +59,7 @@ const NavBar = () => {
               </div>
             )}
 
-            {/* {sessionUser ? (
+            {sessionUser ? (
               <li>
                 <Link
                   to="/cart"
@@ -73,7 +73,7 @@ const NavBar = () => {
               </li>
             ) : (
               <></>
-            )} */}
+            )}
             {sessionUser ? (
               <li>
                 <NavLink
@@ -90,7 +90,7 @@ const NavBar = () => {
             ) : (
               <></>
             )}
-            {/* {sessionUser ? (
+            {sessionUser ? (
               <Link to="/my-matchashark">
               <li className="profile-btn-ctnr">
                 <i class="fa-solid fa-user"></i>
@@ -99,7 +99,7 @@ const NavBar = () => {
               </Link>
             ) : (
               <></>
-            )} */}
+            )}
             {sessionUser ? (
               <li>
                 <LogoutButton />

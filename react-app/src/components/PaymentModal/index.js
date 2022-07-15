@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addOrderItem } from "../../store/orderHistory.js";
+import { addOrderItem } from "../../store/orderItems";
 import { useHistory } from "react-router-dom";
 
 function PaymentForm() {
@@ -30,7 +30,7 @@ function PaymentForm() {
 
         if (successfulOrderItems) {
           localStorage.setItem("shoppingBag", JSON.stringify(newBag))
-          history.push("/")
+          // history.push("/")
         }
       }
 

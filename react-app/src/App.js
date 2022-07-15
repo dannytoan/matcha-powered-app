@@ -15,6 +15,7 @@ import Reviews from './components/Reviews';
 import ShoppingBag from './components/ShoppingBag';
 import PageNotFound from './components/PageNotFound';
 import PaymentForm from './components/PaymentModal';
+import OrderHistory from './components/OrderHistory'
 import Profile from './components/Profile';
 import { authenticate } from './store/session';
 import { viewProducts } from './store/products'
@@ -72,15 +73,18 @@ function App() {
         <Route path='/reviews' exact={true} >
           <Reviews />
         </Route>
-        {/* <ProtectedRoute path='/cart' exact={true} >
+        <ProtectedRoute path='/cart' exact={true} >
           <ShoppingBag />
         </ProtectedRoute>
         <ProtectedRoute path='/payment' exact={true}>
           <PaymentForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/my-matchashark'>
+        <ProtectedRoute path='/order-history' exact={true}>
+          <OrderHistory />
+        </ProtectedRoute>
+        <ProtectedRoute path='/my-matchashark' exact={true}>
           <Profile />
-        </ProtectedRoute> */}
+        </ProtectedRoute>
         <Route path='' exact={true} >
           <PageNotFound />
         </Route>
