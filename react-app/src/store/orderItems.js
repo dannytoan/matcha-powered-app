@@ -16,6 +16,7 @@ export const viewOrderItem = () => async (dispatch) => {
 
   if (response.ok) {
     const orderItem = await response.json();
+    console.log("VIEW ORDER ITEM", orderItem)
 
     dispatch(view(orderItem.order_items));
     return orderItem.order_items;
@@ -30,7 +31,6 @@ export const addOrderItem = (payload) => async (dispatch) => {
   });
 
   const newOrderItems = await response.json();
-  console.log("NEW ORDER ITEMS", newOrderItems)
 
   if (newOrderItems) {
     dispatch(add(newOrderItems))
@@ -49,10 +49,7 @@ const orderItemReducer = (state = {}, action) => {
         // console.log("NORMALIZED ORDER Items in Reducer", {...normalizedOrderItems})
         return { ...normalizedOrderItems };
       case ADD:
-        console.log("ORDER ITEM IN ADD REDUCER", action.orderItem[0].order_history_id)
         const addState = {...state, [action.orderItem[0].order_history_id]: action.orderItem };
-        console.log("ADD STATE for ORDER ITEM", addState)
-
         return addState
       default:
         return state;

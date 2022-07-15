@@ -18,9 +18,8 @@ import PaymentForm from './components/PaymentModal';
 import OrderHistory from './components/OrderHistory'
 import Profile from './components/Profile';
 import { authenticate } from './store/session';
-import { viewProducts } from './store/products'
+import { viewProducts } from './store/products';
 import { viewOrderHistory } from './store/orderHistory'
-import { viewOrderItem } from './store/orderItems'
 
 
 
@@ -33,7 +32,6 @@ function App() {
       await dispatch(authenticate());
       await dispatch(viewProducts());
       await dispatch(viewOrderHistory());
-      await dispatch(viewOrderItem());
       setLoaded(true);
     })();
   }, [dispatch]);

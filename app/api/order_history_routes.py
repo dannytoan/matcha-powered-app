@@ -20,7 +20,8 @@ def validation_errors_to_error_messages(validation_errors):
 @order_history_routes.route('/')
 def get_order_history():
     order_histories = OrderHistory.query.all()
-    return {'order_history': [order_history.to_dict() for order_history in order_histories]}
+    print("-----------------ORDER HISTORIES-----------", [order_history.to_dict() for order_history in order_histories])
+    return jsonify({'order_histories': [order_history.to_dict() for order_history in order_histories]})
 
 
 @order_history_routes.route('/new', methods=["POST"]) #post, rememebr to add method
@@ -28,10 +29,6 @@ def get_order_history():
 def create_order_history():
     user_id = request.json['user_id']
     date = request.json['date']
-
-    # print("---------SHOPPING BAG---------------", shopping_bag)
-
-    # shopping_bag.map()
 
     new_order_history = OrderHistory(
         user_id=user_id,
@@ -52,14 +49,10 @@ def create_order_items():
     shopping_bag = request.json['shoppingBag']
     order_history = request.json['orderHistory']
 
-
-    print("-----SHOPPING BAG----------", shopping_bag)
-    print("-----ORDER HISTORY----------", order_history)
-
     result = []
 
     for item in shopping_bag:
-        print("----------ITEM----------", item)
+
         new_order_item = OrderItem(
         product_id= int(item['id']),
         order_history_id=order_history,
@@ -69,7 +62,5 @@ def create_order_items():
         db.session.commit()
         result.append(new_order_item)
 
-    print("-----RESULT-----", result)
-    print("-----LIST COMPREHENSION", jsonify([order_item.to_dict() for order_item in result]))
 
     return jsonify([order_item.to_dict() for order_item in result])

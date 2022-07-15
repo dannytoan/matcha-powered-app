@@ -17,4 +17,5 @@ class OrderHistory(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'date': self.date,
+            'order_items': [item.to_dict() for item in self.order_items]
     }

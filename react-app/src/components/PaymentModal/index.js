@@ -30,7 +30,7 @@ function PaymentForm() {
 
         if (successfulOrderItems) {
           localStorage.setItem("shoppingBag", JSON.stringify(newBag))
-          // history.push("/")
+          history.push("/order-history")
         }
       }
 

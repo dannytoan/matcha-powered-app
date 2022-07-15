@@ -19,5 +19,5 @@ class OrderItem(db.Model):
                 'id': self.id,
                 'product_id': self.product_id,
                 'order_history_id': self.order_history_id,
-                'qty': self.qty
+                'qty': self.qty,
         }
