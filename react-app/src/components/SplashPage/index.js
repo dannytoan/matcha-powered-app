@@ -17,7 +17,7 @@ function SplashPage() {
 
   const demoOnClick = async (e) => {
     e.preventDefault();
-    // history.push("/products/all");
+    history.push("/products/all");
     await dispatch(demouser("demo@aa.io", "password"));
   };
 

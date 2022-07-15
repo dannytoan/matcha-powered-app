@@ -34,18 +34,31 @@ const NavBar = () => {
             {sessionUser ? (
               <></>
             ) : (
-              <li>
-                <Link
-                  to="/login"
-                  exact={true}
-                  className="top-nav-links text"
-                  id="button-ctnr"
-                >
-                  <i class="fa-regular fa-user"></i>
-                  <div className="hide text">LOG IN</div>
-                </Link>
-              </li>
+              <div id="nav-unsigned-in-btns-auth">
+                <li>
+                  <Link
+                    to="/login"
+                    exact={true}
+                    className="top-nav-links text"
+                    id="button-ctnr"
+                  >
+                    <i class="fa-regular fa-user"></i>
+                    <div className="hide text">LOG IN</div>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/sign-up"
+                    exact={true}
+                    className="top-nav-links text signup-link"
+                  >
+                    <i class="fa-solid fa-user-plus"></i>
+                    <div className="hide text">SIGN UP</div>
+                  </Link>
+                </li>
+              </div>
             )}
+
             {/* {sessionUser ? (
               <li>
                 <Link
@@ -61,20 +74,6 @@ const NavBar = () => {
             ) : (
               <></>
             )} */}
-            {sessionUser ? (
-              <></>
-            ) : (
-              <li>
-                <Link
-                  to="/sign-up"
-                  exact={true}
-                  className="top-nav-links text signup-link"
-                >
-                  <i class="fa-solid fa-user-plus"></i>
-                  <div className="hide text">SIGN UP</div>
-                </Link>
-              </li>
-            )}
             {sessionUser ? (
               <li>
                 <NavLink
