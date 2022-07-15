@@ -5,7 +5,8 @@ div#order-history-entry-cntr {
   }
 
   img#order-history-entry-item-pic {
-    width: 20rem;
+    /* width: 20rem; */
+    width: 3rem;
   }
 
   div#order-history-entry-item-details {

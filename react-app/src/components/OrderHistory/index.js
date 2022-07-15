@@ -1,6 +1,4 @@
 import { useSelector } from "react-redux";
-import orderHistoryReducer from "../../store/orderHistory";
-import { signUp } from "../../store/session";
 import "./OrderHistory.css";
 
 function OrderHistory() {
@@ -10,75 +8,56 @@ function OrderHistory() {
 
   const sessionUserId = useSelector((state) => state.session.user.id);
 
-  const currentUserOrderHistories = orderHistory.filter(
+  const myOrderHistories = orderHistory.filter(
     (myOrder) => sessionUserId === myOrder.user_id
   );
 
-  const products = useSelector((state) => {
+  console.log("MY ORDER HISTORIES", myOrderHistories);
+
+  // Grabbing ORDER_ITEMS array from the property from ORDER_HISTORY
+  let individualOrderItems = [];
+  myOrderHistories.forEach((order) => {
+    individualOrderItems.push(order.order_items);
+  });
+  console.log("THIS ORDER'S ITEMS", individualOrderItems);
+
+  const allProducts = useSelector((state) => {
     return Object.values(state.products);
   });
 
+  console.log("PRODUCTS", allProducts);
 
-  // Finds order items of an Order History
-  let singleOrderHistoryOrderItems;
-  const orderItemExtractFromOrderHist = currentUserOrderHistories.map(
-    (singleOrderHistory) => {
-      singleOrderHistoryOrderItems = singleOrderHistory.order_items;
-    }
-  );
+  let orderProducts = [];
+  const currentOrderDetails = individualOrderItems.map((orderItemsArr) => {
+    console.log("ORDER ITEM", orderItemsArr);
 
-
- // Find current order details
-  let currentOrder = [];
-  const currentOrderFilter = orderHistory.forEach((order) => {
-    singleOrderHistoryOrderItems.forEach((orderItem) => {
-      if (order.id === orderItem.order_history_id) {
-        currentOrder.push(order);
-      }
-    });
-  });
-
-
-  // Gets product details of specific order
-  const productMatch = () => {
-    let orderEntryItems = [];
-
-    for (let i = 0; i < products.length; i++) {
-      let product = products[i];
-
-      for (let j = 0; j < singleOrderHistoryOrderItems.length; j++) {
-        let singleOrderItem = singleOrderHistoryOrderItems[j];
-
-        if (product.id === singleOrderItem.product_id) {
-          orderEntryItems.push(product);
+    orderItemsArr.forEach((orderItem) => {
+      allProducts.forEach((product) => {
+        if (product.id === orderItem.product_id) {
+          orderProducts.push(product);
         }
-      }
-    }
+      });
+    });
+
 
     return (
-      <div>
-        {orderEntryItems.map((item) => (
-          <div>
-            <div>ORDER#{singleOrderHistoryOrderItems[0].order_history_id}</div>
-            <img id="order-history-entry-item-pic" src={item.image_url_1} />
-            <div id="order-history-entry-item-details">
-              <div>{item.product_name}</div>
-              <div>{item.price}</div>
-              <div>ORDER PLACED ON: {currentOrder[0].date}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    );
-  };
+<div id="order-history-entry-cntr">
+    {orderItemsArr[0]?.order_history_id}
+    {orderProducts.map((orderProduct) => (
+        <div>
+            <img id="order-history-entry-item-pic" src={orderProduct.image_url_1}/>
+        </div>
+    ))}
+</div>
+    )
+  });
 
+  console.log("ORDER PRODUCTS", orderProducts);
 
-  // Render on page
   return (
     <div>
-      <h1>User Profile</h1>
-      <h1>My Order History</h1>
-      <div id="order-history-entry-cntr">{productMatch()}</div>
+      <h1>Order History</h1>
+      {currentOrderDetails}
     </div>
   );
 }
