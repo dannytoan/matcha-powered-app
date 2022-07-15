@@ -85,7 +85,7 @@ const NavBar = () => {
                   id="button-ctnr"
                 >
                   <i class="fa-solid fa-shop"></i>
-                  <div className="text hide">SELL PRODUCT</div>
+                  <div className="text hide sell-product-nav">SELL PRODUCT</div>
                 </NavLink>
               </li>
             ) : (
