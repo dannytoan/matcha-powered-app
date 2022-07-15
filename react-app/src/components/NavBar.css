@@ -37,6 +37,7 @@ img#nav-logo {
 .hide {
     display: none;
     position: absolute;
+    width: max-content;
     margin-top: 25px;
     padding-top: 5px;
     font-size: 12px;
@@ -93,6 +94,15 @@ li.profile-btn-ctnr {
     color: #474747;
 
 }
+
+div#nav-unsigned-in-btns-auth {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 20rem;
+    margin-right: 8rem;
+    /* border: 1px solid black; */
+  }
 
 /* .category:hover {
     border-bottom: 2px black solid;
