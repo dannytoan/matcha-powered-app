@@ -14,7 +14,11 @@ a.top-nav-links {
     left: 10rem;
     font-weight: 600;
     justify-content: center;
-  }
+}
+
+.text.hide.sell-product-nav {
+    width: max-content;
+}
 
 img#nav-logo {
     width: 8rem;
