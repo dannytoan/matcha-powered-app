@@ -10,9 +10,11 @@ a.top-nav-links {
     text-decoration: none;
     color: #000000bd;
     display: flex;
+    position: relative;
+    left: 10rem;
     font-weight: 600;
     justify-content: center;
-}
+  }
 
 img#nav-logo {
     width: 8rem;
