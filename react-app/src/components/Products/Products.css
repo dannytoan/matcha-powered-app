@@ -122,3 +122,34 @@ img.product-image-preview {
 a#product-listing-link {
     text-decoration: none;
 }
+
+
+@media (min-width: 1550px) {
+    .product-listing-container {
+        max-width: 25em;
+        max-height: 100%;
+        /* border: 1px black solid; */
+        /* padding: 20px; */
+        margin: 1rem 2.4rem 1rem 2.4rem;
+        cursor: pointer;
+      }
+}
+
+@media (max-width: 1549px) {
+    .product-listing-container {
+        max-width: 25em;
+        max-height: 100%;
+        /* border: 1px black solid; */
+        /* padding: 20px; */
+        margin: 5rem;
+        cursor: pointer;
+      }
+
+      div#products-listings-container {
+        display: flex;
+        -webkit-box-pack: start;
+        place-content: flex-start;
+        flex-wrap: wrap;
+        margin: 0 7rem;
+      }
+}
