@@ -12,24 +12,24 @@ function OrderHistory() {
     (myOrder) => sessionUserId === myOrder.user_id
   );
 
-  console.log("MY ORDER HISTORIES", myOrderHistories);
+//   console.log("MY ORDER HISTORIES", myOrderHistories);
 
   // Grabbing ORDER_ITEMS array from the property from ORDER_HISTORY
   let individualOrderItems = [];
   myOrderHistories.forEach((order) => {
     individualOrderItems.push(order.order_items);
   });
-  console.log("THIS ORDER'S ITEMS", individualOrderItems);
+//   console.log("THIS ORDER'S ITEMS", individualOrderItems);
 
   const allProducts = useSelector((state) => {
     return Object.values(state.products);
   });
 
-  console.log("PRODUCTS", allProducts);
+//   console.log("PRODUCTS", allProducts);
 
   let orderProducts = [];
   const currentOrderDetails = individualOrderItems.map((orderItemsArr) => {
-    console.log("ORDER ITEM", orderItemsArr);
+    // console.log("ORDER ITEM", orderItemsArr);
 
     orderItemsArr.forEach((orderItem) => {
       allProducts.forEach((product) => {
@@ -52,7 +52,7 @@ function OrderHistory() {
     )
   });
 
-  console.log("ORDER PRODUCTS", orderProducts);
+//   console.log("ORDER PRODUCTS", orderProducts);
 
   return (
     <div>

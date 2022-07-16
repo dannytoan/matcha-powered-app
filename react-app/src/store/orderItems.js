@@ -31,6 +31,7 @@ export const addOrderItem = (payload) => async (dispatch) => {
   });
 
   const newOrderItems = await response.json();
+  console.log("NEW ORDER ITEMS IN THUNK", newOrderItems)
 
   if (newOrderItems) {
     dispatch(add(newOrderItems))
@@ -49,6 +50,7 @@ const orderItemReducer = (state = {}, action) => {
         // console.log("NORMALIZED ORDER Items in Reducer", {...normalizedOrderItems})
         return { ...normalizedOrderItems };
       case ADD:
+        console.log("ADD ACTION IN ORDER ITEM REDUCER")
         const addState = {...state, [action.orderItem[0].order_history_id]: action.orderItem };
         return addState
       default:

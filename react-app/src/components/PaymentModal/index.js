@@ -5,21 +5,16 @@ import { useHistory } from "react-router-dom";
 function PaymentForm() {
     const dispatch = useDispatch();
     const history = useHistory()
-    const currentOrderHistory = useSelector((state) => state.orderHistory);
+    const orderHistory = useSelector((state) => Object.values(state.orderHistory));
+
 
     const handleOrderItems = async (e) => {
         const shoppingBag = localStorage.getItem("shoppingBag");
         const parsedShoppingBag = JSON.parse(shoppingBag);
         const newBag = []
-        let orderHistoryId;
+        let orderHistoryId = orderHistory[orderHistory.length - 1].id;
 
-        for (let orderHistory in currentOrderHistory) {
-          console.log("ORDER HISTORY", orderHistory);
-          if (orderHistory !== undefined) {
-            orderHistoryId = orderHistory;
-            console.log("NEW ORDER HISTORY ID", orderHistoryId)
-          }
-        }
+
 
         const orderItemsPayload = {
           shoppingBag: parsedShoppingBag,
@@ -30,7 +25,7 @@ function PaymentForm() {
 
         if (successfulOrderItems) {
           localStorage.setItem("shoppingBag", JSON.stringify(newBag))
-          history.push("/order-history")
+          // history.push("/order-history")
         }
       }
 

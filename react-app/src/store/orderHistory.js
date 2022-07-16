@@ -46,14 +46,15 @@ const orderHistoryReducer = (state = {}, action) => {
   switch (action.type) {
     case VIEW:
       const normalizedOrderHistories = {};
-      console.log("ACTION ORDER ITEM", action)
-      action.orderItem.order_histories.forEach((product) => {
-        normalizedOrderHistories[product.id] = product;
+      // console.log("ACTION ORDER ITEM", action)
+      action.orderItem.order_histories.forEach((order) => {
+        normalizedOrderHistories[order.id] = order;
       });
       // console.log("NORMALIZED ORDER HISTORIES in Reducer", {...normalizedOrderHistories})
       return { ...normalizedOrderHistories };
       case NEW:
         const addState = { ...state, [action.newOrder.id]: action.newOrder };
+        // console.log("ADD STATE", addState)
         return addState;
     default:
       return state;
