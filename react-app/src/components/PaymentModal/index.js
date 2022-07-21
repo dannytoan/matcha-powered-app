@@ -31,21 +31,21 @@ function PaymentForm() {
 
     return (
         <fieldset>
-        <legend>Select a maintenance drone</legend>
+        <legend>Select Payment Type</legend>
         <div>
           <input type="radio" id="huey" name="drone" value="huey"
                  checked/>
-          <label for="huey">Huey</label>
+          <label for="huey">MatchaPay</label>
         </div>
 
         <div>
           <input type="radio" id="dewey" name="drone" value="dewey"/>
-          <label for="dewey">Dewey</label>
+          <label for="dewey">PayPal</label>
         </div>
 
         <div>
           <input type="radio" id="louie" name="drone" value="louie"/>
-          <label for="louie">Louie</label>
+          <label for="louie">Debit/Credit</label>
         </div>
         <button onClick={handleOrderItems}>Confirm Order</button>
     </fieldset>
