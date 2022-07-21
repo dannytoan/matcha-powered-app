@@ -20,7 +20,6 @@ def validation_errors_to_error_messages(validation_errors):
 @order_history_routes.route('/')
 def get_order_history():
     order_histories = OrderHistory.query.all()
-    print("-----------------ORDER HISTORIES-----------", [order_history.to_dict() for order_history in order_histories])
     return jsonify({'order_histories': [order_history.to_dict() for order_history in order_histories]})
 
 
@@ -55,6 +54,9 @@ def create_order_items():
 
         new_order_item = OrderItem(
         product_id= int(item['id']),
+        product_image_url = item['image_url_1'],
+        product_name = item['product_name'],
+        product_price = item['price'],
         order_history_id=order_history,
         qty=1
         )

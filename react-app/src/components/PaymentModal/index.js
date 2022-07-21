@@ -11,7 +11,7 @@ function PaymentForm() {
     const handleOrderItems = async (e) => {
         const shoppingBag = localStorage.getItem("shoppingBag");
         const parsedShoppingBag = JSON.parse(shoppingBag);
-        const newBag = []
+        // const newBag = []
         let orderHistoryId = orderHistory[orderHistory.length - 1].id;
 
 
@@ -24,8 +24,9 @@ function PaymentForm() {
         let successfulOrderItems = await dispatch(addOrderItem(orderItemsPayload));
 
         if (successfulOrderItems) {
-          localStorage.setItem("shoppingBag", JSON.stringify(newBag))
-          // history.push("/order-history")
+          // localStorage.setItem("shoppingBag", JSON.stringify(newBag))
+          localStorage.clear()
+          history.push("/order-history")
         }
       }
 
