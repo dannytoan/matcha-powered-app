@@ -1,25 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addOrderItem } from "../../store/orderHistory.js";
+import { addOrderItem } from "../../store/orderItems";
 import { useHistory } from "react-router-dom";
 
 function PaymentForm() {
     const dispatch = useDispatch();
     const history = useHistory()
-    const currentOrderHistory = useSelector((state) => state.orderHistory);
+    const orderHistory = useSelector((state) => Object.values(state.orderHistory));
+
 
     const handleOrderItems = async (e) => {
         const shoppingBag = localStorage.getItem("shoppingBag");
         const parsedShoppingBag = JSON.parse(shoppingBag);
-        const newBag = []
-        let orderHistoryId;
+        // const newBag = []
+        let orderHistoryId = orderHistory[orderHistory.length - 1].id;
 
-        for (let orderHistory in currentOrderHistory) {
-          console.log("ORDER HISTORY", orderHistory);
-          if (orderHistory !== undefined) {
-            orderHistoryId = orderHistory;
-            console.log("NEW ORDER HISTORY ID", orderHistoryId)
-          }
-        }
+
 
         const orderItemsPayload = {
           shoppingBag: parsedShoppingBag,
@@ -29,28 +24,29 @@ function PaymentForm() {
         let successfulOrderItems = await dispatch(addOrderItem(orderItemsPayload));
 
         if (successfulOrderItems) {
-          localStorage.setItem("shoppingBag", JSON.stringify(newBag))
-          history.push("/")
+          // localStorage.setItem("shoppingBag", JSON.stringify(newBag))
+          localStorage.clear()
+          history.push("/order-history")
         }
       }
 
     return (
         <fieldset>
-        <legend>Select a maintenance drone</legend>
+        <legend>Select Payment Type</legend>
         <div>
           <input type="radio" id="huey" name="drone" value="huey"
                  checked/>
-          <label for="huey">Huey</label>
+          <label for="huey">MatchaPay</label>
         </div>
 
         <div>
           <input type="radio" id="dewey" name="drone" value="dewey"/>
-          <label for="dewey">Dewey</label>
+          <label for="dewey">PayPal</label>
         </div>
 
         <div>
           <input type="radio" id="louie" name="drone" value="louie"/>
-          <label for="louie">Louie</label>
+          <label for="louie">Debit/Credit</label>
         </div>
         <button onClick={handleOrderItems}>Confirm Order</button>
     </fieldset>

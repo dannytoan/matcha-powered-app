@@ -1,0 +1,16 @@
+div#order-history-entry-cntr {
+    border: 1px solid black;
+    margin: 5rem;
+    padding: 5rem;
+  }
+
+  img#order-history-entry-item-pic {
+    /* width: 20rem; */
+    width: 3rem;
+  }
+
+  div#order-history-entry-item-details {
+    display: flex;
+    flex-direction: column;
+    overflow-wrap: anywhere;
+  }

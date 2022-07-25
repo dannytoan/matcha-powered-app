@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory, NavLink } from "react-router-dom";
+import { useParams, useHistory} from "react-router-dom";
 import {
   viewProducts,
   viewCurrentProduct,
@@ -45,7 +45,7 @@ function ProductDetails() {
   });
 
   const currentProductFiltered = products.filter(
-    (current) => current?.id == id
+    (current) => current?.id === +id
   );
   const currentProduct = currentProductFiltered[0];
   const currentProductId = currentProduct?.id;
@@ -180,11 +180,11 @@ function ProductDetails() {
             <div id="product-detail-description" className="text">
               {currentProduct?.description}
             </div>
-            {/* <div id="add-to-bag-cntr">
+            <div id="add-to-bag-cntr">
               <button onClick={handleAddToCart} className="add-to-bag-btn text">
                 <i class="fa-solid fa-bag-shopping"></i> Add to Bag
               </button>
-            </div> */}
+            </div>
             <div id="edit-delete-listing-btn-div"></div>
           </div>
         </div>

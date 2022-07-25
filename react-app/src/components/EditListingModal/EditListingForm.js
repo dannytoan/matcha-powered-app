@@ -7,7 +7,6 @@ import "./EditListing.css";
 
 function EditProductForm({ setShowModal }) {
   const dispatch = useDispatch();
-  const history = useHistory();
   const { id } = useParams();
 
   const sessionUser = useSelector((state) => state.session.user);
@@ -20,7 +19,7 @@ function EditProductForm({ setShowModal }) {
     return Object.values(state.products);
   });
 
-  const currentProductFiltered = products.filter((current) => current.id == id);
+  const currentProductFiltered = products.filter((current) => current.id === +id);
   const currentProduct = currentProductFiltered[0];
   const currentProductId = currentProduct?.id;
 

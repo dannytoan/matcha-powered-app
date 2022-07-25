@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { viewReviews, updateReview } from "../../store/reviews";
+import { updateReview } from "../../store/reviews";
 import "./EditReviewForm.css"
 
 function EditReviewForm({ review, setShowModal }) {
   const dispatch = useDispatch();
-  const history = useHistory();
 
   const [errors, setErrors] = useState([]);
   const [title, setTitle] = useState(review.title);
   const [rating, setRating] = useState(review.rating);
-  const [content, setContent] = useState(review?.content);
+  console.log("CONTENT", review.content);
+  const [content, setContent] = useState(review.content);
   const [recommend, setRecommend] = useState(review.recommend);
   // const [showModal, setShowModal] = useState(false)
 
   const { id } = useParams();
   const sessionUser = useSelector((state) => state.session.user);
 
-  console.log("CONTENT", review.content);
 
   useEffect(() => {
     const errors = [];
@@ -132,14 +131,13 @@ function EditReviewForm({ review, setShowModal }) {
           <option value={false}>No</option>
         </select>
         <label className="create-product-labels desc-label">Content* (Required)</label>
-        <textArea
+        <textarea
           name="content"
           className="create-product-input text"
           id="edit-review-textarea"
-          type="text"
+          type="textarea"
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          placeholder={review?.content}
           required
         />
         <button className="submit-btn">Submit</button>
