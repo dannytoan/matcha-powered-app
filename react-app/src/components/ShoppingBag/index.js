@@ -11,22 +11,34 @@ function ShoppingBag() {
   const bag = JSON.parse(localStorage.getItem("shoppingBag"));
   const today = new Date();
 
+  const orderHistory = useSelector((state) => Object.values(state.orderHistory));
+  console.log("ORDER HISTORY", orderHistory)
+
   const removeBagHandler = (cartItem) => {
     dispatch(removeFromBag(cartItem));
     window.location.reload(false);
   };
 
   const handleOrderHistory = async (e) => {
+
+    const shoppingBag = localStorage.getItem("shoppingBag");
+    const parsedShoppingBag = JSON.parse(shoppingBag);
+    let orderHistoryId = orderHistory[orderHistory.length - 1]?.id;
+    console.log("ORDERHISTORYID", orderHistoryId)
+
+
     const orderHistoryPayload = {
       user_id: sessionUserId,
       date: today,
+      shoppingBag: parsedShoppingBag,
+      orderHistory: orderHistoryId,
     };
 
     let successfulOrderHistory = dispatch(addOrderHistory(orderHistoryPayload));
 
     if (successfulOrderHistory) {
       console.log("successful order history")
-      history.push("/payment")
+      // history.push("/payment")
     }
   };
 
