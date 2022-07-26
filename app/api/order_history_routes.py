@@ -23,6 +23,9 @@ def get_order_history():
     return jsonify({'order_histories': [order_history.to_dict() for order_history in order_histories]})
 
 
+
+# COMBINE THE TWO POST REQUESTS BELOW INTO ONE
+
 @order_history_routes.route('/new', methods=["POST"]) #post, rememebr to add method
 @login_required
 def create_order_history():
