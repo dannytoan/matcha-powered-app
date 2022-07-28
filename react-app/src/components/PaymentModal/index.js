@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addOrderItem } from "../../store/orderItems";
+// import { addOrderItem } from "../../store/orderItems";
+import { addOrderHistory } from "../../store/orderHistory";
 import { useHistory } from "react-router-dom";
 
 function PaymentForm() {
@@ -21,7 +22,7 @@ function PaymentForm() {
           orderHistory: orderHistoryId,
         };
 
-        let successfulOrderItems = await dispatch(addOrderItem(orderItemsPayload));
+        let successfulOrderItems = await dispatch(addOrderHistory(orderItemsPayload));
 
         if (successfulOrderItems) {
           // localStorage.setItem("shoppingBag", JSON.stringify(newBag))

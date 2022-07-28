@@ -60,15 +60,26 @@ const NavBar = () => {
             )}
 
             {sessionUser ? (
+              // <li>
+              //   <Link
+              //     to="/cart"
+              //     exact={true}
+              //     className="top-nav-links text right-nav-icons"
+              //     id="button-ctnr"
+              //   >
+              //     <i class="fa-solid fa-bag-shopping"></i>
+              //     <div className="hide text">YOUR BAG</div>
+              //   </Link>
+              // </li>
               <li>
                 <Link
                   to="/cart"
                   exact={true}
-                  className="top-nav-links text"
+                  className="top-nav-links text right-nav-icons"
                   id="button-ctnr"
                 >
-                  <i class="fa-solid fa-bag-shopping"></i>
-                  <div className="hide text">YOUR BAG</div>
+                  <i class="fa-solid fa-heart"></i>
+                  <div className="hide text">WISHLIST</div>
                 </Link>
               </li>
             ) : (
@@ -76,26 +87,26 @@ const NavBar = () => {
             )}
             {sessionUser ? (
               <li>
-                <NavLink
+                <Link
                   to="/product/new"
                   exact={true}
                   activeClassName="active"
                   className="top-nav-links text"
                   id="button-ctnr"
                 >
-                  <i class="fa-solid fa-shop"></i>
-                  <div className="text hide sell-product-nav">SELL PRODUCT</div>
-                </NavLink>
+                  <i class="fa-solid fa-shop right-nav-icons"></i>
+                  <div className="text hide sell-product-nav">SELL</div>
+                </Link>
               </li>
             ) : (
               <></>
             )}
             {sessionUser ? (
               <Link to="/my-matchashark">
-              <li className="profile-btn-ctnr">
-                <i class="fa-solid fa-user"></i>
-                <div className="text hide">PROFILE</div>
-              </li>
+                <li className="profile-btn-ctnr right-nav-icons">
+                  <i class="fa-solid fa-user"></i>
+                  <div className="text hide">PROFILE</div>
+                </li>
               </Link>
             ) : (
               <></>

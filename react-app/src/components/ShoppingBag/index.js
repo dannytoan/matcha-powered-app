@@ -11,30 +11,45 @@ function ShoppingBag() {
   const bag = JSON.parse(localStorage.getItem("shoppingBag"));
   const today = new Date();
 
+  const orderHistory = useSelector((state) => Object.values(state.orderHistory));
+  console.log("ORDER HISTORY", orderHistory)
+
   const removeBagHandler = (cartItem) => {
     dispatch(removeFromBag(cartItem));
     window.location.reload(false);
   };
 
   const handleOrderHistory = async (e) => {
+
+    const shoppingBag = localStorage.getItem("shoppingBag");
+    const parsedShoppingBag = JSON.parse(shoppingBag);
+    let orderHistoryId = orderHistory[orderHistory.length - 1]?.id;
+    // console.log("ORDERHISTORYID", orderHistoryId)
+
+
     const orderHistoryPayload = {
       user_id: sessionUserId,
       date: today,
+      shoppingBag: parsedShoppingBag,
+      orderHistory: orderHistoryId,
     };
 
     let successfulOrderHistory = dispatch(addOrderHistory(orderHistoryPayload));
 
     if (successfulOrderHistory) {
       console.log("successful order history")
-      history.push("/payment")
+      // history.push("/payment")
     }
   };
 
 
   return (
     <div id="bag-body-contiainer">
-      <h1 className="text" id="shopping-bag-h1">
+      {/* <h1 className="text" id="shopping-bag-h1">
         Shopping Bag
+      </h1> */}
+      <h1 className="text" id="shopping-bag-h1">
+        Wishlist
       </h1>
       <div id="bag-item-container-outer">
         {bag?.map((bagItem) => (
@@ -56,9 +71,9 @@ function ShoppingBag() {
         ))}
       </div>
       <div id="continue-div">
-        <button onClick={handleOrderHistory}>Checkout Step 1</button>
+        {/* <button onClick={handleOrderHistory}>Checkout Step 1</button> */}
         <a className="text continue-text" href="/products/all">
-          Continue Shopping
+          Continue Browsing
         </a>
       </div>
     </div>
