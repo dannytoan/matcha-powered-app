@@ -16,9 +16,11 @@ a.top-nav-links {
     justify-content: center;
 }
 
-.text.hide.sell-product-nav {
-    width: max-content;
-}
+.sell-product-nav {
+    width: -webkit-fill-available;
+    display: flex;
+    justify-content: center;
+  }
 
 img#nav-logo {
     width: 8rem;
@@ -27,8 +29,9 @@ img#nav-logo {
 #top-nav-auth-links-ctnr {
     display: flex;
     width: 500px;
-    justify-content: space-around;
-}
+    justify-content: space-evenly;
+  }
+
 
 .fa-right-from-bracket {
     cursor: pointer;
@@ -103,6 +106,10 @@ div#nav-unsigned-in-btns-auth {
     margin-right: 8rem;
     /* border: 1px solid black; */
   }
+
+.right-nav-icons {
+    margin: 0 10px;
+}
 
 /* .category:hover {
     border-bottom: 2px black solid;

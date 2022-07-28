@@ -24,7 +24,7 @@ function ShoppingBag() {
     const shoppingBag = localStorage.getItem("shoppingBag");
     const parsedShoppingBag = JSON.parse(shoppingBag);
     let orderHistoryId = orderHistory[orderHistory.length - 1]?.id;
-    console.log("ORDERHISTORYID", orderHistoryId)
+    // console.log("ORDERHISTORYID", orderHistoryId)
 
 
     const orderHistoryPayload = {

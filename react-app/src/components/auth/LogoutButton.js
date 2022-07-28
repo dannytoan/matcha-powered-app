@@ -10,7 +10,7 @@ const LogoutButton = () => {
 
   return (
   <div id="button-ctnr">
-  <i onClick={onLogout} class="fa-solid fa-right-from-bracket"></i>
+  <i onClick={onLogout} class="fa-solid fa-right-from-bracket right-nav-icons"></i>
   <p className='hide text'>LOG OUT</p>
   </div>)
 };
