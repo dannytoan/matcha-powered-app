@@ -116,6 +116,15 @@ div#nav-unsigned-in-btns-auth {
     transition: fadeIn 1s;
 } */
 
+.fa-heart:hover+.hide {
+    display: block;
+}
+
+.fa-heart:hover {
+    /* border-bottom: 2px black solid; */
+    transition: fadeIn 1s;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

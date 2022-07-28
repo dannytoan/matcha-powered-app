@@ -60,6 +60,17 @@ const NavBar = () => {
             )}
 
             {sessionUser ? (
+              // <li>
+              //   <Link
+              //     to="/cart"
+              //     exact={true}
+              //     className="top-nav-links text right-nav-icons"
+              //     id="button-ctnr"
+              //   >
+              //     <i class="fa-solid fa-bag-shopping"></i>
+              //     <div className="hide text">YOUR BAG</div>
+              //   </Link>
+              // </li>
               <li>
                 <Link
                   to="/cart"
@@ -67,8 +78,8 @@ const NavBar = () => {
                   className="top-nav-links text right-nav-icons"
                   id="button-ctnr"
                 >
-                  <i class="fa-solid fa-bag-shopping"></i>
-                  <div className="hide text">YOUR BAG</div>
+                  <i class="fa-solid fa-heart"></i>
+                  <div className="hide text">WISHLIST</div>
                 </Link>
               </li>
             ) : (
