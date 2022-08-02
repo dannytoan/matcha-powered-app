@@ -45,12 +45,12 @@ function ShoppingBag() {
 
   return (
     <div id="bag-body-contiainer">
-      {/* <h1 className="text" id="shopping-bag-h1">
-        Shopping Bag
-      </h1> */}
       <h1 className="text" id="shopping-bag-h1">
-        Wishlist
+        Shopping Bag
       </h1>
+      {/* <h1 className="text" id="shopping-bag-h1">
+        Wishlist
+      </h1> */}
       <div id="bag-item-container-outer">
         {bag?.map((bagItem) => (
           <div id="bag-item-container" key={bagItem?.id}>
@@ -71,7 +71,7 @@ function ShoppingBag() {
         ))}
       </div>
       <div id="continue-div">
-        {/* <button onClick={handleOrderHistory}>Checkout Step 1</button> */}
+        <button onClick={handleOrderHistory}>Checkout Step 1</button>
         <a className="text continue-text" href="/products/all">
           Continue Browsing
         </a>

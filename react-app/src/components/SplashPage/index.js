@@ -74,9 +74,9 @@ function SplashPage() {
           )}
         </div>
       </div>
-      <div id="bottom-page-container">
-        {/* <img id="text-bottom-test"src="https://res.cloudinary.com/matchaprince/image/upload/v1657838099/bottom_infographic_mi2lhf.png"/> */}
-        {/* <div id="left-side-bottom-container"> */}
+      {/* <div id="bottom-page-container">
+        <img id="text-bottom-test"src="https://res.cloudinary.com/matchaprince/image/upload/v1657838099/bottom_infographic_mi2lhf.png"/>
+        <div id="left-side-bottom-container">
         <h2 className="text bottom-splash-desc-title">
           Your new favorite online marketplace <br /> for all things fitness
         </h2>
@@ -94,8 +94,26 @@ function SplashPage() {
             </button>
           </a>
         )}
-        {/* </div> */}
-        {/* <div id="right-side-bottom-container"></div> */}
+        </div>
+        <div id="right-side-bottom-container"></div>
+      </div> */}
+      <div id="bottom-page-container">
+        <div id="bottom-header-one">
+          <div id="bottom-header-h1-cntr">
+            <h1 id="bottom-header-h1">
+              NEW STUDIO: <br /> WATCH ME FLOW
+            </h1>
+            <p id="bottom-h1-text">
+              Bright colours, zero-distraction designs & a second skin feel
+            </p>
+          <button className="bottom-header-shop-btn">Shop Now</button>
+          </div>
+          <img
+            id="bottom-header-img-one"
+            src="https://res.cloudinary.com/matchaprince/image/upload/v1659380869/Studio_Yoga_Desktop_1_xhiw8s.webp"
+          />
+          <div id="bottom-header-img-one-gradient"></div>
+        </div>
       </div>
     </div>
   );

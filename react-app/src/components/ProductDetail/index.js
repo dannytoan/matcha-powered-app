@@ -181,12 +181,12 @@ function ProductDetails() {
               {currentProduct?.description}
             </div>
             <div id="add-to-bag-cntr">
-              {/* <button onClick={handleAddToCart} className="add-to-bag-btn text">
-                <i class="fa-solid fa-bag-shopping"></i> Add to Bag
-              </button> */}
               <button onClick={handleAddToCart} className="add-to-bag-btn text">
-                <i class="fa-solid fa-heart"></i> Add to Wishlist
+                <i class="fa-solid fa-bag-shopping"></i> Add to Bag
               </button>
+              {/* <button onClick={handleAddToCart} className="add-to-bag-btn text">
+                <i class="fa-solid fa-heart"></i> Add to Wishlist
+              </button> */}
             </div>
             <div id="edit-delete-listing-btn-div"></div>
           </div>
