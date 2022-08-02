@@ -165,8 +165,8 @@ img#monthly-item-img {
     /* position: relative;
     top: -5rem; */
   }
-/*
-  #bottom-header-img-one-gradient {
+
+  /* #bottom-header-img-one-gradient {
     bottom: 6.1rem;
     left: auto;
     position: relative;
@@ -193,6 +193,7 @@ img#monthly-item-img {
     text-align: center;
     color: black;
     background-color: white;
+    z-index: 100;
   }
 
   div#left-side-bottom-container {
@@ -291,6 +292,47 @@ img#monthly-item-img {
     /* position: relative; */
     /* top: 8rem; */
   }
+
+  div#bottom-first-shop-ctnr {
+    width: 100%;
+  }
+
+
+
+  .secondary-text-shop {
+    font-size: 2.5rem;
+  line-height: 3rem;
+  font-weight: 700;
+  margin: 0rem 0 0 0;
+  text-transform: uppercase;
+  }
+
+  .first-text-shop {
+    font-size: 1.4rem;
+    color: #53565a;
+    line-height: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: Montserrat,Helvetica,Arial,sans-serif;
+  }
+
+  a.text.view-all-text-shop {
+    color: #000;
+    font-weight: 700;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: flex-end;
+    text-decoration: underline;
+  }
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 1620px) {
     #video-header-title-2 {

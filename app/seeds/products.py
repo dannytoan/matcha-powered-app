@@ -59,11 +59,139 @@ def seed_products():
     created_at= '2022-07-04',
     updated_at= '2022-07-04')
 
+    studio_bra_green = Product(
+        inventory=10, product_name='GYMSHARK - STUDIO SPORTS BRA',price=45.00, description='''WATCH ME FLOW
+
+With soft, smooth and stretchy materials for that second skin feel, Studio fits flawlessly into your day. Bright colours and bold designs make sure you never fade into the crowd. And the perfect zero-distraction designs allow you to focus on your form in the studio, and your flow, wherever you go.
+
+- Medium Support
+- V shaped neckline
+- Internal breathable moulded cups
+- Strappy back design
+- Gymshark logo to bust
+- Bonded seams to underband for zero abrasion
+- Soft buttery fabric
+- High stretch fabric for freedom of movement
+- 87% Nylon, 13% Elastane
+- We've cut down our use of swing tags, so this product comes without one
+- Model is 5’3” and wears a size XS
+- SKU: B2A9Z-EBFX''',
+    image_url_1='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioSportsBraAppleGreen-B2A9Z-EBFX.A_885x.jpg?v=1657148442',
+    image_url_2='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioSportsBraAppleGreen-B2A9Z-EBFX.B_290x.jpg?v=1657148442',
+    image_url_3='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioSportsBraAppleGreen-B2A9Z-EBFX.C_290x.jpg?v=1657148442',
+    image_url_4='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioSportsBraAppleGreen-B2A9Z-EBFX.A1_290x.jpg?v=1657148442',
+    image_url_5='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioSportsBraAppleGreen-B2A9Z-EBFX.D1_438x.jpg?v=1657148442',
+    image_url_6='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioSportsBraAppleGreen-B2A9Z-EBFX.D2_438x.jpg?v=1657148442',
+    overall_rating=5,
+        user_id=6,
+    category_id=1,
+    created_at= '2022-08-01',
+    updated_at= '2022-08-01')
+
+    studio_shorts_green = Product(
+        inventory=10, product_name='GYMSHARK - STUDIO SHORTS',price=45.00, description='''WATCH ME FLOW
+
+With soft, smooth and stretchy materials for that second skin feel, Studio fits flawlessly into your day. Bright colours and bold designs make sure you never fade into the crowd. And the perfect zero-distraction designs allow you to focus on your form in the studio, and your flow, wherever you go.
+
+- High waisted coverage and support
+- 4" inseam based off size M
+- Shaped waistband
+- Bonded seams for zero abrasion
+- High stretch fabric for freedom of movement
+- Soft buttery fabric
+- Gymshark logo to left hand side below waistband
+- 87% Nylon, 13% Elastane
+- We've cut down our use of swing tags, so this product comes without one
+- Model is 5’3” and wears a size XS
+- SKU: B1A9N-EBFX''',
+    image_url_1='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioWShortsAppleGreen-B1A9N-EBFX.A_885x.jpg?v=1657148443',
+    image_url_2='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioWShortsAppleGreen-B1A9N-EBFX.B_290x.jpg?v=1657148443',
+    image_url_3='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioWShortsAppleGreen-B1A9N-EBFX.C_290x.jpg?v=1657148443',
+    image_url_4='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioWShortsAppleGreen-B1A9N-EBFX.D1_290x.jpg?v=1657148443',
+    image_url_5='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioWShortsAppleGreen-B1A9N-EBFX.D2_438x.jpg?v=1657148443',
+    image_url_6='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioWShortsAppleGreen-B1A9N-EBFX.D3_438x.jpg?v=1657148443',
+    overall_rating=4,
+        user_id=6,
+    category_id=1,
+    created_at= '2022-08-01',
+    updated_at= '2022-08-01')
+
+    studio_bra_pink = Product(
+        inventory=10, product_name='GYMSHARK - STUDIO SPORTS BRA',price=45.00, description='''WATCH ME FLOW
+
+With soft, smooth and stretchy materials for that second skin feel, Studio fits flawlessly into your day. Bright colours and bold designs make sure you never fade into the crowd. And the perfect zero-distraction designs allow you to focus on your form in the studio, and your flow, wherever you go.
+
+- High waisted coverage and support
+- 4" inseam based off size M
+- Shaped waistband
+- Bonded seams for zero abrasion
+- High stretch fabric for freedom of movement
+- Soft buttery fabric
+- Gymshark logo to left hand side below waistband
+- 87% Nylon, 13% Elastane
+- We've cut down our use of swing tags, so this product comes without one
+- Model is 5’3” and wears a size XS
+- SKU: B1A9N-EBFX''',
+    image_url_1='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioSportsBraHibiscusPink-B2A9Z-KBB9.A_885x.jpg?v=1657148442',
+    image_url_2='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioSportsBraHibiscusPink-B2A9Z-KBB9.B_290x.jpg?v=1657148442',
+    image_url_3='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioSportsBraHibiscusPink-B2A9Z-KBB9.C_290x.jpg?v=1657148442',
+    image_url_4='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioSportsBraHibiscusPink-B2A9Z-KBB9.A1_290x.jpg?v=1657148442',
+    image_url_5='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioSportsBraHibiscusPink-B2A9Z-KBB9.D1_438x.jpg?v=1657148442',
+    image_url_6='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioSportsBraHibiscusPink-B2A9Z-KBB9.D2_438x.jpg?v=1657148442',
+    overall_rating=5,
+        user_id=6,
+    category_id=1,
+    created_at= '2022-08-01',
+    updated_at= '2022-08-01')
+
+    studio_leggings_pink = Product(
+        inventory=10, product_name='GYMSHARK - STUDIO 7/8 LEGGINGS',price=60.00, description='''WATCH ME FLOW
+
+With soft, smooth and stretchy materials for that second skin feel, Studio fits flawlessly into your day. Bright colours and bold designs make sure you never fade into the crowd. And the perfect zero-distraction designs allow you to focus on your form in the studio, and your flow, wherever you go.
+
+- High waisted coverage and support
+- Shaped waistband
+- 7/8 length
+- Bonded seams for zero abrasion
+- High stretch fabric for freedom of movement
+- Soft, buttery fabric
+- Gymshark logo to left hand side below waistband
+- 87% Nylon, 13% Elastane
+- We've cut down our use of swing tags, so this product comes without one
+- Model is 5’3” and wears a size XS
+- SKU: B2A9Y-KBB9''',
+    image_url_1='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioLeggingsHibiscusPink-B2A9Y-KBB9.A_885x.jpg?v=1657148441',
+    image_url_2='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioLeggingsHibiscusPink-B2A9Y-KBB9.B_290x.jpg?v=1657148441',
+    image_url_3='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioLeggingsHibiscusPink-B2A9Y-KBB9.C_290x.jpg?v=1657148441',
+    image_url_4='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioLeggingsHibiscusPink-B2A9Y-KBB9.D1_438x.jpg?v=1657148441',
+    image_url_5='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioLeggingsHibiscusPink-B2A9Y-KBB9.D2_438x.jpg?v=1657148441',
+    image_url_6='https://cdn.shopify.com/s/files/1/0156/6146/products/StudioLeggingsHibiscusPink-B2A9Y-KBB9.D3_885x.jpg?v=1657148441',
+    overall_rating=5,
+        user_id=6,
+    category_id=1,
+    created_at= '2022-08-01',
+    updated_at= '2022-08-01')
+
+
+
+
+
+
+
+
+
+
+
     db.session.add(matcha_boba)
     db.session.add(viet_coffee_boba)
     db.session.add(taro_boba)
     db.session.add(boba_pearls)
     db.session.add(white_strada_blenderb)
+    db.session.add(studio_bra_green)
+    db.session.add(studio_shorts_green)
+    db.session.add(studio_bra_pink)
+    db.session.add(studio_leggings_pink)
+
 
     db.session.commit()
 
