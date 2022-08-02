@@ -13,12 +13,17 @@ def seed_users():
         first_name='Boba', last_name='Protein',username='Boba Protein', email='boba_protein@aa.io', password='password')
     blender_bottle = User(
         first_name='Blender', last_name='Bottle',username='BlenderBottle', email='blender_bottle@aa.io', password='password')
+    gym_shark = User(
+        first_name='GymShark', last_name='Shop',username='GymShark', email='gym_shark@aa.io', password='password')
+
+
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
     db.session.add(boba_protein)
     db.session.add(blender_bottle)
+    db.session.add(gym_shark)
 
     db.session.commit()
 

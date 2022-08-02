@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { viewProducts } from "../../store/products";
 import { demouser } from "../../store/session";
 import "./SplashPage.css";
+import SplashMiniShop from "../SplashMiniShop";
 
 function SplashPage() {
   const dispatch = useDispatch();
@@ -13,7 +14,8 @@ function SplashPage() {
     return Object.values(state.products);
   });
   const monthlyItem = products[0];
-  console.log(monthlyItem.image_url_1);
+  const shopOneItems = [products[5],products[6],products[7],products[8]]
+  console.log("SHOP ONE ITEMS", shopOneItems)
 
   const demoOnClick = async (e) => {
     e.preventDefault();
@@ -97,6 +99,8 @@ function SplashPage() {
         </div>
         <div id="right-side-bottom-container"></div>
       </div> */}
+
+      {/* ---------------------------------- BOTTOM FIRST CONTAINER ----------------------------------*/}
       <div id="bottom-page-container">
         <div id="bottom-header-one">
           <div id="bottom-header-h1-cntr">
@@ -106,13 +110,25 @@ function SplashPage() {
             <p id="bottom-h1-text">
               Bright colours, zero-distraction designs & a second skin feel
             </p>
-          <button className="bottom-header-shop-btn">Shop Now</button>
+            <a href="/products/all">
+              <button className="bottom-header-shop-btn">Shop Now</button>
+            </a>
           </div>
-          <img
-            id="bottom-header-img-one"
-            src="https://res.cloudinary.com/matchaprince/image/upload/v1659380869/Studio_Yoga_Desktop_1_xhiw8s.webp"
-          />
-          <div id="bottom-header-img-one-gradient"></div>
+
+          {/* ---------- NEED TO ADD GRADIENT -------------------------- */}
+
+          <div id="div-with-img-and-grad">
+            <img
+              id="bottom-header-img-one"
+              src="https://res.cloudinary.com/matchaprince/image/upload/v1659380869/Studio_Yoga_Desktop_1_xhiw8s.webp"
+            />
+            <div id="bottom-header-img-one-gradient"></div>
+          </div>
+        </div>
+        {/* ---------------------------------- BOTTOM FIRST SHOP CONTAINER ----------------------------------*/}
+
+        <div id="bottom-first-shop-ctnr">
+          <SplashMiniShop shopOneItems={shopOneItems}/>
         </div>
       </div>
     </div>
