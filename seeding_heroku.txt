@@ -1,6 +1,3 @@
 heroku run -a matchashark flask seed all
 
 heroku restart && heroku pg:reset DATABASE --confirm matchashark
-
-hi
-hhey
