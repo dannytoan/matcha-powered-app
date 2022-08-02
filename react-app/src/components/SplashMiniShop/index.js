@@ -23,7 +23,7 @@ function SplashMiniShop({ shopOneItems }) {
               <div id="item-text-details-mini">
 
               <div className="text item-product-name">{item.product_name}</div>
-              <div className="text item-price-mini">$ {item.price}</div>
+              <div className="text item-price-mini">$ {item.price} USD</div>
               </div>
             </div>
           </div>
