@@ -154,16 +154,16 @@ img#monthly-item-img {
     height: 40rem;
     display: flex;
     flex-direction: column;
-    position: relative;
-    top: 1.5rem;
+    /* position: relative;
+    top: 1.5rem; */
     align-items: center;
   }
 
   img#bottom-header-img-one {
     width: 100%;
     z-index: -2;
-    position: relative;
-    top: -5rem;
+    /* position: relative;
+    top: -5rem; */
   }
 /*
   #bottom-header-img-one-gradient {
@@ -179,7 +179,7 @@ img#monthly-item-img {
 
   .bottom-header-shop-btn {
     position: relative;
-    top: 8rem;
+    top: 0.5rem;
     font-family: Montserrat, Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-size: 14px;
@@ -251,28 +251,33 @@ img#monthly-item-img {
     background-color: #a9e978;
   }
 
+  div#bottom-header-one {
+    display: flex;
+    justify-content: center;
+  }
+
   #bottom-header-h1 {
     font-size: 3rem;
     line-height: 3.25rem;
     font-weight: 700;
     font-family: Montserrat,Helvetica,Arial,sans-serif;
     color: #fff;
-    position: absolute;
-    display: flex;
+    /* position: absolute; */
+    /* display: flex; */
+    margin: 0rem;
     align-items: center;
     flex-direction: column;
     width: 40rem;
     /* border: 1px black solid; */
     text-align: center;
     align-content: center;
-
   }
 
   div#bottom-header-h1-cntr {
     display: flex;
-    position: relative;
+    position: absolute;
     z-index: 3;
-    top: 24rem;
+    top: 73rem;
     flex-direction: column;
     align-items: center;
     align-content: center;
@@ -283,8 +288,8 @@ img#monthly-item-img {
     color: white;
     font-size: 1.2rem;
     line-height: 1.8rem;
-    position: relative;
-    top: 8rem;
+    /* position: relative; */
+    /* top: 8rem; */
   }
 
 @media (max-width: 1620px) {
