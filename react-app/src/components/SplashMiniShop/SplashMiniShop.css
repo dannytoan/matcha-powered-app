@@ -50,7 +50,7 @@ div#shop-container {
   div#item-text-details-mini {
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: space-between;
     margin-top: 1rem;
     color: #444;
     font-size: 1.4rem;
@@ -60,9 +60,11 @@ div#shop-container {
     font-weight: 700;
     font-family: Roboto,Helvetica,Arial,sans-serif;
     color: rgb(0, 0, 0);
+    width: max-content;
     margin: 0px;
   }
 
   .text.item-product-name {
-    width: 20rem;
+    width: 18rem;
+    line-height: 2rem;
   }
