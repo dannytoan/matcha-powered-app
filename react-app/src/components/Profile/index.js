@@ -1,16 +1,11 @@
 import { Link } from 'react-router-dom'
+import ProfileSideBar from '../ProfileSidebar';
 
 function Profile() {
   return (
     <div>
+      <ProfileSideBar />
       <h1>Profile</h1>
-      <nav>
-        <li>
-          <Link to="/order-history">
-          Order History
-          </Link>
-        </li>
-      </nav>
     </div>
   );
 }
