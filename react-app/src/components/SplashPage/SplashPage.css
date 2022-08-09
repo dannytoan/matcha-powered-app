@@ -295,6 +295,7 @@ img#monthly-item-img {
 
   div#bottom-first-shop-ctnr {
     width: 100%;
+    padding-bottom: 5rem;
   }
 
 
@@ -319,7 +320,7 @@ img#monthly-item-img {
   a.text.view-all-text-shop {
     color: #000;
     font-weight: 700;
-    font-size: 1.6rem;
+    font-size: 1rem;
     display: flex;
     align-items: flex-end;
     text-decoration: underline;
