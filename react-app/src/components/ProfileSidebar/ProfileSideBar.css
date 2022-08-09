@@ -1,0 +1,41 @@
+div#profile-sidebar-cntr {
+    border: black 1px solid;
+    width: 20%;
+    height: 100vh;
+}
+
+div#profile-sidebar-cntr {
+    border: black 1px solid;
+    width: 20%;
+    height: 100vh;
+    padding: 3rem 4rem 0 1rem;
+    background: #d3d3d38a;
+}
+
+div#profile-top-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+div#profile-greeting-text {
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+
+div#profile-current-user-name {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+img#profile-img-user-overview {
+    width: 8rem;
+}
+
+li.text.profile-sidebar-category {
+    border: 1px black solid;
+    width: 100%;
+    padding: 1rem 1rem;
+    list-style: none;
+}
