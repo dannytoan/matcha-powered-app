@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import ProfileSideBar from '../ProfileSidebar';
+import ProfilePageMyShop from '../ProfilePageMyShop';
+import "./Profile.css"
 
 function Profile() {
   return (
-    <div>
+    <div id="profile-page-cntr">
       <ProfileSideBar />
-      <h1>Profile</h1>
     </div>
   );
 }

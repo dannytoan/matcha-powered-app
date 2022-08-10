@@ -1,0 +1,4 @@
+div#profile-page-cntr {
+    display: flex;
+    flex-direction: row;
+  }

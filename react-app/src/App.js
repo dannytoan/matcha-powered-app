@@ -17,6 +17,7 @@ import PageNotFound from './components/PageNotFound';
 import PaymentForm from './components/PaymentModal';
 import OrderHistory from './components/OrderHistory'
 import Profile from './components/Profile';
+import ProfilePageMyShop from './components/ProfilePageMyShop';
 import { authenticate } from './store/session';
 import { viewProducts } from './store/products';
 import { viewOrderHistory } from './store/orderHistory'
@@ -82,6 +83,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/my-matchashark' exact={true}>
           <Profile />
+        </ProtectedRoute>
+        <ProtectedRoute path='/my-shop' exact={true}>
+          <ProfilePageMyShop />
         </ProtectedRoute>
         <Route path='' exact={true} >
           <PageNotFound />
