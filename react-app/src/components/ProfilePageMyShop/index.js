@@ -1,5 +1,6 @@
 import "./ProfilePageMyShop.css";
 import { useSelector } from "react-redux";
+import ProfileSideBar from "../ProfileSidebar";
 
 function ProfilePageMyShop() {
   const currentUser = useSelector((state) => state.session.user);
@@ -13,7 +14,11 @@ function ProfilePageMyShop() {
   console.log("CURRENT USER ID", currentUser.id);
 
   return (
-    <div>
+    <div id="profile-page-ctnr">
+        <ProfileSideBar />
+        <div id="profile-shop-page-inner-cntr">
+
+
       <div className="profile-page-header">
         <h1 className="text">
           <i class="fa-solid fa-shop"></i> {currentUser.first_name}'s Product
@@ -34,7 +39,8 @@ function ProfilePageMyShop() {
               <div className="text">${product.price} USD</div>
             </div>
           </div>
-        )) : <div>You have no product listings</div>}
+        )) : <div>You have no product listings.</div>}
+      </div>
       </div>
     </div>
   );

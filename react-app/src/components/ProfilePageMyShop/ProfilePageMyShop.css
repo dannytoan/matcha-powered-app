@@ -42,3 +42,8 @@
     width: 100%;
     flex-wrap: wrap;
   }
+
+  div#profile-page-ctnr {
+    display: flex;
+    flex-direction: row;
+  }
