@@ -45,4 +45,5 @@ img#profile-img-user-overview {
 .remove-link-dec {
     color: rgb(68, 68, 68);
     text-decoration: none;
+    width: 100%;
   }

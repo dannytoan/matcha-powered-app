@@ -23,11 +23,11 @@ function ProfileSideBar() {
         <a href="/my-shop" className="remove-link-dec">
           <li className="text profile-sidebar-category">My Shop</li>
         </a>
-        <li className="text profile-sidebar-category">
           <a href="/order-history" className="text remove-link-dec">
+        <li className="text profile-sidebar-category">
             My Order History
-          </a>
         </li>
+          </a>
       </div>
     </div>
   );

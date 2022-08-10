@@ -9,10 +9,6 @@ function ProfilePageMyShop() {
     (product) => product.user_id === +currentUser.id
   );
 
-  console.log("ALL PRODCUTS", allProducts);
-  console.log("MY PRODCUTS", myProducts);
-  console.log("CURRENT USER ID", currentUser.id);
-
   return (
     <div id="profile-page-ctnr">
       <ProfileSideBar />
