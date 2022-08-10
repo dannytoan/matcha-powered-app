@@ -61,7 +61,6 @@ function ProfilePageMyShop() {
           </div>
 
         </div>
-
       </div>
 </div>
 )};

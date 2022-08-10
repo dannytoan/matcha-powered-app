@@ -1,9 +1,8 @@
 import { useSelector } from "react-redux";
-import "./ProfileSideBar.css"
+import "./ProfileSideBar.css";
 
 function ProfileSideBar() {
     const currentUser = useSelector((state) => state.session.user)
-    console.log("CURRENT USER", currentUser)
   return (
     <div id="profile-sidebar-cntr">
       <div id="profile-top-header">
@@ -33,6 +32,5 @@ function ProfileSideBar() {
     </div>
   );
 }
-
 
 export default ProfileSideBar;
