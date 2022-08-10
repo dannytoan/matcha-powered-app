@@ -39,7 +39,7 @@ function ProfilePageMyShop() {
               <div className="text">${product.price} USD</div>
             </div>
           </div>
-        )) : <div>You have no product listings</div>}
+        )) : <div>You have no product listings.</div>}
       </div>
       </div>
     </div>
