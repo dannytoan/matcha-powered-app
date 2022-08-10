@@ -1,16 +1,10 @@
 div#profile-sidebar-cntr {
-    border: black 1px solid;
-    width: 20%;
+    /* border: black 1px solid; */
+    width: 15%;
     height: 100vh;
-}
-
-div#profile-sidebar-cntr {
-    border: black 1px solid;
-    width: 20%;
-    height: 100vh;
-    padding: 3rem 4rem 0 1rem;
-    background: #d3d3d38a;
-}
+    padding: 3rem 2rem 0 1rem;
+    background: rgb(0 0 0 / 1%);
+  }
 
 div#profile-top-header {
     display: flex;
@@ -33,9 +27,22 @@ img#profile-img-user-overview {
     width: 8rem;
 }
 
-li.text.profile-sidebar-category {
-    border: 1px black solid;
+.profile-sidebar-category {
+    /* border: 1px black solid; */
+    color: rgb(68, 68, 68);
+    text-decoration: none;
     width: 100%;
-    padding: 1rem 1rem;
+    padding: 1rem 0rem;
     list-style: none;
-}
+    padding-left: 1rem;
+  }
+
+.profile-sidebar-category:hover {
+    background-color: #dbf4d7;
+    cursor: pointer;
+  }
+
+.remove-link-dec {
+    color: rgb(68, 68, 68);
+    text-decoration: none;
+  }

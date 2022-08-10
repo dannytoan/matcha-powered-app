@@ -102,7 +102,7 @@ const NavBar = () => {
               <></>
             )}
             {sessionUser ? (
-              <Link to="/my-matchashark">
+              <Link to="/my-shop">
                 <li className="profile-btn-ctnr right-nav-icons">
                   <i class="fa-solid fa-user"></i>
                   <div className="text hide">PROFILE</div>

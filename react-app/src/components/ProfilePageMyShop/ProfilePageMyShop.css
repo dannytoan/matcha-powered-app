@@ -1,11 +1,21 @@
 .profile-page-header {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     width: 93%;
     height: 4rem;
     display: flex;
     align-items: center;
     flex-direction: row;
-    padding: 3rem;
+    padding: 3rem 6rem;
+  }
+
+  div#profile-product-details-ctnr {
+    width: inherit;
+  }
+
+  .text.profile-product-name-title {
+    overflow-wrap: anywhere;
+    width: 70%;
+    line-height: 1.5rem;
   }
 
   #profile-page-shop-figure-product {
@@ -13,18 +23,25 @@
   }
 
   img#profile-page-shop-img-product {
-    width: inherit;
+    /* width: inherit; */
+    height: 25em;
+  width: 20em;
+  object-position: center;
+  object-fit: cover;
   }
 
-  div#profile-page-product-listings-details {
+  a#profile-page-product-listings-details {
+    color: rgb(68, 68, 68);
+    text-decoration: none;
     display: flex;
     justify-content: space-between;
     width: 95%;
+    margin-top: 0.5rem;
   }
 
   #profile-page-shop-figure-product {
     width: 20rem;
-    border: 1px black solid;
+    /* border: 1px black solid; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,11 +56,26 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
     flex-wrap: wrap;
   }
 
   div#profile-page-ctnr {
     display: flex;
     flex-direction: row;
+  }
+
+  div#profile-page-myshop-outer-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  #profile-page-shop-img-product:hover {
+    opacity: .7;
+    transition: .25s;
+  }
+
+  #profile-page-product-listings-details:hover {
+    opacity: .7;
+    transition: .25s;
   }
