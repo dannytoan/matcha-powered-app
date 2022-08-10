@@ -2,3 +2,28 @@ div#profile-page-cntr {
     display: flex;
     flex-direction: row;
   }
+
+  div#profile-overview-page-inner-cntr {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-left: 1rem;
+  }
+
+  .text.account-details-label {
+    font-weight: 600;
+    color: #6e6e6e;
+  }
+
+  .text.account-detail-text {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  div#account-details-ctnr {
+    padding: 4rem 6rem;
+    /* border: 1px solid black; */
+    width: 50%;
+    margin-left: 6rem;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0.4rem 1.5rem;
+  }

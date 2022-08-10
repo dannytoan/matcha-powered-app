@@ -19,7 +19,10 @@ function ProfileSideBar() {
         </div>
       </div>
       <div>
+        <a href="/my-matchashark" className="text remove-link-dec">
+
         <li className="text profile-sidebar-category">Account Overview</li>
+        </a>
         <a href="/my-shop" className="remove-link-dec">
           <li className="text profile-sidebar-category">My Shop</li>
         </a>
