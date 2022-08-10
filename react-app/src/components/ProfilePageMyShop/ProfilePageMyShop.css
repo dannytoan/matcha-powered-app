@@ -1,0 +1,44 @@
+.profile-page-header {
+    border: 1px solid black;
+    width: 93%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 3rem;
+  }
+
+  #profile-page-shop-figure-product {
+    width: 20rem;
+  }
+
+  img#profile-page-shop-img-product {
+    width: inherit;
+  }
+
+  div#profile-page-product-listings-details {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+  }
+
+  #profile-page-shop-figure-product {
+    width: 20rem;
+    border: 1px black solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+  }
+
+  a#a-tag-img-profile-product {
+    width: inherit;
+  }
+
+  .profile-page-myshop-body-cntr {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+  }
