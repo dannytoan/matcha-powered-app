@@ -31,10 +31,12 @@ export const addOrderHistory = (payload) => async (dispatch) => {
   });
 
   const newOrder = await response.json();
+  console.log("NEW ORDER JSON AWAIT IN THUNK", newOrder)
 
   if (newOrder) {
-    dispatch(newOrderHistory(newOrder))
-    return newOrder
+    dispatch(newOrderHistory(newOrder[0]))
+    console.log("NEW ORDER IN THUNK", newOrder[0])
+    return newOrder[0]
   } else {
     const errors = await response.json();
     return errors;
@@ -57,6 +59,7 @@ const orderHistoryReducer = (state = {}, action) => {
         console.log("STATE", state)
         const addState = { ...state, [action.newOrder.id]: action.newOrder };
         console.log("ADD STATE", addState)
+        console.log("[action.newOrder.id]", [action.newOrder.id])
         return addState;
     default:
       return state;
