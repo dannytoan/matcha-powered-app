@@ -12,7 +12,7 @@ function ShoppingBag() {
   const today = new Date();
 
   const orderHistory = useSelector((state) => Object.values(state.orderHistory));
-  console.log("ORDER HISTORY", orderHistory)
+  // console.log("ORDER HISTORY", orderHistory)
 
   const removeBagHandler = (cartItem) => {
     dispatch(removeFromBag(cartItem));
@@ -38,7 +38,8 @@ function ShoppingBag() {
 
     if (successfulOrderHistory) {
       console.log("successful order history")
-      // history.push("/payment")
+      localStorage.clear()
+      history.push("/order-history")
     }
   };
 

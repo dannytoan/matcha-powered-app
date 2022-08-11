@@ -23,7 +23,7 @@ def get_order_history():
     return jsonify({'order_histories': [order_history.to_dict() for order_history in order_histories]})
 
 
-@order_history_routes.route('/new', methods=["POST"]) #post, rememebr to add method
+@order_history_routes.route('/new', methods=["POST"])
 @login_required
 def create_order_history():
     user_id = request.json['user_id']
@@ -31,10 +31,12 @@ def create_order_history():
 
     shopping_bag = request.json['shoppingBag']
     # order_history = request.json['orderHistory']
+    # print("~~~~~~~~~~ORDER HISTORY~~~~~~", order_history)
 
     result = []
 
     new_order_history = OrderHistory(
+        # id=id,
         user_id=user_id,
         date=date
     )
@@ -44,6 +46,7 @@ def create_order_history():
         db.session.commit()
         # return new_order_history.to_dict()
 
+    print("===================NEW ORDER HISTORY==================", new_order_history.to_dict()['id'])
     # return {'errors': "Invalid"}
 
     for item in shopping_bag:
@@ -53,7 +56,7 @@ def create_order_history():
         product_image_url = item['image_url_1'],
         product_name = item['product_name'],
         product_price = item['price'],
-        # order_history_id=order_history,
+        order_history_id=new_order_history.to_dict()['id'],
         qty=1
         )
         db.session.add(new_order_item)
