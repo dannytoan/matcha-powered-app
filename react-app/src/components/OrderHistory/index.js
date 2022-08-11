@@ -14,7 +14,9 @@ return (
             {orderHistories?.map((orderHistory) => (
                 <div>
                     {orderHistory.id}
-
+                    {orderHistory?.order_items?.map((item) => (
+                        <div>{item.product_name}</div>
+                    ))}
                 </div>
             ))}
         </div>

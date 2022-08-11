@@ -16,7 +16,6 @@ export const viewOrderHistory = () => async (dispatch) => {
 
   if (response.ok) {
     const orderItem = await response.json();
-    console.log("VIEW ORDER HISTORY", orderItem)
 
     dispatch(view(orderItem));
     return orderItem;
@@ -53,10 +52,7 @@ const orderHistoryReducer = (state = {}, action) => {
       // console.log("NORMALIZED ORDER HISTORIES in Reducer", {...normalizedOrderHistories})
       return { ...normalizedOrderHistories };
       case NEW:
-        console.log("ACTION", action)
-        console.log("STATE", state)
         const addState = { ...state, [action.newOrder.id]: action.newOrder };
-        console.log("ADD STATE", addState)
         return addState;
     default:
       return state;
