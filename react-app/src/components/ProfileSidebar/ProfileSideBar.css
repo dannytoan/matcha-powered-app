@@ -1,7 +1,7 @@
 div#profile-sidebar-cntr {
     /* border: black 1px solid; */
     width: 15%;
-    height: 100vh;
+    height: 100%;
     padding: 3rem 2rem 0 1rem;
     background: rgb(0 0 0 / 1%);
   }
