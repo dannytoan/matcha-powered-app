@@ -109,6 +109,7 @@ video#video-header {
     position: relative;
     bottom: 5.5rem;
     left: 55rem;
+    width: fit-content;
   }
 
   .welcome-msg-splash:hover {
