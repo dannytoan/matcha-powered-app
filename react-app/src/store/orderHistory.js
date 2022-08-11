@@ -16,7 +16,6 @@ export const viewOrderHistory = () => async (dispatch) => {
 
   if (response.ok) {
     const orderItem = await response.json();
-    console.log("VIEW ORDER HISTORY", orderItem)
 
     dispatch(view(orderItem));
     return orderItem;
@@ -31,12 +30,10 @@ export const addOrderHistory = (payload) => async (dispatch) => {
   });
 
   const newOrder = await response.json();
-  console.log("NEW ORDER JSON AWAIT IN THUNK", newOrder)
 
   if (newOrder) {
-    dispatch(newOrderHistory(newOrder[0]))
-    console.log("NEW ORDER IN THUNK", newOrder[0])
-    return newOrder[0]
+    dispatch(newOrderHistory(newOrder))
+    return newOrder
   } else {
     const errors = await response.json();
     return errors;
@@ -55,11 +52,7 @@ const orderHistoryReducer = (state = {}, action) => {
       // console.log("NORMALIZED ORDER HISTORIES in Reducer", {...normalizedOrderHistories})
       return { ...normalizedOrderHistories };
       case NEW:
-        console.log("ACTION", action)
-        console.log("STATE", state)
         const addState = { ...state, [action.newOrder.id]: action.newOrder };
-        console.log("ADD STATE", addState)
-        console.log("[action.newOrder.id]", [action.newOrder.id])
         return addState;
     default:
       return state;
