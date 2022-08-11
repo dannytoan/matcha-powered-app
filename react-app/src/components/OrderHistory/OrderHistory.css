@@ -1,8 +1,29 @@
 div#order-history-entry-cntr {
     border: 1px solid black;
-    margin: 5rem;
-    padding: 5rem;
   }
+
+  div#order-history-outer-ctnr {
+    width: 80%;
+    height: fit-content;
+  }
+
+  div#order-history-entry-headers {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    line-height: 2rem;
+    padding-left: 2.5rem;
+  }
+
+  div#order-history-ctnr {
+    /* border: 1px solid black; */
+    padding: 3rem;
+    margin: 2rem 0 2rem 0;
+    box-shadow: rgb(0 0 0 / 10%) 0px 0.4rem 1.5rem;
+    width: 87%;
+    margin-left: 5.5rem;
+  }
+
+
 
   img#order-history-entry-item-pic {
     /* width: 20rem; */
@@ -13,4 +34,25 @@ div#order-history-entry-cntr {
     display: flex;
     flex-direction: column;
     overflow-wrap: anywhere;
+  }
+
+  img.order-history-item-img {
+    width: 20rem;
+    height: 15rem;
+    object-fit: contain;
+  }
+
+  div#order-history-item-inner-cntr {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    /* border: 1px solid black; */
+    margin: 1rem 0 1rem 0;
+  }
+
+  div#order-history-item-details {
+    display: flex;
+    flex-direction: column;
+    line-height: 2rem;
+    align-items: flex-start;
   }

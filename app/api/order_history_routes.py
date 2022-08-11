@@ -23,52 +23,6 @@ def get_order_history():
     return jsonify({'order_histories': [order_history.to_dict() for order_history in order_histories]})
 
 
-# @order_history_routes.route('/new', methods=["POST"])
-# @login_required
-# def create_order_history():
-#     user_id = request.json['user_id']
-#     date = request.json['date']
-
-#     shopping_bag = request.json['shoppingBag']
-#     # order_history = request.json['orderHistory']
-#     # print("~~~~~~~~~~ORDER HISTORY~~~~~~", order_history)
-
-#     result = []
-
-#     new_order_history = OrderHistory(
-#         # id=id,
-#         user_id=user_id,
-#         date=date
-#     )
-
-#     if new_order_history:
-#         db.session.add(new_order_history)
-#         db.session.commit()
-#         # return new_order_history.to_dict()
-
-#     # return {'errors': "Invalid"}
-
-#     for item in shopping_bag:
-
-#         new_order_item = OrderItem(
-#         product_id= int(item['id']),
-#         product_image_url = item['image_url_1'],
-#         product_name = item['product_name'],
-#         product_price = item['price'],
-#         order_history_id=new_order_history.to_dict()['id'],
-#         qty=1
-#         )
-#         db.session.add(new_order_item)
-#         db.session.commit()
-#         result.append(new_order_item)
-
-#     print("=================== SHOPPING BAG ==================", shopping_bag)
-#     print("===================NEW ORDER HISTORY==================", new_order_history.to_dict())
-#     print("=================== RESULT ==================", result)
-#     print("=================== [order_item.to_dict() for order_item in result] ==================", [order_item.to_dict() for order_item in result])
-
-#     return jsonify([order_item.to_dict() for order_item in result])
-
 @order_history_routes.route('/new', methods=["POST"])
 @login_required
 def create_order_history():
@@ -76,8 +30,6 @@ def create_order_history():
     date = request.json['date']
 
     shopping_bag = request.json['shoppingBag']
-    # order_history = request.json['orderHistory']
-    # print("~~~~~~~~~~ORDER HISTORY~~~~~~", order_history)
 
     result = []
 
@@ -90,9 +42,6 @@ def create_order_history():
     if new_order_history:
         db.session.add(new_order_history)
         db.session.commit()
-        # return new_order_history.to_dict()
-
-    # return {'errors': "Invalid"}
 
     for item in shopping_bag:
 
@@ -108,38 +57,4 @@ def create_order_history():
         db.session.commit()
         result.append(new_order_item)
 
-    print("=================== SHOPPING BAG ==================", shopping_bag)
-    print("===================NEW ORDER HISTORY==================", new_order_history.to_dict())
-    print("=================== RESULT ==================", result)
-    print("=================== [order_item.to_dict() for order_item in result] ==================", [order_item.to_dict() for order_item in result])
-
     return new_order_history.to_dict()
-
-
-
-
-
-# @order_history_routes.route('/new_order_items', methods=["POST"])
-# @login_required
-# def create_order_items():
-#     shopping_bag = request.json['shoppingBag']
-#     order_history = request.json['orderHistory']
-
-#     result = []
-
-#     for item in shopping_bag:
-
-#         new_order_item = OrderItem(
-#         product_id= int(item['id']),
-#         product_image_url = item['image_url_1'],
-#         product_name = item['product_name'],
-#         product_price = item['price'],
-#         order_history_id=order_history,
-#         qty=1
-#         )
-#         db.session.add(new_order_item)
-#         db.session.commit()
-#         result.append(new_order_item)
-
-
-#     return jsonify([order_item.to_dict() for order_item in result])
