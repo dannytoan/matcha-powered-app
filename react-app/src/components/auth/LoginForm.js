@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
+import { demouser } from "../../store/session";
 import { login } from "../../store/session";
 import "./LoginForm.css"
 
@@ -11,6 +12,12 @@ const LoginForm = () => {
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory()
+
+  const demoOnClick = async (e) => {
+    e.preventDefault();
+    history.push("/products/all");
+    await dispatch(demouser("demo@aa.io", "password"));
+  };
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -61,6 +68,9 @@ const LoginForm = () => {
             />
           </div>
             <button className="auth-form-buttons" type="submit">Login</button>
+            <button className="demo-login-page-button" onClick={demoOnClick}>
+                Demo User
+              </button>
             <div id="new-user-signup-msg">
 
             <p className="text">New to MatchaShark?</p> <a className="text" id="create-acc-link" href="/sign-up">Create An Account</a>
