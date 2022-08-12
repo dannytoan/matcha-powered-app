@@ -11,8 +11,7 @@ function ShoppingBag() {
   const bag = JSON.parse(localStorage.getItem("shoppingBag"));
   const today = new Date();
 
-  const orderHistory = useSelector((state) => Object.values(state.orderHistory));
-  // console.log("ORDER HISTORY", orderHistory)
+  console.log("BAG", bag)
 
   const removeBagHandler = (cartItem) => {
     dispatch(removeFromBag(cartItem));
@@ -51,6 +50,7 @@ function ShoppingBag() {
         Wishlist
       </h1> */}
       <div id="bag-item-container-outer">
+        {bag.length < 1 && <div className="text empty-bag-text">Your shopping bag is empty! <i class="fa-regular fa-face-frown"></i></div>}
         {bag?.map((bagItem) => (
           <div id="bag-item-container" key={bagItem?.id}>
             <img id="bag-item-img" src={bagItem?.image_url_1} />
@@ -70,10 +70,12 @@ function ShoppingBag() {
         ))}
       </div>
       <div id="continue-div">
-        <button onClick={handleOrderHistory}>Checkout Step 1</button>
         <a className="text continue-text" href="/products/all">
           Continue Browsing
         </a>
+        {bag.length > 0 &&
+        <button onClick={handleOrderHistory} className="checkout-btn">Checkout</button>
+        }
       </div>
     </div>
   );
