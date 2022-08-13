@@ -6,19 +6,21 @@ div#products-listings-container {
     display: flex;
     -webkit-box-pack: start;
     place-content: flex-start;
+    justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 3rem;
-    justify-content: center;
+    flex-direction: row;
+    margin: 1em 10rem;
   }
 
-.product-listing-container {
+  .product-listing-container {
     max-width: 25em;
     max-height: 100%;
     /* border: 1px black solid; */
     /* padding: 20px; */
-    margin: 2.5rem;
+    /* margin: 2.5rem; */
     cursor: pointer;
-}
+    margin: 1em 0;
+  }
 
 img.product-image-preview {
     height: 30em;
@@ -122,55 +124,4 @@ img.product-image-preview {
 
 a#product-listing-link {
     text-decoration: none;
-}
-
-
-@media (max-width: 1280) {
-    .product-listing-container {
-        max-width: 25em;
-        max-height: 100%;
-        /* border: 1px black solid; */
-        /* padding: 20px; */
-        margin: 4rem;
-        cursor: pointer;
-      }
-}
-
-@media (min-width: 1550px) {
-    .product-listing-container {
-        max-width: 25em;
-        max-height: 100%;
-        /* border: 1px black solid; */
-        /* padding: 20px; */
-        margin: 4rem 2.4rem 1rem 2.4rem;
-        cursor: pointer;
-      }
-}
-
-@media (max-width: 1549px) {
-    .product-listing-container {
-        max-width: 25em;
-        max-height: 100%;
-        /* border: 1px black solid; */
-        /* padding: 20px; */
-        margin: 3rem;
-        cursor: pointer;
-      }
-
-      div#products-listings-container {
-        display: flex;
-        -webkit-box-pack: start;
-        place-content: flex-start;
-        flex-wrap: wrap;
-        margin: 0 7rem;
-      }
-}
-
-@media (min-width: 1760px) {
-    .product-listing-container {
-        max-width: 25em;
-        max-height: 100%;
-        margin: 4rem 4.4rem;
-        cursor: pointer;
-      }
 }

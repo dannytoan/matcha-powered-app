@@ -43,3 +43,7 @@ ul.signup-errors-ul {
     right: 21px;
     height: auto;
 }
+
+.hidden {
+    display: none;
+}
