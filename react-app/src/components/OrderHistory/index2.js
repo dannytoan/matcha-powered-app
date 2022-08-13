@@ -19,11 +19,11 @@ function OrderHistory() {
 
   // Finds order items of an Order History
   let singleOrderHistoryOrderItems;
-  const orderItemExtractFromOrderHist = currentUserOrderHistories.map(
-    (singleOrderHistory) => {
-      singleOrderHistoryOrderItems = singleOrderHistory.order_items;
-    }
-  );
+  // const orderItemExtractFromOrderHist = currentUserOrderHistories.map(
+  //   (singleOrderHistory) => {
+  //     singleOrderHistoryOrderItems = singleOrderHistory.order_items;
+  //   }
+  // );
 
 
  // Find current order details
