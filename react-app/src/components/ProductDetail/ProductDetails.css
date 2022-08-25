@@ -19,6 +19,7 @@ div#product-detail-imgs-grid {
     height: 75%;
     object-fit: cover;
     margin: 5px;
+    /* cursor: zoom-in; */
     /* border: 1px solid black; */
   }
 
@@ -212,6 +213,28 @@ div#desc-btns-cntr {
 .edit-delete-listing-btn:hover {
     background-color: #a9e978;
 }
+
+.clicked-img-2 {
+    position: absolute;
+    scale: 2;
+    cursor: pointer;
+    z-index: 2;
+    background: #00000054;
+    padding: 100vh;
+    left: -12rem;
+    top: -44rem;
+  }
+
+  div#clicked-img2-x {
+    background: white;
+    font-size: 2rem;
+    font-family: monospace;
+    position: absolute;
+    right: 46rem;
+    top: 5rem;
+    z-index: 3;
+    cursor: pointer;
+  }
 
 @media (min-width: 800px) and (max-width: 1200px) {
     div#product-detail-description {

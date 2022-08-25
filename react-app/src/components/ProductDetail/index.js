@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory} from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import {
   viewProducts,
   viewCurrentProduct,
@@ -23,9 +23,10 @@ function ProductDetails() {
   // console.log("session user", sessionUser);
   // console.log("USERS", users);
 
-  const replaceInvalidImg = e => {
-    e.currentTarget.src = "https://res.cloudinary.com/matchaprince/image/upload/v1657785064/centered_invalid_jy2yxm.png";
-  }
+  const replaceInvalidImg = (e) => {
+    e.currentTarget.src =
+      "https://res.cloudinary.com/matchaprince/image/upload/v1657785064/centered_invalid_jy2yxm.png";
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -70,6 +71,16 @@ function ProductDetails() {
     history.push("/cart");
   };
 
+  const [showImage, setShowImage] = useState(false);
+
+  const handleShowImage = () => {
+    if (showImage) {
+      setShowImage(false);
+    } else {
+      setShowImage(true);
+    }
+  };
+
   return (
     <div>
       <div id="product-detail-body-ctnr">
@@ -80,11 +91,35 @@ function ProductDetails() {
             }
           >
             {currentProduct?.image_url_2 ? (
-              <img
-                className="product-detail-img-top"
-                src={`${currentProduct?.image_url_2}`}
-                onError={replaceInvalidImg}
-              />
+              // !showImage ? (
+                <img
+                  className="product-detail-img-top"
+                  src={`${currentProduct?.image_url_2}`}
+                  onError={replaceInvalidImg}
+                  onClick={handleShowImage}
+                />
+              // ) : (
+              //   <>
+              //     <img
+              //       className="product-detail-img-top"
+              //       src={`${currentProduct?.image_url_2}`}
+              //       onError={replaceInvalidImg}
+              //       onClick={handleShowImage}
+              //     />
+              //     <div id="clicked-img-2-ctnr">
+
+              //     <div id="clicked-img2-x" onClick={handleShowImage}>
+              //       X
+              //     </div>
+              //     <img
+              //       className="clicked-img-2"
+              //       src={`${currentProduct?.image_url_2}`}
+              //       onError={replaceInvalidImg}
+              //       onClick={handleShowImage}
+              //       />
+              //       </div>
+              //   </>
+              // )
             ) : (
               <div className="no-pic"></div>
             )}
@@ -110,7 +145,11 @@ function ProductDetails() {
             )}
           </div>
           <div id="center-pic">
-            <img id="center-pic-img" src={`${currentProduct?.image_url_1}`} onError={replaceInvalidImg} />
+            <img
+              id="center-pic-img"
+              src={`${currentProduct?.image_url_1}`}
+              onError={replaceInvalidImg}
+            />
           </div>
           <div
             className={
@@ -156,7 +195,6 @@ function ProductDetails() {
 
           <div id="description-container">
             <div id="product-desc-seller-container">
-
               <div id="desc-btns-cntr">
                 <h3 id="product-description-title" className="text">
                   Description
