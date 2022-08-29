@@ -176,6 +176,93 @@ With soft, smooth and stretchy materials for that second skin feel, Studio fits 
     updated_at= '2022-08-01')
 
 
+    marcy_stack_home_gym = Product(
+        inventory=10, product_name='Marcy 150lb Stack Home Gym',price=499.99, description='''FEATURES & PERFORMANCE:
+
+The dual action press arms with independent motion allow for chest press and vertical butterfly exercises
+Target your core while performing ab crunches with the upper pulley. Control resistance by adjusting the selectorized weight stack
+The press arms have oversized foam roller pads for added comfort while performing chest and pec fly exercises
+Work your lower body muscles with the total leg developer. Foam roller pads allow for a comfortable workout
+The preacher curl bicep pad is removable and adjustable to make isolated bicep exercises possible
+No need to stress about loading and unloading weight plates. The selectorized weight stack with lock allows you to do resistance training safely, while the safety lock prevents unauthorized usage
+
+
+DIMENSIONS:
+Assembled Dimensions: 68”L x 36”W x 79”H
+
+
+Maximum Weight Capacity: 300lb
+Country of Origin : Imported
+Style : MWM-989
+DSG Pro Tips
+Brand : Marcy''',
+    image_url_1='https://res.cloudinary.com/matchaprince/image/upload/v1661466790/MatchaShark%20Seed%20Data/20MCYA150LBSTCKHMGMU_z4fmjj.jpg',
+    image_url_2='https://res.cloudinary.com/matchaprince/image/upload/v1661466814/MatchaShark%20Seed%20Data/MWM-989_NOCOLOR_REG_xbvsrr.jpg',
+    image_url_3='https://res.cloudinary.com/matchaprince/image/upload/v1661466816/MatchaShark%20Seed%20Data/MWM-989_NOCOLOR_REG-alt1_yhp2ir.jpg',
+    image_url_4='https://res.cloudinary.com/matchaprince/image/upload/v1661466817/MatchaShark%20Seed%20Data/MWM-989_NOCOLOR_REG-alt2_x5vlbi.jpg',
+    image_url_5='https://res.cloudinary.com/matchaprince/image/upload/v1661466818/MatchaShark%20Seed%20Data/MWM-989_NOCOLOR_REG-alt3_eewwwg.jpg',
+    image_url_6='https://res.cloudinary.com/matchaprince/image/upload/v1661466820/MatchaShark%20Seed%20Data/MWM-989_NOCOLOR_DET-alt1_ccvcxk.jpg',
+    overall_rating=4,
+        user_id=7,
+    category_id=5,
+    created_at= '2022-08-25',
+    updated_at= '2022-08-25')
+
+
+
+    ethos_training_rack = Product(
+        inventory=10, product_name='ETHOS Functional Training Rack',price=449.99, description='''Whether you’re pushing yourself with bodyweight training or maxing out with a barbell, the ETHOS® FTR provides versatility and commercial-quality durability and capacity for your most intense trainings.
+
+FUNCTIONAL TRAINING RACK
+
+Heavy-duty steel rack for suspended and bodyweight training and barbell work
+J-Hooks and Bar Catches offer a stable start and finish to every movement and protect equipment from damage
+Olympic plate horns for safe and organized Olympic plate storage
+
+VERSATILE WORKOUTS
+
+Straight bar pull up attachment provides narrow and wide overhand/false grip capability
+Pull-up function has multiple handle positions for a variety of grips and grip widths
+Dip function allows for greater focus on triceps, chest and shoulders
+Push-up trainer provides greater depth and range of motion for push-up training
+Heavy bag spinner amplifies cardio and heavy bag training
+
+QUALITY CONSTRUCTION
+
+3’’ x 3’’ x 11 gauge heavy-duty steel frame
+Electro-stat powder coated frame
+1/2’’ galvanized hardware and fasteners
+ETHOS gym units and benches have been tested to a commercial standard
+
+COMES STANDARD WITH
+
+Straight Bar Pull Up Attachment
+Modular PDP Attachment
+CST - 2 heavy duty polyester web straps and 4 carabiners for proper height adjustment
+J-Hook 2 pack
+Bar Catch 2 pack
+Heavy Bag Spinner
+Olympic Plate Horns
+
+ADDITIONAL DETAILS
+
+Dimensions: 50’’ L x 64’’ W x 79.5-91’’ H
+Weight: 185.5lbs.
+J-Hook Dimensions: 5.75’’ x 8.25’’ x 3’’ D
+Olympic Plate Horn Dimensions: 7.75’’ L''',
+    image_url_1='https://res.cloudinary.com/matchaprince/image/upload/v1661745836/MatchaShark%20Seed%20Data/17AU6UTHSFTRXXXXXGMU_kqw6nd.webp',
+    image_url_2='https://res.cloudinary.com/matchaprince/image/upload/v1661745839/MatchaShark%20Seed%20Data/ETHE360_BLACK_AR_SUSPENSIONSYSTEM-PD_aceip3.jpg',
+    image_url_3='https://res.cloudinary.com/matchaprince/image/upload/v1661745841/MatchaShark%20Seed%20Data/ETHE360_BLACK_CLOSEUP_ADJUSTMENTS-PD_ufatb3.jpg',
+    image_url_4='https://res.cloudinary.com/matchaprince/image/upload/v1661745844/MatchaShark%20Seed%20Data/ETHE360_BLACK_DET1_BENCH-PD_sfunss.jpg',
+    image_url_5='https://res.cloudinary.com/matchaprince/image/upload/v1661745846/MatchaShark%20Seed%20Data/ETHE360_BLACK_CLOSEUP_BAGHANGER-PD_gf4od6.jpg',
+    image_url_6='https://res.cloudinary.com/matchaprince/image/upload/v1661745848/MatchaShark%20Seed%20Data/ETHE360_NOCOLOR_DET-alt5_j9ewcu.jpg',
+    overall_rating=4,
+        user_id=7,
+    category_id=5,
+    created_at= '2022-08-28',
+    updated_at= '2022-08-28')
+
+
 
 
 
@@ -194,6 +281,8 @@ With soft, smooth and stretchy materials for that second skin feel, Studio fits 
     db.session.add(studio_shorts_green)
     db.session.add(studio_bra_pink)
     db.session.add(studio_leggings_pink)
+    db.session.add(marcy_stack_home_gym)
+    db.session.add(ethos_training_rack)
 
 
     db.session.commit()
