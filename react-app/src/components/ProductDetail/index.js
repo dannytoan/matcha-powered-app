@@ -10,6 +10,7 @@ import { addToBag } from "../../store/shoppingBag";
 import EditProductModal from "../EditListingModal";
 import Reviews from "../Reviews";
 import NewReviewFormModal from "../NewReviewModal";
+import ZoomProductImgModal from "./ZoomImageModal";
 import "./ProductDetails.css";
 
 function ProductDetails() {
@@ -92,12 +93,19 @@ function ProductDetails() {
           >
             {currentProduct?.image_url_2 ? (
               // !showImage ? (
-                <img
-                  className="product-detail-img-top"
-                  src={`${currentProduct?.image_url_2}`}
-                  onError={replaceInvalidImg}
-                  onClick={handleShowImage}
-                />
+
+
+                <ZoomProductImgModal className="product-detail-img-top" imgUrl={currentProduct?.image_url_2}/>
+                // <img
+                //   className="product-detail-img-top"
+                //   src={`${currentProduct?.image_url_2}`}
+                //   onError={replaceInvalidImg}
+                //   onClick={handleShowImage}
+                // />
+
+
+
+
               // ) : (
               //   <>
               //     <img
@@ -125,31 +133,34 @@ function ProductDetails() {
             )}
 
             {currentProduct?.image_url_3 ? (
-              <img
-                className="product-detail-img-top"
-                src={`${currentProduct?.image_url_3}`}
-                onError={replaceInvalidImg}
-              />
+              // <img
+              //   className="product-detail-img-top"
+              //   src={`${currentProduct?.image_url_3}`}
+              //   onError={replaceInvalidImg}
+              // />
+              <ZoomProductImgModal className="product-detail-img-top" imgUrl={currentProduct?.image_url_3}/>
             ) : (
               <div className="no-pic"></div>
             )}
 
             {currentProduct?.image_url_4 ? (
-              <img
-                className="product-detail-img-top"
-                src={`${currentProduct?.image_url_4}`}
-                onError={replaceInvalidImg}
-              />
+              // <img
+              //   className="product-detail-img-top"
+              //   src={`${currentProduct?.image_url_4}`}
+              //   onError={replaceInvalidImg}
+              // />
+              <ZoomProductImgModal className="product-detail-img-top" imgUrl={currentProduct?.image_url_4}/>
             ) : (
               <div className="no-pic"></div>
             )}
           </div>
-          <div id="center-pic">
-            <img
+          <div id="center-product-detail-img">
+            {/* <img
               id="center-pic-img"
               src={`${currentProduct?.image_url_1}`}
               onError={replaceInvalidImg}
-            />
+            /> */}
+            <ZoomProductImgModal  imgUrl={currentProduct?.image_url_1}/>
           </div>
           <div
             className={
@@ -157,21 +168,24 @@ function ProductDetails() {
             }
           >
             {currentProduct?.image_url_5 ? (
-              <img
-                className="product-detail-img-bottom"
-                src={`${currentProduct?.image_url_5}`}
-                onError={replaceInvalidImg}
-              />
+              // <img
+              //   className="product-detail-img-bottom"
+              //   src={`${currentProduct?.image_url_5}`}
+              //   onError={replaceInvalidImg}
+              // />
+              <ZoomProductImgModal className="product-detail-img-top" imgUrl={currentProduct?.image_url_5}/>
             ) : (
               <div className="no-pic"></div>
             )}
 
             {currentProduct?.image_url_6 ? (
-              <img
-                className="product-detail-img-bottom"
-                src={`${currentProduct?.image_url_6}`}
-                onError={replaceInvalidImg}
-              />
+              // <img
+              //   className="product-detail-img-bottom"
+              //   src={`${currentProduct?.image_url_6}`}
+              //   onError={replaceInvalidImg}
+              // />
+
+              <ZoomProductImgModal className="product-detail-img-top" imgUrl={currentProduct?.image_url_6}/>
             ) : (
               <div className="no-pic"></div>
             )}

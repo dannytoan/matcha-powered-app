@@ -1,0 +1,14 @@
+.image-modal-show {
+    height: 50rem;
+}
+
+.image-modal-thumb {
+    max-width: 12.6rem;
+    height: 75%;
+    object-fit: cover;
+    margin: 5px;
+}
+
+.image-modal-thumb:hover {
+    cursor: zoom-in;
+}
