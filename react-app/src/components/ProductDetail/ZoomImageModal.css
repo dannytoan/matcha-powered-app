@@ -12,3 +12,9 @@
 .image-modal-thumb:hover {
     cursor: zoom-in;
 }
+
+img.center-product-detail-pic {
+    width: 98.5%;
+    margin-left: 5px;
+    cursor: zoom-in;
+  }

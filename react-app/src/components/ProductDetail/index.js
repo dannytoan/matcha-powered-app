@@ -11,6 +11,7 @@ import EditProductModal from "../EditListingModal";
 import Reviews from "../Reviews";
 import NewReviewFormModal from "../NewReviewModal";
 import ZoomProductImgModal from "./ZoomImageModal";
+import ZoomCenterProductImgModal from "./ZoomImageCenterModal";
 import "./ProductDetails.css";
 
 function ProductDetails() {
@@ -160,7 +161,7 @@ function ProductDetails() {
               src={`${currentProduct?.image_url_1}`}
               onError={replaceInvalidImg}
             /> */}
-            <ZoomProductImgModal  imgUrl={currentProduct?.image_url_1}/>
+            <ZoomCenterProductImgModal  imgUrl={currentProduct?.image_url_1}/>
           </div>
           <div
             className={
