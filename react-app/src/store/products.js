@@ -32,16 +32,17 @@ export const viewProducts = () => async (dispatch) => {
   }
 };
 
-export const addProduct = (payload) => async (dispatch) => {
+export const addProduct = (formData) => async (dispatch) => {
   const response = await fetch("/api/products/new", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload),
+    // headers: { "Content-Type": "application/json" },
+    // body: JSON.stringify(payload),
+    body: formData
   });
 
   const newProduct = await response.json();
   // console.log("RESPONSE", response);
-  // console.log("NEW PRODUCT", newProduct);
+  console.log("NEW PRODUCT", newProduct);
 
   if (newProduct) {
     dispatch(add(newProduct));

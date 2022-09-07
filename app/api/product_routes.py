@@ -1,8 +1,10 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
-from app.models import Product, db
+from flask_login import login_required, current_user
+from app.models import Product, db, Image
 from datetime import datetime
 from app.forms import ProductForm, EditProductForm
+from app.aws_helper import (
+    upload_file_to_s3, allowed_file, get_unique_filename)
 
 product_routes = Blueprint('products', __name__)
 
@@ -26,6 +28,33 @@ def products():
 def new_product():
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
+    print("=============REQUEST.FILES=====================", request.files['image_url_1'])
+
+
+    if "image_url_1" not in request.files:
+        return {"errors": "image required"}, 400
+
+    image = request.files["image_url_1"]
+
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    image.filename = get_unique_filename(image.filename)
+
+    upload = upload_file_to_s3(image)
+
+    if "url" not in upload:
+        # if the dictionary doesn't have a url key
+        # it means that there was an error when we tried to upload
+        # so we send back that error message
+        return upload, 400
+
+    url = upload["url"]
+
+    # For multi image upload?
+    # new_image_1 = Image(product_id=new_product['id'], image_url=url)
+
     if form.validate_on_submit():
         data = form.data
         new_product = Product(
@@ -35,7 +64,7 @@ def new_product():
             price=data['price'],
             description=data['description'],
             category_id=data['category_id'],
-            image_url_1=data['image_url_1'],
+            image_url_1=url,
             image_url_2=data['image_url_2'],
             image_url_3=data['image_url_3'],
             image_url_4=data['image_url_4'],
