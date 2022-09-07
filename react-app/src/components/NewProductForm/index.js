@@ -21,82 +21,109 @@ function NewProductForm() {
   const [image_url_4, setImageUrl4] = useState("");
   const [image_url_5, setImageUrl5] = useState("");
   const [image_url_6, setImageUrl6] = useState("");
+  const [imageLoading, setImageLoading] = useState(false);
 
   const [errors, setErrors] = useState([]);
 
-  useEffect(() => {
-    const errors = [];
-    const imgUrlValidator = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
+  // useEffect(() => {
+  //   const errors = [];
+  //   const imgUrlValidator = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
 
-    if (product_name.length > 50) {
-      errors.push("Product name must be less than 50 characters");
-    } else if (product_name.length <= 0) {
-      errors.push("Please provide a Product Name");
-    } else if (!product_name.replace(/\s/g, '').length) {
-      errors.push('Product name must not be empty')
-    }
+  //   if (product_name.length > 50) {
+  //     errors.push("Product name must be less than 50 characters");
+  //   } else if (product_name.length <= 0) {
+  //     errors.push("Please provide a Product Name");
+  //   } else if (!product_name.replace(/\s/g, "").length) {
+  //     errors.push("Product name must not be empty");
+  //   }
 
-    if (price <= 0) {
-      errors.push("Price must be greater than 0");
-    } else if (price > 10000) {
-      errors.push("Price may not exceed over $10,0000");
-    }
+  //   if (price <= 0) {
+  //     errors.push("Price must be greater than 0");
+  //   } else if (price > 10000) {
+  //     errors.push("Price may not exceed over $10,0000");
+  //   }
 
-    if (inventory <= 0) {
-      errors.push("Inventory must be 1 or more");
-    } else if (inventory >= 10000) {
-      errors.push("Inventory may not exceed 10,000 units");
-    }
+  //   if (inventory <= 0) {
+  //     errors.push("Inventory must be 1 or more");
+  //   } else if (inventory >= 10000) {
+  //     errors.push("Inventory may not exceed 10,000 units");
+  //   }
 
-    if (description.length === 0) {
-      errors.push("Please provide a description");
-    } else if (description.length > 2000) {
-      errors.push("Description length must not exceed 2000 characters");
-    }
+  //   if (description.length === 0) {
+  //     errors.push("Please provide a description");
+  //   } else if (description.length > 2000) {
+  //     errors.push("Description length must not exceed 2000 characters");
+  //   }
 
-    if (!description.replace(/\s/g, '').length) {
-      errors.push('Description must not be empty')
-    }
+  //   if (!description.replace(/\s/g, "").length) {
+  //     errors.push("Description must not be empty");
+  //   }
 
-    if (image_url_1.length === 0) {
-      errors.push("Please provide a .JPG/.JPEG or .PNG Image URL in the 'Image URL 1' field");
-    }
+  //   if (image_url_1.length === 0) {
+  //     errors.push(
+  //       "Please provide a .JPG/.JPEG or .PNG Image URL in the 'Image URL 1' field"
+  //     );
+  //   }
 
-    if (!image_url_1.match(imgUrlValidator)) {
-      errors.push("Images must be in JPG/JPEG or PNG format")
-    }
+  //   if (!image_url_1.match(imgUrlValidator)) {
+  //     errors.push("Images must be in JPG/JPEG or PNG format");
+  //   }
 
-    setErrors(errors);
-  }, [product_name, price, inventory, description, image_url_1]);
-
-
+  //   setErrors(errors);
+  // }, [product_name, price, inventory, description, image_url_1]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const payload = {
-      user_id: sessionUser.id,
-      inventory,
-      product_name,
-      price,
-      description,
-      category_id,
-      image_url_1,
-      image_url_2,
-      image_url_3,
-      image_url_4,
-      image_url_5,
-      image_url_6,
-    };
+    const formData = new FormData();
+    formData.append("image_url_1", image_url_1);
+    formData.append("image_url_2", image_url_2);
+    formData.append("image_url_3", image_url_3);
+    formData.append("image_url_4", image_url_4);
+    formData.append("image_url_5", image_url_5);
+    formData.append("image_url_6", image_url_6);
+    formData.append("user_id", sessionUser.id);
+    formData.append("inventory", inventory);
+    formData.append("product_name", product_name);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("category_id", category_id);
 
-    let createdProduct = await dispatch(addProduct(payload));
+    setImageLoading(true);
+
+
+
+    // const payload = {
+    //   user_id: sessionUser.id,
+    //   inventory,
+    //   product_name,
+    //   price,
+    //   description,
+    //   category_id,
+    //   image_url_1,
+      // image_url_2,
+      // image_url_3,
+      // image_url_4,
+      // image_url_5,
+      // image_url_6,
+    // };
+
+    let createdProduct = await dispatch(addProduct(formData));
     console.log("CREATED PRODUCT", createdProduct);
+    // console.log("FORM DATA", formData)
 
     if (createdProduct) {
       setErrors([]);
-      return history.push("/products/all");
+      // return history.push("/products/all");
     }
   };
+
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setImageUrl1(file);
+}
+
+console.log("IMAGE URL 1", image_url_1)
 
   return (
     <div>
@@ -111,7 +138,9 @@ function NewProductForm() {
         </div>
 
         <form id="new-product-form" onSubmit={handleSubmit}>
-          <label className="create-product-labels">Product Name* (Required)</label>
+          <label className="create-product-labels">
+            Product Name* (Required)
+          </label>
           <input
             name="product_name"
             className="create-product-input"
@@ -139,7 +168,9 @@ function NewProductForm() {
               />
             </div>
             <div className="price-and-inv inv-input">
-              <label className="create-product-labels ">Inventory* (Required)</label>
+              <label className="create-product-labels ">
+                Inventory* (Required)
+              </label>
               <input
                 name="inventory"
                 className="create-product-input price-and-inv-input"
@@ -180,8 +211,10 @@ function NewProductForm() {
             placeholder={"Insert description here..."}
             required
           />
-          <label className="create-product-labels">Image URL 1* (Required)</label>
-          <input
+          <label className="create-product-labels">
+            Image URL 1* (Required)
+          </label>
+          {/* <input
             name="image_url_1"
             className="create-product-input"
             type="text"
@@ -189,8 +222,15 @@ function NewProductForm() {
             onChange={(e) => setImageUrl1(e.target.value)}
             placeholder={"Insert image URL here..."}
             required
-          />
-          <label className="create-product-labels">Image URL 2 (Optional)</label>
+          /> */}
+              <input
+              type="file"
+              accept="image/*"
+              onChange={updateImage}
+            />
+          <label className="create-product-labels">
+            Image URL 2 (Optional)
+          </label>
           <input
             name="image_url_2"
             className="create-product-input"
@@ -199,7 +239,9 @@ function NewProductForm() {
             onChange={(e) => setImageUrl2(e.target.value)}
             placeholder={"Insert image URL here..."}
           />
-          <label className="create-product-labels">Image URL 3 (Optional)</label>
+          <label className="create-product-labels">
+            Image URL 3 (Optional)
+          </label>
           <input
             name="image_url_3"
             className="create-product-input"
@@ -208,7 +250,9 @@ function NewProductForm() {
             onChange={(e) => setImageUrl3(e.target.value)}
             placeholder={"Insert image URL here..."}
           />
-          <label className="create-product-labels">Image URL 4 (Optional)</label>
+          <label className="create-product-labels">
+            Image URL 4 (Optional)
+          </label>
           <input
             name="image_url_4"
             className="create-product-input"
@@ -217,7 +261,9 @@ function NewProductForm() {
             onChange={(e) => setImageUrl4(e.target.value)}
             placeholder={"Insert image URL here..."}
           />
-          <label className="create-product-labels">Image URL 5 (Optional)</label>
+          <label className="create-product-labels">
+            Image URL 5 (Optional)
+          </label>
           <input
             name="image_url_5"
             className="create-product-input"
@@ -226,7 +272,9 @@ function NewProductForm() {
             onChange={(e) => setImageUrl5(e.target.value)}
             placeholder={"Insert image URL here..."}
           />
-          <label className="create-product-labels">Image URL 6 (Optional)</label>
+          <label className="create-product-labels">
+            Image URL 6 (Optional)
+          </label>
           <input
             name="image_url_6"
             className="create-product-input"
@@ -238,8 +286,9 @@ function NewProductForm() {
           <button disabled={errors.length > 0} className="submit-btn">
             Submit
           </button>
+          {(imageLoading)&& <p>Loading...</p>}
         </form>
-      {errors.length > 0 ? (
+        {errors.length > 0 ? (
           <div id="create-product-errors-container">
             <div className="create-product-errors-div">
               <ul className="create-product-errors-ul">
