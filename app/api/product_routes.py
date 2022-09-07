@@ -52,7 +52,7 @@ def new_product():
 
     url = upload["url"]
 
-    # For multi image upload?
+    # For multi image upload??
     # new_image_1 = Image(product_id=new_product['id'], image_url=url)
 
     if form.validate_on_submit():
