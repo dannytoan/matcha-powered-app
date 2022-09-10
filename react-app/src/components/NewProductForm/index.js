@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { addProduct } from "../../store/products";
 import "./NewProductForm.css";
 
+
 function NewProductForm() {
   const dispatch = useDispatch();
   const history = useHistory();
@@ -109,12 +110,11 @@ function NewProductForm() {
     // };
 
     let createdProduct = await dispatch(addProduct(formData));
-    console.log("CREATED PRODUCT", createdProduct);
-    // console.log("FORM DATA", formData)
 
     if (createdProduct) {
+      setImageLoading(false);
       setErrors([]);
-      // return history.push("/products/all");
+      return history.push("/products/all");
     }
   };
 
@@ -122,8 +122,6 @@ function NewProductForm() {
     const file = e.target.files[0];
     setImageUrl1(file);
 }
-
-console.log("IMAGE URL 1", image_url_1)
 
   return (
     <div>
@@ -212,20 +210,13 @@ console.log("IMAGE URL 1", image_url_1)
             required
           />
           <label className="create-product-labels">
-            Image URL 1* (Required)
+            Image* (Required)
           </label>
-          {/* <input
-            name="image_url_1"
-            className="create-product-input"
-            type="text"
-            value={image_url_1}
-            onChange={(e) => setImageUrl1(e.target.value)}
-            placeholder={"Insert image URL here..."}
-            required
-          /> */}
               <input
+              className="aws-img-1"
               type="file"
               accept="image/*"
+              required
               onChange={updateImage}
             />
           <label className="create-product-labels">
