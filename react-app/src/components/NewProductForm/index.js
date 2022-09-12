@@ -16,15 +16,12 @@ function NewProductForm() {
   const [inventory, setInventory] = useState(0);
   const [category_id, setCategoryId] = useState(1);
   const [description, setDescription] = useState("");
-  const [image_url_2, setImageUrl2] = useState("");
-  const [image_url_1, setImageUrl1] = useState("");
-  const [image_url_3, setImageUrl3] = useState("");
-  const [image_url_4, setImageUrl4] = useState("");
-  const [image_url_5, setImageUrl5] = useState("");
-  const [image_url_6, setImageUrl6] = useState("");
   const [imageLoading, setImageLoading] = useState(false);
 
   const [errors, setErrors] = useState([]);
+
+  const [imgs, setImgs] = useState(new Object());
+  const imgArr = Object.values(imgs)
 
   // useEffect(() => {
   //   const errors = [];
@@ -73,16 +70,35 @@ function NewProductForm() {
   //   setErrors(errors);
   // }, [product_name, price, inventory, description, image_url_1]);
 
+  const [img1, setImg1] = useState("")
+  const [img2, setImg2] = useState("")
+  const [img3, setImg3] = useState("")
+  const [img4, setImg4] = useState("")
+  const [img5, setImg5] = useState("")
+  const [img6, setImg6] = useState("")
+
+  console.log("IMG KEYS", Object.keys(imgs))
+  console.log("IMG1", img1)
+  console.log("IMG2", img2)
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setImg1(imgArr[0])
+    setImg2(imgArr[1])
+    setImg3(imgArr[2])
+    setImg4(imgArr[3])
+    setImg5(imgArr[4])
+    setImg6(imgArr[5])
+
     const formData = new FormData();
-    formData.append("image_url_1", image_url_1);
-    formData.append("image_url_2", image_url_2);
-    formData.append("image_url_3", image_url_3);
-    formData.append("image_url_4", image_url_4);
-    formData.append("image_url_5", image_url_5);
-    formData.append("image_url_6", image_url_6);
+    formData.append("image_url_1", img1);
+    formData.append("image_url_2", img2);
+    formData.append("image_url_3", img3);
+    formData.append("image_url_4", img4);
+    formData.append("image_url_5", img5);
+    formData.append("image_url_6", img6);
     formData.append("user_id", sessionUser.id);
     formData.append("inventory", inventory);
     formData.append("product_name", product_name);
@@ -92,36 +108,22 @@ function NewProductForm() {
 
     setImageLoading(true);
 
-
-
-    // const payload = {
-    //   user_id: sessionUser.id,
-    //   inventory,
-    //   product_name,
-    //   price,
-    //   description,
-    //   category_id,
-    //   image_url_1,
-      // image_url_2,
-      // image_url_3,
-      // image_url_4,
-      // image_url_5,
-      // image_url_6,
-    // };
-
     let createdProduct = await dispatch(addProduct(formData));
 
     if (createdProduct) {
       setImageLoading(false);
       setErrors([]);
-      return history.push("/products/all");
+      // return history.push("/products/all");
     }
   };
 
-  const updateImage = (e) => {
+  const updateImage = (e, i) => {
     const file = e.target.files[0];
-    setImageUrl1(file);
+    imgs[i.toString()] = file;
+    setImgs({...imgs});
 }
+
+console.log("imgs", imgs)
 
   return (
     <div>
@@ -217,63 +219,93 @@ function NewProductForm() {
               type="file"
               accept="image/*"
               required
-              onChange={updateImage}
+              onChange={(e) => updateImage(e, "image_url_1")}
             />
           <label className="create-product-labels">
             Image URL 2 (Optional)
           </label>
-          <input
+              <input
+              className="aws-img-1"
+              type="file"
+              accept="image/*"
+              onChange={(e) => updateImage(e, "image_url_2")}
+            />
+          {/* <input
             name="image_url_2"
             className="create-product-input"
             type="text"
             value={image_url_2}
             onChange={(e) => setImageUrl2(e.target.value)}
             placeholder={"Insert image URL here..."}
-          />
+          /> */}
           <label className="create-product-labels">
             Image URL 3 (Optional)
           </label>
           <input
+          className="aws-img-1"
+          type="file"
+          accept="image/*"
+          onChange={(e) => updateImage(e, "image_url_3")}
+        />
+          {/* <input
             name="image_url_3"
             className="create-product-input"
             type="text"
             value={image_url_3}
             onChange={(e) => setImageUrl3(e.target.value)}
             placeholder={"Insert image URL here..."}
-          />
+          /> */}
           <label className="create-product-labels">
             Image URL 4 (Optional)
           </label>
           <input
+          className="aws-img-1"
+          type="file"
+          accept="image/*"
+          onChange={(e) => updateImage(e, "image_url_4")}
+        />
+          {/* <input
             name="image_url_4"
             className="create-product-input"
             type="text"
             value={image_url_4}
             onChange={(e) => setImageUrl4(e.target.value)}
             placeholder={"Insert image URL here..."}
-          />
+          /> */}
           <label className="create-product-labels">
             Image URL 5 (Optional)
           </label>
           <input
+          className="aws-img-1"
+          type="file"
+          accept="image/*"
+          onChange={(e) => updateImage(e, "image_url_5")}
+        />
+          {/* <input
             name="image_url_5"
             className="create-product-input"
             type="text"
             value={image_url_5}
             onChange={(e) => setImageUrl5(e.target.value)}
             placeholder={"Insert image URL here..."}
-          />
+          /> */}
           <label className="create-product-labels">
             Image URL 6 (Optional)
           </label>
-          <input
+          {/* <input
             name="image_url_6"
             className="create-product-input"
             type="text"
             value={image_url_6}
             onChange={(e) => setImageUrl6(e.target.value)}
             placeholder={"Insert image URL here..."}
-          />
+          /> */}
+          <input
+          className="aws-img-1"
+          type="file"
+          accept="image/*"
+          onChange={(e) => updateImage(e, "image_url_6")}
+        />
           <button disabled={errors.length > 0} className="submit-btn">
             Submit
           </button>

@@ -1,10 +1,11 @@
+import re
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import Product, db, Image
 from datetime import datetime
 from app.forms import ProductForm, EditProductForm
 from app.aws_helper import (
-    upload_file_to_s3, allowed_file, get_unique_filename)
+    upload_file_to_s3, allowed_file, get_unique_filename, upload)
 
 product_routes = Blueprint('products', __name__)
 
@@ -29,31 +30,58 @@ def new_product():
     form = ProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
-    print("=============REQUEST.FILES=====================", request.files['image_url_1'])
+    image_urls = [];
 
+    print("=============REQUEST=====================", request.files)
+
+    for key in request.files.keys():
+        image = request.files[key]
+        image_url = upload(image)
+        image_urls.append(image_url)
+        print("=========IMAGES=========", image)
+        print("=========IMAGE URL=========", image_url)
+
+    print("===================IMAGE URLS=================", image_urls)
+
+    if "image_url_2" not in request.files:
+        image_urls.append("")
+    if "image_url_3" not in request.files:
+        image_urls.append("")
+    if "image_url_4" not in request.files:
+        image_urls.append("")
+    if "image_url_5" not in request.files:
+        image_urls.append("")
+    if "image_url_6" not in request.files:
+        image_urls.append("")
+
+    print("=============REQUEST=====================", request.files)
+    # print("===========IMG URL 2==========", request.files["image_url_2"])
 
     if "image_url_1" not in request.files:
         return {"errors": "image required"}, 400
 
-    image = request.files["image_url_1"]
+    # image = request.files["image_url_1"]
 
-    if not allowed_file(image.filename):
-        return {"errors": "file type not permitted"}, 400
+    for image in request.files:
+        print("======= IMAGE IN REQUEST.FILES ============", image)
+        # if not allowed_file(image.filename):
+        #     return {"errors": "file type not permitted"}, 400
 
-    image.filename = get_unique_filename(image.filename)
+    # if not allowed_file(image.filename):
+    #     return {"errors": "file type not permitted"}, 400
 
-    upload = upload_file_to_s3(image)
+    # image.filename = get_unique_filename(image.filename)
 
-    if "url" not in upload:
-        # if the dictionary doesn't have a url key
-        # it means that there was an error when we tried to upload
-        # so we send back that error message
-        return upload, 400
+    # upload = upload_file_to_s3(image)
 
-    url = upload["url"]
+    # if "url" not in upload:
+    #     # if the dictionary doesn't have a url key
+    #     # it means that there was an error when we tried to upload
+    #     # so we send back that error message
+    #     return upload, 400
 
-    # For multi image upload??
-    # new_image_1 = Image(product_id=new_product['id'], image_url=url)
+    # url = upload["url"]
+
 
     if form.validate_on_submit():
         data = form.data
@@ -64,17 +92,18 @@ def new_product():
             price=data['price'],
             description=data['description'],
             category_id=data['category_id'],
-            image_url_1=url,
-            image_url_2=data['image_url_2'],
-            image_url_3=data['image_url_3'],
-            image_url_4=data['image_url_4'],
-            image_url_5=data['image_url_5'],
-            image_url_6=data['image_url_6'],
+            image_url_1=image_urls[0],
+            image_url_2=image_urls[1],
+            image_url_3=image_urls[2],
+            image_url_4=image_urls[3],
+            image_url_5=image_urls[4],
+            image_url_6=image_urls[5],
             created_at=datetime.now(),
             updated_at=datetime.now()
         )
         db.session.add(new_product)
         db.session.commit()
+
         return new_product.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
