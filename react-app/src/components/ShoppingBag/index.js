@@ -11,7 +11,6 @@ function ShoppingBag() {
   const bag = JSON.parse(localStorage.getItem("shoppingBag"));
   const today = new Date();
 
-  console.log("BAG", bag)
 
   const removeBagHandler = (cartItem) => {
     dispatch(removeFromBag(cartItem));
@@ -22,8 +21,7 @@ function ShoppingBag() {
 
     const shoppingBag = localStorage.getItem("shoppingBag");
     const parsedShoppingBag = JSON.parse(shoppingBag);
-    // let orderHistoryId = orderHistory[orderHistory.length - 1]?.id;
-    // console.log("ORDERHISTORYID", orderHistoryId)
+
 
     const orderHistoryPayload = {
       user_id: sessionUserId,
@@ -34,7 +32,6 @@ function ShoppingBag() {
     let successfulOrderHistory = dispatch(addOrderHistory(orderHistoryPayload));
 
     if (successfulOrderHistory) {
-      console.log("successful order history")
       localStorage.clear()
       history.push("/order-history")
     }

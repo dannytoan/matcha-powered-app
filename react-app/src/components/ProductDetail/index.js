@@ -22,8 +22,6 @@ function ProductDetails() {
   const [users, setUsers] = useState([]);
 
   const sessionUser = useSelector((state) => state.session.user);
-  // console.log("session user", sessionUser);
-  // console.log("USERS", users);
 
   const replaceInvalidImg = (e) => {
     e.currentTarget.src =

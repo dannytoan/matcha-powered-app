@@ -14,7 +14,6 @@ function Products() {
     return Object.values(state.products);
   });
 
-  // console.log("PRODUCTS in Component", products);
   const replaceInvalidImg = e => {
     e.currentTarget.src = "https://res.cloudinary.com/matchaprince/image/upload/v1657785064/centered_invalid_jy2yxm.png";
   }

@@ -12,9 +12,9 @@ form#new-product-form {
     /* border: 1px black solid; */
     width: 801px;
     align-items: stretch;
-    height: 1400px;
-    padding: 45px;
-}
+    height: 80rem;
+    padding: 2rem 2rem 0 2rem;
+  }
 
 input.create-product-input {
     height: 40px;
@@ -66,11 +66,11 @@ button.submit-btn {
     height: 5rem;
     font-size: 22px;
     font-weight: 600;
-    margin-top: 10px;
+    margin-top: 1rem;
     border-radius: 5rem;
     border: none;
     cursor: pointer;
-}
+  }
 
 .create-product-labels {
     font-family: Montserrat,Helvetica,Arial,sans-serif;
@@ -96,7 +96,7 @@ button.submit-btn {
 }
 
 input.aws-img-1 {
-    margin: .5rem 0;
+    margin: .6rem 0 .6rem 1rem;
   }
 
 @keyframes fadeIn {
