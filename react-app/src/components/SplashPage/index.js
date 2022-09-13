@@ -15,7 +15,6 @@ function SplashPage() {
   });
   const monthlyItem = products[0];
   const shopOneItems = [products[5],products[6],products[7],products[8]]
-  console.log("SHOP ONE ITEMS", shopOneItems)
 
   const demoOnClick = async (e) => {
     e.preventDefault();

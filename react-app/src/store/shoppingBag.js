@@ -18,7 +18,6 @@ export const addToBag = (product) => async (dispatch) => {
 
 
   const duplicate = bag.filter((item) => item.id === product.id)
-  console.log("DUPLICATE", duplicate)
 
   // check for duplicates
   if (duplicate.length > 0) {
@@ -35,39 +34,6 @@ export const addToBag = (product) => async (dispatch) => {
 export const removeFromBag = (product) => async (dispatch) => {
   let bag = localStorage.getItem("shoppingBag");
   let parsedBag = Object.values(JSON.parse(bag));
-
-  // let parsedCopy = parsedCart.slice()
-  // let count = 0;
-
-  // if (parsedCart.length > 1) {
-  //   for (let i = 1; i < parsedCopy.length; i++) {
-  //     let element = parsedCopy[i];
-  //     console.log("ELEMENT", element)
-
-  //     if (parsedCopy[0] !== element) {
-  //       count = 1
-  //       console.log("PARSED COPY", parsedCopy)
-  //       parsedCopy.slice(1)
-  //       console.log("SLICE", parsedCopy.slice(1))
-  //       i++
-  //     } else {
-  //       count += 1
-  //       parsedCopy.slice(1)
-  //       i++
-  //     }
-  //     console.log("COUNT", count)
-  //     if (count > 1) {
-  //       const filtered = parsedCart.filter(
-  //         (selectItem) => selectItem.id !== product.id
-  //       );
-
-  //       const lastItem = filtered.pop()
-  //       console.log("last item", lastItem)
-  //     }
-  //   }
-  // }
-
-  // console.log("PARSED CART", parsedCart);
 
   // works for unique items but not duplicates, deletes all duplicates
   const filtered = parsedBag.filter(

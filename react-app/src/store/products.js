@@ -19,7 +19,6 @@ const remove = (product) => ({
 
 export const viewProducts = () => async (dispatch) => {
   const response = await fetch("/api/products");
-//   console.log("INSIDE VIEW PRODUCTS THUNK", response);
 
   if (response.ok) {
     const products = await response.json();
@@ -39,8 +38,6 @@ export const addProduct = (formData) => async (dispatch) => {
   });
 
   const newProduct = await response.json();
-  // console.log("RESPONSE", response);
-  console.log("NEW PRODUCT", newProduct);
 
   if (newProduct) {
     dispatch(add(newProduct));
@@ -82,7 +79,6 @@ const productsReducer = (state = {}, action) => {
       action.products.forEach((product) => {
         normalizedProducts[product.id] = product;
       });
-      // console.log("NORMALIZED PRODUCTS in Reducer", {...normalizedProducts})
       return { ...normalizedProducts };
     case ADD_PRODUCTS:
       const addState = { ...state, [action.newProduct.id]: action.newProduct };

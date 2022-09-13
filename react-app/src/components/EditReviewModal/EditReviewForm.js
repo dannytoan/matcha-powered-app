@@ -10,7 +10,6 @@ function EditReviewForm({ review, setShowModal }) {
   const [errors, setErrors] = useState([]);
   const [title, setTitle] = useState(review.title);
   const [rating, setRating] = useState(review.rating);
-  console.log("CONTENT", review.content);
   const [content, setContent] = useState(review.content);
   const [recommend, setRecommend] = useState(review.recommend);
   // const [showModal, setShowModal] = useState(false)

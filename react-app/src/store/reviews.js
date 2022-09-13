@@ -19,7 +19,6 @@ const remove = (review) => ({
 
 export const viewReviews = () => async (dispatch) => {
   const response = await fetch("/api/reviews");
-  //   console.log("INSIDE VIEW PRODUCTS THUNK", response);
 
   if (response.ok) {
     const reviews = await response.json();
@@ -40,8 +39,6 @@ export const addReview = (payload) => async (dispatch) => {
   });
 
   const newReview = await response.json();
-  // console.log("RESPONSE", response);
-  // console.log("NEW PRODUCT", newReview);
 
   if (newReview.newReview) {
     dispatch(add(newReview.newReview));
@@ -70,7 +67,6 @@ export const updateReview = (payload, id) => async (dispatch) => {
 
   if (response.ok) {
     const editedReview = await response.json();
-    console.log("edited review", editedReview)
     dispatch(add(editedReview));
     return editedReview;
   }
@@ -85,7 +81,6 @@ const reviewsReducer = (state = {}, action) => {
       });
       return { ...normalizedReviews };
     case ADD_REVIEW:
-      console.log("ACTION NEWREVIEW", action.newReview);
       const addState = { ...state, [action?.newReview?.id]: action?.newReview };
       return addState;
     case DEL_REVIEW:

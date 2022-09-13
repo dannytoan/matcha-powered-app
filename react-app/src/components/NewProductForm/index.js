@@ -70,10 +70,6 @@ function NewProductForm() {
 
 
 
-  console.log("IMG KEYS", Object.values(imgs))
-  console.log("IMG1", image_url_1)
-  console.log("IMG2", image_url_2)
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -113,7 +109,6 @@ function NewProductForm() {
 
 
     let createdProduct = await dispatch(addProduct(formData));
-    console.log("====CREATED PRODUCT=====", createdProduct)
     setImageLoading(true);
 
     if (createdProduct) {
@@ -129,7 +124,6 @@ function NewProductForm() {
     setImgs({...imgs});
 }
 
-console.log("imgs", imgs)
 
   return (
     <div>

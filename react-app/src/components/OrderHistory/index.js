@@ -10,8 +10,6 @@ function OrderHistory() {
   const myOrderHistories = orderHistories.filter(
     (history) => history.user_id === sessionUser.id
   );
-  console.log("ORDER HISTORIES", orderHistories);
-  console.log("MY ORDER HISTORIES", myOrderHistories);
 
   return (
     <div id="profile-page-cntr">
