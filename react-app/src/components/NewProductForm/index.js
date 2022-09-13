@@ -11,6 +11,7 @@ function NewProductForm() {
 
   const sessionUser = useSelector((state) => state.session.user);
 
+
   const [product_name, setProductName] = useState("");
   const [price, setPrice] = useState(0);
   const [inventory, setInventory] = useState(0);
@@ -18,87 +19,91 @@ function NewProductForm() {
   const [description, setDescription] = useState("");
   const [imageLoading, setImageLoading] = useState(false);
 
+  const [image_url_1, setImg1] = useState("")
+  const [image_url_2, setImg2] = useState("")
+  const [image_url_3, setImg3] = useState("")
+  const [image_url_4, setImg4] = useState("")
+  const [image_url_5, setImg5] = useState("")
+  const [image_url_6, setImg6] = useState("")
+
   const [errors, setErrors] = useState([]);
 
   const [imgs, setImgs] = useState(new Object());
   const imgArr = Object.values(imgs)
 
-  // useEffect(() => {
-  //   const errors = [];
-  //   const imgUrlValidator = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
+  useEffect(() => {
+    const errors = [];
+    // const imgUrlValidator = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
 
-  //   if (product_name.length > 50) {
-  //     errors.push("Product name must be less than 50 characters");
-  //   } else if (product_name.length <= 0) {
-  //     errors.push("Please provide a Product Name");
-  //   } else if (!product_name.replace(/\s/g, "").length) {
-  //     errors.push("Product name must not be empty");
-  //   }
+    if (product_name.length > 50) {
+      errors.push("Product name must be less than 50 characters");
+    } else if (product_name.length <= 0) {
+      errors.push("Please provide a Product Name");
+    } else if (!product_name.replace(/\s/g, "").length) {
+      errors.push("Product name must not be empty");
+    }
 
-  //   if (price <= 0) {
-  //     errors.push("Price must be greater than 0");
-  //   } else if (price > 10000) {
-  //     errors.push("Price may not exceed over $10,0000");
-  //   }
+    if (price <= 0) {
+      errors.push("Price must be greater than 0");
+    } else if (price > 10000) {
+      errors.push("Price may not exceed over $10,0000");
+    }
 
-  //   if (inventory <= 0) {
-  //     errors.push("Inventory must be 1 or more");
-  //   } else if (inventory >= 10000) {
-  //     errors.push("Inventory may not exceed 10,000 units");
-  //   }
+    if (inventory <= 0) {
+      errors.push("Inventory must be 1 or more");
+    } else if (inventory >= 10000) {
+      errors.push("Inventory may not exceed 10,000 units");
+    }
 
-  //   if (description.length === 0) {
-  //     errors.push("Please provide a description");
-  //   } else if (description.length > 2000) {
-  //     errors.push("Description length must not exceed 2000 characters");
-  //   }
+    if (description.length === 0) {
+      errors.push("Please provide a description");
+    } else if (description.length > 2000) {
+      errors.push("Description length must not exceed 2000 characters");
+    }
 
-  //   if (!description.replace(/\s/g, "").length) {
-  //     errors.push("Description must not be empty");
-  //   }
+    if (!description.replace(/\s/g, "").length) {
+      errors.push("Description must not be empty");
+    }
 
-  //   if (image_url_1.length === 0) {
-  //     errors.push(
-  //       "Please provide a .JPG/.JPEG or .PNG Image URL in the 'Image URL 1' field"
-  //     );
-  //   }
+    setErrors(errors);
+  }, [product_name, price, inventory, description]);
 
-  //   if (!image_url_1.match(imgUrlValidator)) {
-  //     errors.push("Images must be in JPG/JPEG or PNG format");
-  //   }
 
-  //   setErrors(errors);
-  // }, [product_name, price, inventory, description, image_url_1]);
 
-  const [img1, setImg1] = useState("")
-  const [img2, setImg2] = useState("")
-  const [img3, setImg3] = useState("")
-  const [img4, setImg4] = useState("")
-  const [img5, setImg5] = useState("")
-  const [img6, setImg6] = useState("")
-
-  console.log("IMG KEYS", Object.keys(imgs))
-  console.log("IMG1", img1)
-  console.log("IMG2", img2)
+  console.log("IMG KEYS", Object.values(imgs))
+  console.log("IMG1", image_url_1)
+  console.log("IMG2", image_url_2)
 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setImg1(imgArr[0])
-    setImg2(imgArr[1])
-    setImg3(imgArr[2])
-    setImg4(imgArr[3])
-    setImg5(imgArr[4])
-    setImg6(imgArr[5])
+    // setImg1(imgArr[0])
+
+    // if (image_url_2 !== undefined) {
+    //   setImg2(imgArr[1])
+    // }
+    // if (image_url_3 !== undefined) {
+    //   setImg3(imgArr[2])
+    // }
+    // if (image_url_4 !== undefined) {
+    //   setImg4(imgArr[3])
+    // }
+    // if (image_url_5 !== undefined) {
+    //   setImg5(imgArr[4])
+    // }
+    // if (image_url_5 !== undefined) {
+    //   setImg6(imgArr[5])
+    // }
+
 
     const formData = new FormData();
-    formData.append("image_url_1", img1);
-    formData.append("image_url_2", img2);
-    formData.append("image_url_3", img3);
-    formData.append("image_url_4", img4);
-    formData.append("image_url_5", img5);
-    formData.append("image_url_6", img6);
+    formData.append("image_url_1", imgArr[0]);
+    formData.append("image_url_2", imgArr[1]);
+    formData.append("image_url_3", imgArr[2]);
+    formData.append("image_url_4", imgArr[3]);
+    formData.append("image_url_5", imgArr[4]);
+    formData.append("image_url_6", imgArr[5]);
     formData.append("user_id", sessionUser.id);
     formData.append("inventory", inventory);
     formData.append("product_name", product_name);
@@ -106,14 +111,15 @@ function NewProductForm() {
     formData.append("description", description);
     formData.append("category_id", category_id);
 
-    setImageLoading(true);
 
     let createdProduct = await dispatch(addProduct(formData));
+    console.log("====CREATED PRODUCT=====", createdProduct)
+    setImageLoading(true);
 
     if (createdProduct) {
       setImageLoading(false);
       setErrors([]);
-      // return history.push("/products/all");
+      return history.push("/products/all");
     }
   };
 
