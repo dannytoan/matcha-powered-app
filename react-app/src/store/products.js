@@ -35,8 +35,6 @@ export const viewProducts = () => async (dispatch) => {
 export const addProduct = (formData) => async (dispatch) => {
   const response = await fetch("/api/products/new", {
     method: "POST",
-    // headers: { "Content-Type": "application/json" },
-    // body: JSON.stringify(payload),
     body: formData
   });
 

@@ -41,7 +41,8 @@ def new_product():
         print("=========IMAGES=========", image)
         print("=========IMAGE URL=========", image_url)
 
-    print("===================IMAGE URLS=================", image_urls)
+    # if "image_url_1" not in request.files:
+    #     return {"errors": "image required"}, 400
 
     if "image_url_2" not in request.files:
         image_urls.append("")
@@ -54,11 +55,10 @@ def new_product():
     if "image_url_6" not in request.files:
         image_urls.append("")
 
+    print("===================IMAGE URLS=================", image_urls)
     print("=============REQUEST=====================", request.files)
     # print("===========IMG URL 2==========", request.files["image_url_2"])
 
-    if "image_url_1" not in request.files:
-        return {"errors": "image required"}, 400
 
     # image = request.files["image_url_1"]
 
