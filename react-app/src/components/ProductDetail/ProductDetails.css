@@ -54,6 +54,13 @@ div#center-pic {
     align-items: center;
   }
 
+  div#center-product-detail-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
 .bottom-two-pics {
     display: flex;
     width: 100%;
