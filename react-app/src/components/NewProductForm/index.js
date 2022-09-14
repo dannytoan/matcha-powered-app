@@ -4,13 +4,11 @@ import { useHistory } from "react-router-dom";
 import { addProduct } from "../../store/products";
 import "./NewProductForm.css";
 
-
 function NewProductForm() {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const sessionUser = useSelector((state) => state.session.user);
-
 
   const [product_name, setProductName] = useState("");
   const [price, setPrice] = useState(0);
@@ -19,17 +17,17 @@ function NewProductForm() {
   const [description, setDescription] = useState("");
   const [imageLoading, setImageLoading] = useState(false);
 
-  const [image_url_1, setImg1] = useState("")
-  const [image_url_2, setImg2] = useState("")
-  const [image_url_3, setImg3] = useState("")
-  const [image_url_4, setImg4] = useState("")
-  const [image_url_5, setImg5] = useState("")
-  const [image_url_6, setImg6] = useState("")
+  const [image_url_1, setImg1] = useState("");
+  const [image_url_2, setImg2] = useState("");
+  const [image_url_3, setImg3] = useState("");
+  const [image_url_4, setImg4] = useState("");
+  const [image_url_5, setImg5] = useState("");
+  const [image_url_6, setImg6] = useState("");
 
   const [errors, setErrors] = useState([]);
 
   const [imgs, setImgs] = useState(new Object());
-  const imgArr = Object.values(imgs)
+  const imgArr = Object.values(imgs);
 
   useEffect(() => {
     const errors = [];
@@ -68,30 +66,8 @@ function NewProductForm() {
     setErrors(errors);
   }, [product_name, price, inventory, description]);
 
-
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // setImg1(imgArr[0])
-
-    // if (image_url_2 !== undefined) {
-    //   setImg2(imgArr[1])
-    // }
-    // if (image_url_3 !== undefined) {
-    //   setImg3(imgArr[2])
-    // }
-    // if (image_url_4 !== undefined) {
-    //   setImg4(imgArr[3])
-    // }
-    // if (image_url_5 !== undefined) {
-    //   setImg5(imgArr[4])
-    // }
-    // if (image_url_5 !== undefined) {
-    //   setImg6(imgArr[5])
-    // }
-
 
     const formData = new FormData();
     formData.append("image_url_1", imgArr[0]);
@@ -107,7 +83,6 @@ function NewProductForm() {
     formData.append("description", description);
     formData.append("category_id", category_id);
 
-
     let createdProduct = await dispatch(addProduct(formData));
     setImageLoading(true);
 
@@ -121,8 +96,54 @@ function NewProductForm() {
   const updateImage = (e, i) => {
     const file = e.target.files[0];
     imgs[i.toString()] = file;
-    setImgs({...imgs});
-}
+    setImgs({ ...imgs });
+  };
+
+  const [hideImg, setHideImg] = useState(true);
+  const [hideImg2, setHideImg2] = useState(true);
+  const [hideImg3, setHideImg3] = useState(true);
+  const [hideImg4, setHideImg4] = useState(true);
+  const [hideImg5, setHideImg5] = useState(true);
+
+  const hideAddImgBtn = () => {
+    if (hideImg) {
+      setHideImg(false);
+    } else {
+      setHideImg(true);
+    }
+  };
+
+  const hideAddImgBtn2 = () => {
+    if (hideImg2) {
+      setHideImg2(false);
+    } else {
+      setHideImg2(true);
+    }
+  };
+
+  const hideAddImgBtn3 = () => {
+    if (hideImg3) {
+      setHideImg3(false);
+    } else {
+      setHideImg3(true);
+    }
+  };
+
+  const hideAddImgBtn4 = () => {
+    if (hideImg4) {
+      setHideImg4(false);
+    } else {
+      setHideImg4(true);
+    }
+  };
+
+  const hideAddImgBtn5 = () => {
+    if (hideImg5) {
+      setHideImg5(false);
+    } else {
+      setHideImg5(true);
+    }
+  };
 
 
   return (
@@ -211,105 +232,125 @@ function NewProductForm() {
             placeholder={"Insert description here..."}
             required
           />
-          <label className="create-product-labels">
-            Image* (Required)
+          <div className="aws-add-img-box">
+
+          <label className="create-product-labels">Image* (Required)
+
           </label>
-              <input
-              className="aws-img-1"
-              type="file"
-              accept="image/*"
-              required
-              onChange={(e) => updateImage(e, "image_url_1")}
+          <input
+            className="aws-img-1"
+            type="file"
+            accept="image/*"
+            required
+            onChange={(e) => updateImage(e, "image_url_1")}
             />
-          <label className="create-product-labels">
-            Image URL 2 (Optional)
-          </label>
-              <input
+
+          <div
+            id="add-extra-image-btn"
+            onClick={(e) => hideAddImgBtn()}
+            className={hideImg ? "unhide-aws" : "hide-aws"}
+            >
+            <i class="fa-solid fa-file-circle-plus"></i> Add Image
+          </div>
+            </div>
+
+          <div id="aws-add-img-box" className={hideImg ? "hide-aws" : "unhide-aws"}>
+            <label className="create-product-labels">
+              Image 2 (Optional)
+            </label>
+            <input
               className="aws-img-1"
               type="file"
               accept="image/*"
               onChange={(e) => updateImage(e, "image_url_2")}
             />
-          {/* <input
-            name="image_url_2"
-            className="create-product-input"
-            type="text"
-            value={image_url_2}
-            onChange={(e) => setImageUrl2(e.target.value)}
-            placeholder={"Insert image URL here..."}
-          /> */}
+
+          <div
+            id="add-extra-image-btn"
+            onClick={(e) => hideAddImgBtn2()}
+            className={hideImg2 ? "unhide-aws" : "hide-aws"}
+          >
+            <i class="fa-solid fa-file-circle-plus"></i> Add Image
+          </div>
+          </div>
+
+          <div id="aws-add-img-box" className={hideImg2 ? "hide-aws" : "unhide-aws"}>
+            <label className="create-product-labels">
+              Image 3 (Optional)
+            </label>
+            <input
+              className="aws-img-1"
+              type="file"
+              accept="image/*"
+              onChange={(e) => updateImage(e, "image_url_3")}
+            />
+            <div
+            id="add-extra-image-btn"
+            onClick={(e) => hideAddImgBtn3()}
+            className={hideImg3 ? "unhide-aws" : "hide-aws"}
+          >
+            <i class="fa-solid fa-file-circle-plus"></i> Add Image
+          </div>
+          </div>
+
+
+          <div id="aws-add-img-box" className={hideImg3 ? "hide-aws" : "unhide-aws"}>
+
           <label className="create-product-labels">
-            Image URL 3 (Optional)
+            Image 4 (Optional)
           </label>
           <input
-          className="aws-img-1"
-          type="file"
-          accept="image/*"
-          onChange={(e) => updateImage(e, "image_url_3")}
-        />
-          {/* <input
-            name="image_url_3"
-            className="create-product-input"
-            type="text"
-            value={image_url_3}
-            onChange={(e) => setImageUrl3(e.target.value)}
-            placeholder={"Insert image URL here..."}
-          /> */}
+            className="aws-img-1"
+            type="file"
+            accept="image/*"
+            onChange={(e) => updateImage(e, "image_url_4")}
+            />
+            <div
+            id="add-extra-image-btn"
+            onClick={(e) => hideAddImgBtn4()}
+            className={hideImg4 ? "unhide-aws" : "hide-aws"}
+          >
+            <i class="fa-solid fa-file-circle-plus"></i> Add Image
+          </div>
+            </div>
+
+
+          <div id="aws-add-img-box"className={hideImg4 ? "hide-aws" : "unhide-aws"}>
+
           <label className="create-product-labels">
-            Image URL 4 (Optional)
+            Image 5 (Optional)
           </label>
           <input
-          className="aws-img-1"
-          type="file"
-          accept="image/*"
-          onChange={(e) => updateImage(e, "image_url_4")}
-        />
-          {/* <input
-            name="image_url_4"
-            className="create-product-input"
-            type="text"
-            value={image_url_4}
-            onChange={(e) => setImageUrl4(e.target.value)}
-            placeholder={"Insert image URL here..."}
-          /> */}
+            className="aws-img-1"
+            type="file"
+            accept="image/*"
+            onChange={(e) => updateImage(e, "image_url_5")}
+            />
+            <div
+            id="add-extra-image-btn"
+            onClick={(e) => hideAddImgBtn5()}
+            className={hideImg5 ? "unhide-aws" : "hide-aws"}
+          >
+            <i class="fa-solid fa-file-circle-plus"></i> Add Image
+          </div>
+            </div>
+
+          <div id="aws-add-img-box" className={hideImg5 ? "hide-aws" : "unhide-aws"}>
+
           <label className="create-product-labels">
-            Image URL 5 (Optional)
+            Image 6 (Optional)
           </label>
           <input
-          className="aws-img-1"
-          type="file"
-          accept="image/*"
-          onChange={(e) => updateImage(e, "image_url_5")}
-        />
-          {/* <input
-            name="image_url_5"
-            className="create-product-input"
-            type="text"
-            value={image_url_5}
-            onChange={(e) => setImageUrl5(e.target.value)}
-            placeholder={"Insert image URL here..."}
-          /> */}
-          <label className="create-product-labels">
-            Image URL 6 (Optional)
-          </label>
-          {/* <input
-            name="image_url_6"
-            className="create-product-input"
-            type="text"
-            value={image_url_6}
-            onChange={(e) => setImageUrl6(e.target.value)}
-            placeholder={"Insert image URL here..."}
-          /> */}
-          <input
-          className="aws-img-1"
-          type="file"
-          accept="image/*"
-          onChange={(e) => updateImage(e, "image_url_6")}
-        />
+            className="aws-img-1"
+            type="file"
+            accept="image/*"
+            onChange={(e) => updateImage(e, "image_url_6")}
+            />
+            </div>
           <button disabled={errors.length > 0} className="submit-btn">
             Submit
           </button>
-          {(imageLoading)&& <p>Loading...</p>}
+          {imageLoading && <p>Loading...</p>}
         </form>
         {errors.length > 0 ? (
           <div id="create-product-errors-container">
