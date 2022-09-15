@@ -69,4 +69,48 @@ div#edit-product-errors-container {
 div#edit-product-form-cntr {
     display: flex;
     justify-content: center;
-}
+    padding: 0rem 1rem;
+  }
+
+  img.edit-listing-image-preview {
+    width: 10rem;
+    margin: 1rem 1rem;
+  }
+
+  span.text.current-images-header-edit {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+
+  form#edit-product-form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    /* border: 1px black solid; */
+    width: 801px;
+    align-items: stretch;
+    height: 100%;
+    padding: 2rem;
+  }
+
+  div#edit-listing-preview-imgs {
+    text-align-last: center;
+  }
+
+  button.edit-submit-btn {
+    background-color: black;
+    color: white;
+    height: 5rem;
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .edit-submit-btn:hover {
+    opacity: .9;
+  }
