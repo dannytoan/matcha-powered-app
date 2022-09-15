@@ -168,6 +168,17 @@ img#monthly-item-img {
   }
 
   /* #bottom-header-img-one-gradient {
+    background-image: linear-gradient(transparent, #00000045 60%);
+    height: 90%;
+    width: 100%;
+    position: absolute;
+    display: inline;
+    z-index: 2;
+    left: 0;
+  } */
+
+
+  /* #bottom-header-img-one-gradient {
     bottom: 6.1rem;
     left: auto;
     position: relative;
@@ -194,6 +205,7 @@ img#monthly-item-img {
     text-align: center;
     color: black;
     background-color: white;
+    box-shadow: black 0px 0rem 25px;
     z-index: 100;
   }
 
@@ -273,6 +285,7 @@ img#monthly-item-img {
     /* border: 1px black solid; */
     text-align: center;
     align-content: center;
+    text-shadow: black 0px 0rem 30px;
   }
 
   div#bottom-header-h1-cntr {
@@ -290,6 +303,7 @@ img#monthly-item-img {
     color: white;
     font-size: 1.2rem;
     line-height: 1.8rem;
+    text-shadow: black 0px 0rem 25px;
     /* position: relative; */
     /* top: 8rem; */
   }
