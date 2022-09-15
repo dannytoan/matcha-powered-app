@@ -57,16 +57,15 @@ export const removeProduct = (id) => async (dispatch) => {
   return response;
 };
 
-export const updateProduct = (payload, id) => async (dispatch) => {
+export const updateProduct = (formData, id) => async (dispatch) => {
     const response = await fetch(`/api/products/${id}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
+      body: formData
     })
 
+    const editedProduct = await response.json();
 
-    if (response.ok) {
-      const editedProduct = await response.json();
+    if (editedProduct) {
       dispatch(add(editedProduct));
       return editedProduct;
     }

@@ -17,13 +17,6 @@ function NewProductForm() {
   const [description, setDescription] = useState("");
   const [imageLoading, setImageLoading] = useState(false);
 
-  const [image_url_1, setImg1] = useState("");
-  const [image_url_2, setImg2] = useState("");
-  const [image_url_3, setImg3] = useState("");
-  const [image_url_4, setImg4] = useState("");
-  const [image_url_5, setImg5] = useState("");
-  const [image_url_6, setImg6] = useState("");
-
   const [errors, setErrors] = useState([]);
 
   const [imgs, setImgs] = useState(new Object());
