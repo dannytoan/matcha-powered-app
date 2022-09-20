@@ -76,13 +76,15 @@ function NewProductForm() {
     formData.append("description", description);
     formData.append("category_id", category_id);
 
+    console.log("FORM DATA", formData)
+
     let createdProduct = await dispatch(addProduct(formData));
     setImageLoading(true);
 
     if (createdProduct) {
       setImageLoading(false);
       setErrors([]);
-      return history.push("/products/all");
+      // return history.push("/products/all");
     }
   };
 

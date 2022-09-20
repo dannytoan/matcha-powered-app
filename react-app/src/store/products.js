@@ -32,14 +32,16 @@ export const viewProducts = () => async (dispatch) => {
 };
 
 export const addProduct = (formData) => async (dispatch) => {
+  console.log("FORM DATA IN THUNK", formData)
+
   const response = await fetch("/api/products/new", {
     method: "POST",
     body: formData
   });
 
-  const newProduct = await response.json();
-
-  if (newProduct) {
+  if (response.ok) {
+    const newProduct = await response.json();
+    console.log("NEW PRODUCT IN THUNK", newProduct)
     dispatch(add(newProduct));
     return newProduct;
   }
