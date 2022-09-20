@@ -32,7 +32,7 @@ def new_product():
 
     image_urls = [];
 
-    print("=============REQUEST=====================", request.files)
+    print("=============REQUEST====================", request.files)
 
     for key in request.files.keys():
         image = request.files[key]
