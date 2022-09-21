@@ -42,15 +42,15 @@ def new_product():
     #     return {"errors": "image required"}, 400
 
     if "image_url_2" not in request.files:
-        image_urls.append("")
+        image_urls.append(None)
     if "image_url_3" not in request.files:
-        image_urls.append("")
+        image_urls.append(None)
     if "image_url_4" not in request.files:
-        image_urls.append("")
+        image_urls.append(None)
     if "image_url_5" not in request.files:
-        image_urls.append("")
+        image_urls.append(None)
     if "image_url_6" not in request.files:
-        image_urls.append("")
+        image_urls.append(None)
 
     if form.validate_on_submit():
         data = form.data
@@ -104,10 +104,6 @@ def edit_product(id):
         image = request.files[key]
         image_url = upload(image)
         image_urls.append(image_url)
-        print("=========IMAGES=========", image)
-        print("=========IMAGE URL=========", image_url)
-
-    print ("==============IMAGE URLS================", image_urls)
 
     data = form.data
 
