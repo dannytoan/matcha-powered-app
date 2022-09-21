@@ -43,7 +43,7 @@ export const addProduct = (formData) => async (dispatch) => {
     const newProduct = await response.json();
     console.log("NEW PRODUCT IN THUNK", newProduct)
     dispatch(add(newProduct));
-    return newProduct;
+    // return newProduct;
   }
 };
 
