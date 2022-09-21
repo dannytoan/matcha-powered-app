@@ -42,15 +42,15 @@ def new_product():
     #     return {"errors": "image required"}, 400
 
     if "image_url_2" not in request.files:
-        image_urls.append(None)
+        image_urls.append("")
     if "image_url_3" not in request.files:
-        image_urls.append(None)
+        image_urls.append("")
     if "image_url_4" not in request.files:
-        image_urls.append(None)
+        image_urls.append("")
     if "image_url_5" not in request.files:
-        image_urls.append(None)
+        image_urls.append("")
     if "image_url_6" not in request.files:
-        image_urls.append(None)
+        image_urls.append("")
 
     if form.validate_on_submit():
         data = form.data
@@ -61,19 +61,21 @@ def new_product():
             price=data['price'],
             description=data['description'],
             category_id=data['category_id'],
-            image_url_1=image_urls[0],
-            image_url_2=image_urls[1],
-            image_url_3=image_urls[2],
-            image_url_4=image_urls[3],
-            image_url_5=image_urls[4],
-            image_url_6=image_urls[5],
+            image_url_1=str(image_urls[0]),
+            image_url_2=str(image_urls[1]),
+            image_url_3=str(image_urls[2]),
+            image_url_4=str(image_urls[3]),
+            image_url_5=str(image_urls[4]),
+            image_url_6=str(image_urls[5]),
             created_at=datetime.now(),
             updated_at=datetime.now()
         )
         db.session.add(new_product)
         db.session.commit()
 
+
         print("======IMAGE URLS=========", image_urls)
+        print("======IMAGE URL ONE=========", type(image_urls[0]))
 
         return new_product.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
