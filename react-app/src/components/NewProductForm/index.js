@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addProduct } from "../../store/products";
+import { previewSetter } from "../../utils/imagePreview";
 import "./NewProductForm.css";
 
 function NewProductForm() {
@@ -21,6 +22,12 @@ function NewProductForm() {
 
   const [imgs, setImgs] = useState(new Object());
   const imgArr = Object.values(imgs);
+
+
+  // image preview -START-
+
+
+  // image preview -END-
 
   useEffect(() => {
     const errors = [];
@@ -227,6 +234,14 @@ function NewProductForm() {
             placeholder={"Insert description here..."}
             required
           />
+
+          <div>
+            {imgs && Object.values(previewSetter(imgArr)).map((img, i) => (
+              <img src={img} key={i}/>
+            ))}
+          </div>
+
+
           <div className="aws-add-img-box">
 
           <label className="create-product-labels">Image* (Required)
