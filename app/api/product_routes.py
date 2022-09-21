@@ -38,8 +38,8 @@ def new_product():
         image_url = upload(image)
         image_urls.append(image_url)
 
-    # if "image_url_1" not in request.files:
-    #     return {"errors": "image required"}, 400
+    if "image_url_1" not in request.files:
+        return {"errors": "image required"}, 400
 
     if "image_url_2" not in request.files:
         image_urls.append("")

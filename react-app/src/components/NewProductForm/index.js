@@ -84,7 +84,7 @@ function NewProductForm() {
     if (createdProduct) {
       setImageLoading(false);
       setErrors([]);
-      // return history.push("/products/all");
+      return history.push("/products/all");
     }
   };
 
