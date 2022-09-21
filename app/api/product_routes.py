@@ -61,12 +61,12 @@ def new_product():
             price=data['price'],
             description=data['description'],
             category_id=data['category_id'],
-            image_url_1=str(image_urls[0]),
-            image_url_2=str(image_urls[1]),
-            image_url_3=str(image_urls[2]),
-            image_url_4=str(image_urls[3]),
-            image_url_5=str(image_urls[4]),
-            image_url_6=str(image_urls[5]),
+            image_url_1=image_urls[0],
+            image_url_2=image_urls[1],
+            image_url_3=image_urls[2],
+            image_url_4=image_urls[3],
+            image_url_5=image_urls[4],
+            image_url_6=image_urls[5],
             created_at=datetime.now(),
             updated_at=datetime.now()
         )
