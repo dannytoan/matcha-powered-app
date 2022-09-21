@@ -76,7 +76,6 @@ function NewProductForm() {
     formData.append("description", description);
     formData.append("category_id", category_id);
 
-    console.log("FORM DATA", formData)
 
     let createdProduct = await dispatch(addProduct(formData));
     setImageLoading(true);
