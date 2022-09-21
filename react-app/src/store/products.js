@@ -36,7 +36,7 @@ export const addProduct = (formData) => async (dispatch) => {
 
   const response = await fetch("/api/products/new", {
     method: "POST",
-    body: JSON.stringify(formData)
+    body: formData
   });
 
   if (response.ok) {
