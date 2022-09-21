@@ -59,6 +59,7 @@ function NewProductForm() {
     setErrors(errors);
   }, [product_name, price, inventory, description]);
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 

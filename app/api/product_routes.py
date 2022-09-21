@@ -1,4 +1,3 @@
-import re
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.models import Product, db, Image
@@ -38,8 +37,6 @@ def new_product():
         image = request.files[key]
         image_url = upload(image)
         image_urls.append(image_url)
-        print("=========IMAGES=========", image)
-        print("=========IMAGE URL=========", image_url)
 
     # if "image_url_1" not in request.files:
     #     return {"errors": "image required"}, 400
@@ -54,10 +51,6 @@ def new_product():
         image_urls.append("")
     if "image_url_6" not in request.files:
         image_urls.append("")
-
-    print("===================IMAGE URLS=================", image_urls)
-    print("=============REQUEST=====================", request.files)
-
 
     if form.validate_on_submit():
         data = form.data
@@ -80,7 +73,8 @@ def new_product():
         db.session.add(new_product)
         db.session.commit()
 
-        print("===========NEW PRODUCT TO DICT================", new_product.to_dict())
+        print("======IMAGE URLS=========", image_urls)
+
         return new_product.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
