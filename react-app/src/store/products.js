@@ -36,14 +36,18 @@ export const addProduct = (formData) => async (dispatch) => {
 
   const response = await fetch("/api/products/new", {
     method: "POST",
-    body: formData
+    body: JSON.stringify(formData)
   });
 
   if (response.ok) {
     const newProduct = await response.json();
-    console.log("NEW PRODUCT IN THUNK", newProduct)
+
+    if (newProduct.errors) {
+      return;
+    }
+
     dispatch(add(newProduct));
-    // return newProduct;
+    return newProduct;
   }
 };
 
