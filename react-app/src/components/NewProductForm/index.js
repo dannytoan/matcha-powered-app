@@ -24,11 +24,6 @@ function NewProductForm() {
   const imgArr = Object.values(imgs);
 
 
-  // image preview -START-
-
-
-  // image preview -END-
-
   useEffect(() => {
     const errors = [];
     // const imgUrlValidator = /(https?:\/\/.*\.(?:png|jpg|jpeg))/i;
@@ -235,15 +230,8 @@ function NewProductForm() {
             required
           />
 
-          <div>
-            {imgs && Object.values(previewSetter(imgArr)).map((img, i) => (
-              <img src={img} key={i}/>
-            ))}
-          </div>
-
 
           <div className="aws-add-img-box">
-
           <label className="create-product-labels">Image* (Required)
 
           </label>
@@ -357,12 +345,17 @@ function NewProductForm() {
             onChange={(e) => updateImage(e, "image_url_6")}
             />
             </div>
+        <div id="aws-new-product-img-previews">
+            {imgs && Object.values(previewSetter(imgArr)).map((img, i) => (
+              <img className="aws-img-preview-upload" src={img} key={i}/>
+            ))}
+          </div>
           <button disabled={errors.length > 0} className="submit-btn">
             Submit
           </button>
           {imageLoading && <p>Loading...</p>}
         </form>
-        {errors.length > 0 ? (
+        {errors.length > 0 && (
           <div id="create-product-errors-container">
             <div className="create-product-errors-div">
               <ul className="create-product-errors-ul">
@@ -374,8 +367,6 @@ function NewProductForm() {
               </ul>
             </div>
           </div>
-        ) : (
-          <></>
         )}
       </div>
     </div>

@@ -12,9 +12,9 @@ form#new-product-form {
     /* border: 1px black solid; */
     width: 801px;
     align-items: stretch;
-    height: 80rem;
+    height: fit-content;
     padding: 2rem 2rem 0 2rem;
-}
+  }
 
 input.create-product-input {
     height: 40px;
@@ -47,11 +47,12 @@ input.create-product-input.price-and-inv-input {
 
 textarea.create-product-input {
     min-height: 30%;
+    height: 10rem;
     resize: none;
     padding: 10px;
     font-size: 18px;
     margin-bottom: 25px;
-}
+  }
 
 select.create-product-input {
     height: 3rem;
@@ -91,9 +92,9 @@ button.submit-btn {
     align-content: center;
     align-items: center;
     justify-content: center;
-    margin-bottom: 3rem;
+    margin: 1rem 0;
     animation: fadeIn 1s;
-}
+  }
 
 input.aws-img-1 {
     margin: .6rem 0 .6rem 1rem;
@@ -119,6 +120,20 @@ div#add-extra-image-btn {
 .unhide-aws {
     display: block;
 }
+
+div#aws-new-product-img-previews {
+    width: 50rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+  }
+
+  .aws-img-preview-upload {
+    width: 11.45rem;
+    margin: .5rem .5rem;
+    object-fit: contain;
+  }
 
 @keyframes fadeIn {
     0% {
