@@ -5,6 +5,7 @@ import { viewProducts } from "../../store/products";
 import { demouser } from "../../store/session";
 import "./SplashPage.css";
 import SplashMiniShop from "../SplashMiniShop";
+import Footer from "../Footer";
 
 function SplashPage() {
   const dispatch = useDispatch();
@@ -131,6 +132,7 @@ function SplashPage() {
           <SplashMiniShop shopOneItems={shopOneItems}/>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

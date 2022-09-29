@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { viewProducts } from "../../store/products";
 import "./Products.css";
+import Footer from "../Footer";
 
 function Products() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function Products() {
   }
 
   return (
-    <div>
+    <div id="products-outer-div">
       <div id="styles-header-container">
         <div id="new-arrivals-text-all-products" className="text">
           New Arrivals
@@ -56,6 +57,7 @@ function Products() {
           </a>
         ))}
       </div>
+      <Footer />
     </div>
   );
 }

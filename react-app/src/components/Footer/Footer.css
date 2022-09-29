@@ -1,0 +1,26 @@
+div#footer-ctnr {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    height: 3rem;
+    width: auto;
+    font-family: sans-serif;
+    background-color: #d3d3d333;
+    /* border-top: 1px solid black; */
+    align-items: center;
+    position: relative;
+    bottom: -.25rem;
+  }
+
+  span.footer-link {
+    margin: 0 1rem;
+  }
+
+  .footer-hyperlink {
+    text-decoration: none;
+    color: black;
+  }
+
+  .footer-link:hover {
+    text-decoration: underline;
+  }
