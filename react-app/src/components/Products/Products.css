@@ -3,10 +3,14 @@
 }
 
 div#products-listings-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  place-items: center;
+  /* display: grid; */
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* place-items: center; */
+  display: flex;
   margin: 3rem 5rem 8rem 5rem;
+  padding-left: 3rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
   .product-listing-container {
@@ -117,10 +121,10 @@ div#products-listings-container {
 }
 
 a#product-listing-link {
-    text-decoration: none;
-    width: -moz-fit-content;
-    width: fit-content;
-    display: flex;
-    justify-content: center;
-    margin: 0 .5rem;
-  }
+  text-decoration: none;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  justify-content: center;
+  margin: 0 1rem;
+}
