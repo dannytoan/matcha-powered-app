@@ -121,7 +121,7 @@ function SplashPage() {
               id="bottom-header-img-one"
               src="https://res.cloudinary.com/matchaprince/image/upload/v1659380869/Studio_Yoga_Desktop_1_xhiw8s.webp"
             />
-            <div id="bottom-header-img-one-gradient"></div>
+            {/* <div id="bottom-header-img-one-gradient"></div> */}
           </div>
         </div>
         {/* ---------------------------------- BOTTOM FIRST SHOP CONTAINER ----------------------------------*/}
