@@ -42,11 +42,12 @@ function SplashPage() {
             Active
           </h1>
         </div>
-        <video id="video-header" autoPlay playsInline loop>
+        <video id="video-header" autoPlay playsInline muted loop>
           <source
-            type="video/mp4"
             src="https://res.cloudinary.com/matchaprince/video/upload/v1657175755/trimmed_mountains_AdobeExpress_hqply0.mp4"
+            type="video/mp4"
           />
+          Your browser does not support HTML5 video.
         </video>
         <div id="sign-in-buttons-splash">
           <div id="monthly-item-container">
