@@ -91,74 +91,24 @@ function ProductDetails() {
             }
           >
             {currentProduct?.image_url_2 ? (
-              // !showImage ? (
-
-
                 <ZoomProductImgModal className="product-detail-img-top" imgUrl={currentProduct?.image_url_2}/>
-                // <img
-                //   className="product-detail-img-top"
-                //   src={`${currentProduct?.image_url_2}`}
-                //   onError={replaceInvalidImg}
-                //   onClick={handleShowImage}
-                // />
-
-
-
-
-              // ) : (
-              //   <>
-              //     <img
-              //       className="product-detail-img-top"
-              //       src={`${currentProduct?.image_url_2}`}
-              //       onError={replaceInvalidImg}
-              //       onClick={handleShowImage}
-              //     />
-              //     <div id="clicked-img-2-ctnr">
-
-              //     <div id="clicked-img2-x" onClick={handleShowImage}>
-              //       X
-              //     </div>
-              //     <img
-              //       className="clicked-img-2"
-              //       src={`${currentProduct?.image_url_2}`}
-              //       onError={replaceInvalidImg}
-              //       onClick={handleShowImage}
-              //       />
-              //       </div>
-              //   </>
-              // )
             ) : (
               <div className="no-pic"></div>
             )}
 
             {currentProduct?.image_url_3 ? (
-              // <img
-              //   className="product-detail-img-top"
-              //   src={`${currentProduct?.image_url_3}`}
-              //   onError={replaceInvalidImg}
-              // />
               <ZoomProductImgModal className="product-detail-img-top" imgUrl={currentProduct?.image_url_3}/>
             ) : (
               <div className="no-pic"></div>
             )}
 
             {currentProduct?.image_url_4 ? (
-              // <img
-              //   className="product-detail-img-top"
-              //   src={`${currentProduct?.image_url_4}`}
-              //   onError={replaceInvalidImg}
-              // />
               <ZoomProductImgModal className="product-detail-img-top" imgUrl={currentProduct?.image_url_4}/>
             ) : (
               <div className="no-pic"></div>
             )}
           </div>
           <div id="center-product-detail-img">
-            {/* <img
-              id="center-pic-img"
-              src={`${currentProduct?.image_url_1}`}
-              onError={replaceInvalidImg}
-            /> */}
             <ZoomCenterProductImgModal  imgUrl={currentProduct?.image_url_1}/>
           </div>
           <div
@@ -167,23 +117,11 @@ function ProductDetails() {
             }
           >
             {currentProduct?.image_url_5 ? (
-              // <img
-              //   className="product-detail-img-bottom"
-              //   src={`${currentProduct?.image_url_5}`}
-              //   onError={replaceInvalidImg}
-              // />
               <ZoomProductImgModal className="product-detail-img-top" imgUrl={currentProduct?.image_url_5}/>
             ) : (
               <div className="no-pic"></div>
             )}
-
             {currentProduct?.image_url_6 ? (
-              // <img
-              //   className="product-detail-img-bottom"
-              //   src={`${currentProduct?.image_url_6}`}
-              //   onError={replaceInvalidImg}
-              // />
-
               <ZoomProductImgModal className="product-detail-img-top" imgUrl={currentProduct?.image_url_6}/>
             ) : (
               <div className="no-pic"></div>
@@ -235,9 +173,6 @@ function ProductDetails() {
               <button onClick={handleAddToCart} className="add-to-bag-btn text">
                 <i class="fa-solid fa-bag-shopping"></i> Add to Bag
               </button>
-              {/* <button onClick={handleAddToCart} className="add-to-bag-btn text">
-                <i class="fa-solid fa-heart"></i> Add to Wishlist
-              </button> */}
             </div>
             <div id="edit-delete-listing-btn-div"></div>
           </div>
@@ -245,7 +180,6 @@ function ProductDetails() {
       </div>
       <div id="reviews-body">
         <h2 id="reviews-title-header">Reviews</h2>
-        {/* <div>{currentProduct?.overall_rating}</div> */}
         {sessionUser?.id === currentProduct?.user_id ? (
           <></>
         ) : (
